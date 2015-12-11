@@ -39,8 +39,8 @@ Build-Depends-Indep: vtk6-doc,
 Build-Conflicts: libopenjp2-7-dev 
 Standards-Version: 3.9.6
 X-Python-Version: 2.7
-Vcs-Browser: http://anonscm.debian.org/viewvc/debian-med/trunk/packages/gdcm/trunk/
-Vcs-Svn: svn://anonscm.debian.org/debian-med/trunk/packages/gdcm/trunk/
+Git-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
+Vcs-Git: git://anonscm.debian.org/debian-med/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
 
 Package: libgdcm2.6
