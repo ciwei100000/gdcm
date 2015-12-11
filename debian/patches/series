@@ -1,7 +1,3 @@
-#01_toplevelskip.patch
 02_fixhurd.patch
 03_linkvtkdoc.patch
 04_multiarch.patch
-#05_enable-vtk6-bindings.patch
-#06_add-csharp-keyfile-from-commandline.patch
-#07_vtkgdcm-sharp-siging.patch
