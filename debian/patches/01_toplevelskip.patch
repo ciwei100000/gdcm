@@ -1,0 +1,22 @@
+Description: fix in source builds
+ buildd machine wants insource build. upstream does not allow
+ insource build since it break cpack source packaging
+Author: Mathieu Malaterre <malat@debian.org>
+
+Index: gdcm-2.4.3/CMakeLists.txt
+===================================================================
+--- gdcm-2.6.0.old/CMakeLists.txt	2015-09-03 16:42:12.000000000 +0200
++++ gdcm-2.6.0/CMakeLists.txt	2015-10-16 14:10:37.474589397 +0200
+@@ -36,9 +36,9 @@
+   get_filename_component(PARENTDIR ${GDCM_BINARY_DIR} PATH)
+   string(COMPARE EQUAL "${GDCM_SOURCE_DIR}" "${PARENTDIR}" INSOURCESUBDIR)
+   if(INSOURCE OR INSOURCESUBDIR)
+-    message(FATAL_ERROR "GDCM requires an out of source Build. "
+-      "Please create a separate binary directory and run CMake there. "
+-      "Or explicitly define GDCM_ALLOW_INSOURCE_BUILD")
++#    message(FATAL_ERROR "GDCM requires an out of source Build. "
++#      "Please create a separate binary directory and run CMake there. "
++#      "Or explicitly define GDCM_ALLOW_INSOURCE_BUILD")
+   endif()
+ endif()
+ #----------------------------------------------------------------------------

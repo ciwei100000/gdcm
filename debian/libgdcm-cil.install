@@ -1,0 +1,2 @@
+usr/lib/*/gdcm-sharp.dll          usr/lib/cli/gdcm-sharp-2.6
+usr/lib/*/libgdcmsharpglue.so     usr/lib/cli/gdcm-sharp-2.6

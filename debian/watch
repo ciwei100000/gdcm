@@ -1,0 +1,3 @@
+version=3
+#opts="repacksuffix=+dfsg,dversionmangle=s/\+dfsg\d*$//" 
+http://sf.net/gdcm/gdcm-([\d\.]+)\.tar\.bz2

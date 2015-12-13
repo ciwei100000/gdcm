@@ -1,0 +1,61 @@
+Description: Fix compilation on GNU/Hurd
+ According to explanation from:
+ http://www.gnu.org/software/hurd/hurd/porting/guidelines.html#GNU_specific_define_tt_
+Author: Mathieu Malaterre <malat@debian.org>
+
+Index: gdcm-2.4.1/Source/Common/gdcmSystem.cxx
+===================================================================
+--- gdcm-2.4.1.orig/Source/Common/gdcmSystem.cxx	2013-12-09 18:22:40.000000000 +0100
++++ gdcm-2.4.1/Source/Common/gdcmSystem.cxx	2013-12-10 09:15:48.378563355 +0100
+@@ -363,6 +363,10 @@
+   return Rmdir(source) == 0;
+ }
+ 
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++
+ // return size of file; also returns zero if no file exists
+ size_t System::FileSize(const char* filename)
+ {
+Index: gdcm-2.4.1/Source/DataDictionary/gdcmGlobal.cxx
+===================================================================
+--- gdcm-2.4.1.orig/Source/DataDictionary/gdcmGlobal.cxx	2013-12-09 18:22:40.000000000 +0100
++++ gdcm-2.4.1/Source/DataDictionary/gdcmGlobal.cxx	2013-12-10 09:15:48.378563355 +0100
+@@ -133,6 +133,10 @@
+   return true;
+ }
+ 
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++
+ const char *Global::Locate(const char *resfile) const
+ {
+ #ifdef _WIN32
+Index: gdcm-2.4.1/Utilities/socketxx/socket++/sockstream.h
+===================================================================
+--- gdcm-2.6.0.old/Utilities/socketxx/socket++/local.h	2015-09-03 16:42:12.000000000 +0200
++++ gdcm-2.6.0/Utilities/socketxx/socket++/local.h	2015-10-16 14:20:06.073470902 +0200
+@@ -97,7 +97,7 @@
+ //  extern "C" int gethostname (char* hostname, size_t len);
+ // the above breaks on some old MacOSX system where prototype is:
+ //  extern "C" int gethostname (char* hostname, int len);
+-#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__APPLE__))
++#if !(defined(__FreeBSD__) || defined(__GNU__) || defined(__FreeBSD_kernel__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__APPLE__))
+   extern char* SYS_SIGLIST [];
+ #endif
+ #endif
+Index: gdcm-2.4.1/Utilities/socketxx/socket++/local.h
+===================================================================
+--- gdcm-2.6.0.old/Utilities/socketxx/socket++/sockstream.h	2015-09-03 16:42:12.000000000 +0200
++++ gdcm-2.6.0/Utilities/socketxx/socket++/sockstream.h	2015-10-16 14:18:20.516146044 +0200
+@@ -163,7 +163,7 @@
+             msg_peek            = MSG_PEEK,
+             msg_dontroute    = MSG_DONTROUTE
+ 
+-#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__APPLE__) || defined(__EMSCRIPTEN__))
++#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__GNU__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__APPLE__) || defined(__EMSCRIPTEN__) )
+             ,msg_maxiovlen    = MSG_MAXIOVLEN
+ #endif
+         };

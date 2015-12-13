@@ -1,0 +1,4 @@
+
+# C++ library, Symbols files are really difficult here
+libvtkgdcm2.6: no-symbols-control-file
+

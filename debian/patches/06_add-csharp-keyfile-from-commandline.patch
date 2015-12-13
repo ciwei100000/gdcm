@@ -1,0 +1,36 @@
+Description: Correct the key handling for the gdcm-sharp module
+ This patch moves the addign of the key to the command line and
+ adds the signing of the module after it is build. 
+Author: Gert Wollny <gw.fossdev@gmail.com>
+
+diff -ru gdcm-2.6.0.old/Wrapping/Csharp/AssemblyInfo.cs.in gdcm-2.6.0/Wrapping/Csharp/AssemblyInfo.cs.in
+--- gdcm-2.6.0.old/Wrapping/Csharp/AssemblyInfo.cs.in	2015-09-03 16:42:12.000000000 +0200
++++ gdcm-2.6.0/Wrapping/Csharp/AssemblyInfo.cs.in	2015-10-17 10:59:49.764531268 +0200
+@@ -70,7 +70,7 @@
+ // This is not required, if you don't want signing let these attributes like they're.
+ [assembly: AssemblyDelaySign(false)]
+ // http://msdn.microsoft.com/en-us/library/6f05ezxy(VS.80).aspx
+-[assembly: AssemblyKeyFile("key.snk")]
++//[assembly: AssemblyKeyFile("key.snk")]
+ //[assembly: AssemblyKeyFile("")]
+ //[assembly: AssemblyKeyName("GDCM Key")]
+ //[assembly: AssemblyKeyName("")]
+Nur in gdcm-2.6.0/Wrapping/Csharp/: AssemblyInfo.cs.in~.
+diff -ru gdcm-2.6.0.old/Wrapping/Csharp/CMakeLists.txt gdcm-2.6.0/Wrapping/Csharp/CMakeLists.txt
+--- gdcm-2.6.0.old/Wrapping/Csharp/CMakeLists.txt	2015-09-03 16:42:12.000000000 +0200
++++ gdcm-2.6.0/Wrapping/Csharp/CMakeLists.txt	2015-10-17 10:59:37.408588478 +0200
+@@ -69,11 +69,12 @@
+ 
+   add_custom_command(
+     OUTPUT ${GDCM_LIBRARY_DIR}/gdcm-sharp.dll
+-    COMMAND ${CMAKE_CSHARP_COMPILER} ARGS "/t:library" "/doc:${GDCM_LIBRARY_DIR}/gdcm-sharp.dll.xml" "/out:${GDCM_LIBRARY_DIR}/gdcm-sharp.dll" "*.cs"
++    COMMAND ${CMAKE_CSHARP_COMPILER} ARGS "/t:library" "/doc:${GDCM_LIBRARY_DIR}/gdcm-sharp.dll.xml" "/out:${GDCM_LIBRARY_DIR}/gdcm-sharp.dll" "*.cs" "/keyfile:key.snk"
++    COMMAND "/usr/bin/sn" "-R" "${GDCM_LIBRARY_DIR}/gdcm-sharp.dll" "${CMAKE_CURRENT_SOURCE_DIR}/key.snk"
+     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+     DEPENDS "${swig_generated_file_fullname}"
+     ${CMAKE_CURRENT_BINARY_DIR}/AssemblyInfo.cs
+-    COMMENT "csc *.cs"
++    COMMENT "csc *.cs" 
+     )
+ 
+   if(BUILD_EXAMPLES)
