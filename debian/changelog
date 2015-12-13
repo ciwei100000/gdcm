@@ -6,6 +6,7 @@ gdcm (2.6.1-1) UNRELEASED; urgency=medium
     - enable-vtk6-bindings.patch 
   * test removing the signing patches because the actual problems 
     was with the dh_strip_nondeterminism 
+  * Update doc-base to index.xhtml and version number n pdf file name. 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 13 Dec 2015 20:01:43 +0100
 
