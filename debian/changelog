@@ -1,7 +1,6 @@
 gdcm (2.6.1-2) UNRELEASED; urgency=medium
 
-  * Unify build-depends, because the d/rules file doesn't contain 
-    seperate targets for build-indep and build-arch  Closes: #746268
+  * Add patch 05_ to clean Doxygen file to remove obsolete values. 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 14 Dec 2015 11:50:29 +0100
 
