@@ -1,3 +1,9 @@
+Description: Clean out obsolete doxygen varieables.
+ The doxygen tags SYMBOL_CACHE_SIZE, XML_SCHEMA, and XML_DTD
+ are noe obsolete. 
+ Doxygen no longer ships with the FreeSans font.
+Author: Gert Wollny <gw.fossdev@gmail.com>
+
 --- a/Utilities/doxygen/doxyfile.in
 +++ b/Utilities/doxygen/doxyfile.in
 @@ -319,22 +319,6 @@
