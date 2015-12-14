@@ -15,8 +15,6 @@ Build-Depends: debhelper (>= 9),
 	       libz-dev,
 	       libexpat-dev,
 	       doxygen,
-	       doxygen-latex,
-	       graphviz, 
 	       swig3.0,
 	       cmake (>= 2.8.9),
 	       libvtk6-dev,
@@ -33,15 +31,15 @@ Build-Depends: debhelper (>= 9),
 	       libsocket++-dev,
 	       libpapyrus3-dev,
 	       cli-common-dev (>= 0.9) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x],
-	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x]
-Build-Depends-Indep: vtk6-doc,
-		     doxygen-latex,
-		     ghostscript, 
-                     graphviz
+	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x],
+	       vtk6-doc,
+	       doxygen-latex,
+	       graphviz, 
+               ghostscript
 Build-Conflicts: libopenjp2-7-dev 
 Standards-Version: 3.9.6
 X-Python-Version: 2.7
-Git-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
+Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
 Vcs-Git: git://anonscm.debian.org/debian-med/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
 
