@@ -1,3 +1,11 @@
+gdcm (2.6.1-2) UNRELEASED; urgency=medium
+
+  * Add doxygen-latex and graphviz to build depends, since 
+    Doxygen html documentation needs these to be build properly 
+    Closes: #746268
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 14 Dec 2015 11:50:29 +0100
+
 gdcm (2.6.1-1) unstable; urgency=medium
 
   * New Upstream version 
