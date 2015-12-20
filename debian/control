@@ -30,17 +30,17 @@ Build-Depends: debhelper (>= 9),
 	       castxml,
 	       libsocket++-dev,
 	       libpapyrus3-dev,
-	       cli-common-dev (>= 0.9) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x],
-	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x]
+	       cli-common-dev (>= 0.9) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x],
+	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x]
 Build-Depends-Indep: vtk6-doc,
-	       doxygen-latex,
-	       graphviz, 
-               ghostscript
-Build-Conflicts: libopenjp2-7-dev 
+		     doxygen-latex,
+		     ghostscript, 
+                     graphviz
+Build-Conflicts: libopenjp2-7-dev 		     
 Standards-Version: 3.9.6
 X-Python-Version: 2.7
-Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
-Vcs-Git: git://anonscm.debian.org/debian-med/gdcm.git
+Vcs-Browser: http://anonscm.debian.org/viewvc/debian-med/trunk/packages/gdcm/trunk/
+Vcs-Svn: svn://anonscm.debian.org/debian-med/trunk/packages/gdcm/trunk/
 Homepage: http://gdcm.sourceforge.net/
 
 Package: libgdcm2.6
@@ -101,7 +101,7 @@ Description: Grassroots DICOM runtime libraries, debug version
 
 Package: libgdcm-cil
 Section: cli-mono
-Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x
+Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${cli:Depends}
 Description: Grassroots DICOM CLI bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
@@ -163,7 +163,7 @@ Description: Grassroots DICOM VTK development libraries and headers
 
 Package: libvtkgdcm-cil
 Section: cli-mono
-Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 s390x
+Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${cli:Depends}, libgdcm2.6 (= ${binary:Version})
 Suggests: libgdcm-cil
 Description: Grassroots DICOM VTK CLI bindings
