@@ -2,3 +2,4 @@
 03_linkvtkdoc.patch
 04_multiarch.patch
 05_cleanup_doxygen.patch
+06_fix_regression_with_ITK_test_suite.patch
