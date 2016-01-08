@@ -46,6 +46,7 @@ namespace gdcm
 {
 
 bool ImageHelper::ForceRescaleInterceptSlope = false;
+bool ImageHelper::PMSRescaleInterceptSlope = true;
 bool ImageHelper::ForcePixelSpacing = false;
 
 bool GetOriginValueFromSequence(const DataSet& ds, const Tag& tfgs, std::vector<double> &ori)
@@ -628,6 +629,16 @@ bool ImageHelper::GetForceRescaleInterceptSlope()
   return ForceRescaleInterceptSlope;
 }
 
+void ImageHelper::SetPMSRescaleInterceptSlope(bool b)
+{
+  PMSRescaleInterceptSlope = b;
+}
+
+bool ImageHelper::GetPMSRescaleInterceptSlope()
+{
+  return PMSRescaleInterceptSlope;
+}
+
 void ImageHelper::SetForcePixelSpacing(bool b)
 {
   ForcePixelSpacing = b;
@@ -946,8 +957,12 @@ std::vector<double> ImageHelper::GetRescaleInterceptSlopeValue(File const & f)
       el_ri.SetFromDataElement( priv_rescaleintercept );
       Element<VR::DS,VM::VM1> el_rs = {{ 0 }};
       el_rs.SetFromDataElement( priv_rescaleslope );
-      interceptslope[0] = el_ri.GetValue();
-      interceptslope[1] = el_rs.GetValue();
+      if( PMSRescaleInterceptSlope )
+      {
+        interceptslope[0] = el_ri.GetValue();
+        interceptslope[1] = el_rs.GetValue();
+        gdcmWarningMacro( "PMS Modality LUT found for MR Image Storage: [" << interceptslope[0] << "," << interceptslope[1] << "]" );
+      }
       }
     else
       {
@@ -1650,7 +1665,7 @@ void ImageHelper::SetSpacingValue(DataSet & ds, const std::vector<double> & spac
 
 }
 
-void SetDataElementInSQAsItemNumber(DataSet & ds, DataElement const & de, Tag const & sqtag, unsigned int itemidx)
+static void SetDataElementInSQAsItemNumber(DataSet & ds, DataElement const & de, Tag const & sqtag, unsigned int itemidx)
 {
     const Tag tfgs = sqtag; //(0x5200,0x9230);
     SmartPointer<SequenceOfItems> sqi;
@@ -2271,7 +2286,7 @@ PhotometricInterpretation ImageHelper::GetPhotometricInterpretationValue(File co
   const Tag tphotometricinterpretation(0x0028, 0x0004);
   const ByteValue *photometricinterpretation =
     ImageHelper::GetPointerFromElement(tphotometricinterpretation, f);
-  PhotometricInterpretation pi = PhotometricInterpretation::UNKNOW;
+  PhotometricInterpretation pi = PhotometricInterpretation::UNKNOWN;
   if( photometricinterpretation )
     {
     std::string photometricinterpretation_str(
@@ -2310,14 +2325,14 @@ PhotometricInterpretation ImageHelper::GetPhotometricInterpretationValue(File co
   }
   if( !pf.GetSamplesPerPixel() || (pi.GetSamplesPerPixel() != pf.GetSamplesPerPixel()) )
     {
-    if( pi != PhotometricInterpretation::UNKNOW )
+    if( pi != PhotometricInterpretation::UNKNOWN )
       {
       pf.SetSamplesPerPixel( pi.GetSamplesPerPixel() );
       }
     else if ( isacrnema )
       {
       assert ( pf.GetSamplesPerPixel() == 0 );
-      assert ( pi == PhotometricInterpretation::UNKNOW );
+      assert ( pi == PhotometricInterpretation::UNKNOWN );
       pf.SetSamplesPerPixel( 1 );
       pi = PhotometricInterpretation::MONOCHROME2;
       }
