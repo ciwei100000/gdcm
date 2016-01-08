@@ -31,7 +31,8 @@ Build-Depends: debhelper (>= 9),
 	       libsocket++-dev,
 	       libpapyrus3-dev,
 	       cli-common-dev (>= 0.9) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x],
-	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x]
+	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x],
+               xsltproc
 Build-Depends-Indep: vtk6-doc,
 		     doxygen-latex,
 		     ghostscript, 
