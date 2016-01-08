@@ -46,7 +46,7 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 		-DCMAKE_BUILD_TYPE:STRING=None \
 		-DGDCM_DOXYGEN_NO_FOOTER:BOOL=ON \
 		-DGDCM_BUILD_APPLICATIONS:BOOL=ON \
-		-DGDCM_DOCUMENTATION:BOOL=ON \
+		-DGDCM_DOCUMENTATION:BOOL=$(BUILDDOC) \
 		-DGDCM_VTK_DOCUMENTATION:BOOL=$(BUILDDOC) \
 		-DDOCUMENTATION_DOWNLOAD_VTK_TAGFILE:BOOL=OFF \
 		-DGDCM_PDF_DOCUMENTATION:BOOL=$(BUILDDOC) \
@@ -84,8 +84,11 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_EXTRA_FLAGS)
 
-override_dh_install-arch:
-	dh_install --list-missing
+override_dh_auto_build-indep: 
+	dh_auto_build -- DoxygenDoc
+
+override_dh_auto_build-arch: 
+	dh_auto_build 
 
 override_dh_auto_install:
 	# See #664188
@@ -106,6 +109,12 @@ override_dh_auto_install:
 	mv debian/tmp/usr/lib/python debian/tmp/$(PYMODDIR)
 	#mv debian/tmp/usr/lib/_gdcmswig.so* debian/tmp/$(PYMODDIR)/dist-packages/
 
+override_dh_auto_install-indep: 
+	DESTDIR=debian/tmp/ $(MAKE) -C obj-*/Utilities/doxygen/ install 
+
+#override_dh_auto_install-arch:
+#	dh_install --list-missing
+
 override_dh_strip:
 	dh_strip --dbg-package=libgdcm2.6-dbg
 
@@ -117,10 +126,6 @@ ifeq ($(DEB_WRAP_CSHARP), 1)
 	dh_clideps
 endif
 
-# Let's be smart with building doc
-override_dh_auto_build-indep:
-	-$(MAKE) -C obj-* vtkgdcmDoxygenDoc
-
 # No tests needed for docs
 override_dh_auto_test-indep:
 
@@ -131,12 +136,8 @@ override_dh_compress:
 	# do not compress .map file for doxygen graph
 	dh_compress -X.map -X.pdf
 
-# TODO I cannot set documentation to separate build target as man page
+#TODO I cannot set documentation to separate build target as man page
 # depends on doc, and bin tools depends on man page
-#build-indep:
-#	$(MAKE) GDCMDoxygenDoc
-#build-arch:
-#	$(MAKE)
 
 debian/control: debian/control.in
 	sed -e"s/@PYVER@/$(PYVER)/g" -e "s/@DEB_MONO_ARCHS@/$(DEB_MONO_ARCHS)/g" $< > $@

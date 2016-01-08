@@ -1,0 +1,44 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -554,6 +554,12 @@
+ endif()
+ #-----------------------------------------------------------------------------
+ 
++# Add a target so that the documentation can be build from the
++# root dir
++if(GDCM_DOCUMENTATION)
++  add_custom_target(DoxygenDoc)
++endif()
++
+ # Need to subdirs in Source/Common before Wrapping
+ # to have gdcmConfigure.h around
+ subdirs(Utilities)
+--- a/Utilities/doxygen/CMakeLists.txt
++++ b/Utilities/doxygen/CMakeLists.txt
+@@ -162,6 +162,7 @@
+       ${CMAKE_CURRENT_BINARY_DIR}/latex/gdcm-${GDCM_VERSION}.pdf
+       DESTINATION ${GDCM_INSTALL_DOC_DIR}
+     )
++    add_dependencies(DoxygenDoc GDCMDoxygenPDF)
+   else()
+     # make DoxygenDoc depends on the final tarball thus all file are garantee to be generated
+     add_custom_target(GDCMDoxygenDoc
+@@ -169,6 +170,7 @@
+       DEPENDS ${GDCM_DOC_TARBALL}
+       COMMENT  "GDCM: Executing GDCMDoxygenDoc"
+     )
++    add_dependency(DoxygenDoc GDCMDoxygenDoc)
+   endif()
+ 
+   # Install html pages:
+--- a/Utilities/doxygen/vtk/CMakeLists.txt
++++ b/Utilities/doxygen/vtk/CMakeLists.txt
+@@ -111,6 +111,8 @@
+     ${DOXYGEN_PROJECT_NAME}DoxygenDoc
+     GDCMDoxygenPDF
+   )
++  add_dependencies(DoxygenDoc
++    ${DOXYGEN_PROJECT_NAME}DoxygenDoc)
+ 
+   if(INCLUDE_QT_DOCUMENTATION)
+     add_custom_target(QtDoxygenTags
