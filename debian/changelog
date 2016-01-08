@@ -2,7 +2,8 @@ gdcm (2.6.2-1) unstable; urgency=medium
 
   * New upstream release 
   * d/p: remove patches 05 and 06 because they were applied upstream
-  * d/control: Add xsltproc to dependencies for building man-pages
+  * d/control: Add xsltproc and docbook-xsl to dependencies for 
+    building man-pages
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 08 Jan 2016 20:03:04 +0100
 
