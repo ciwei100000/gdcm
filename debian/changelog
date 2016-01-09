@@ -1,4 +1,4 @@
-gdcm (2.6.2-2) UNRELEASED; urgency=medium
+gdcm (2.6.2-2) experimental; urgency=medium
 
   * Run doxygen only if gdcm-doc-*.deb is really build. Closes: #746268
 
