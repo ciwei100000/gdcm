@@ -110,7 +110,7 @@ override_dh_auto_install-arch:
 	#mv debian/tmp/usr/lib/_gdcmswig.so* debian/tmp/$(PYMODDIR)/dist-packages/
 
 override_dh_auto_install-indep: 
-	DESTDIR=debian/tmp/ $(MAKE) -C obj-*/Utilities/doxygen/ install 
+	DESTDIR=$(CURDIR)/debian/tmp/ $(MAKE) -C obj-*/Utilities/doxygen/ install 
 
 #override_dh_auto_install-arch:
 #	dh_install --list-missing
