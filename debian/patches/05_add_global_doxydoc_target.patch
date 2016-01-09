@@ -1,3 +1,15 @@
+Description: Add a target for docu-generation and remove this from ALL
+ This patch adds a target that makes is possibe to create the Doxygen
+ docu from the base build directory without invoking the ALL target.
+ At the same time this documentation creation is removed from the ALL
+ target to avoid the it is build various times. Rationale is to enable
+ binary-arch/indep and install-arch/indep without the overhead of
+ recreating the documentation various times. (Unfortunately the make
+ seems to re-run at least the PDF document creation each time.
+ (This is a Debian specific patch). 
+Author: Gert Wollny <gw.fossdev@gmail.com>
+Forwarded: not-needed 
+
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -554,6 +554,12 @@
