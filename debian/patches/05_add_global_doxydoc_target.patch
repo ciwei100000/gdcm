@@ -15,7 +15,15 @@
  subdirs(Utilities)
 --- a/Utilities/doxygen/CMakeLists.txt
 +++ b/Utilities/doxygen/CMakeLists.txt
-@@ -162,6 +162,7 @@
+@@ -154,7 +154,6 @@
+     endif()
+     # add target to 'ALL'
+     add_custom_target(GDCMDoxygenPDF
+-      ALL
+       DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/latex/gdcm-${GDCM_VERSION}.pdf
+       COMMENT  "GDCM: Executing GDCMDoxygenPDF"
+     )
+@@ -162,13 +161,14 @@
        ${CMAKE_CURRENT_BINARY_DIR}/latex/gdcm-${GDCM_VERSION}.pdf
        DESTINATION ${GDCM_INSTALL_DOC_DIR}
      )
@@ -23,7 +31,7 @@
    else()
      # make DoxygenDoc depends on the final tarball thus all file are garantee to be generated
      add_custom_target(GDCMDoxygenDoc
-@@ -169,6 +170,7 @@
+-      ALL
        DEPENDS ${GDCM_DOC_TARBALL}
        COMMENT  "GDCM: Executing GDCMDoxygenDoc"
      )
@@ -33,7 +41,15 @@
    # Install html pages:
 --- a/Utilities/doxygen/vtk/CMakeLists.txt
 +++ b/Utilities/doxygen/vtk/CMakeLists.txt
-@@ -111,6 +111,8 @@
+@@ -103,7 +103,6 @@
+     ${CMAKE_CURRENT_BINARY_DIR}/doc_makeall.sh @ONLY )
+ 
+   add_custom_target(${DOXYGEN_PROJECT_NAME}DoxygenDoc
+-    ALL
+     ${BASH}
+     ${CMAKE_CURRENT_BINARY_DIR}/doc_makeall.sh)
+ 
+@@ -111,6 +110,8 @@
      ${DOXYGEN_PROJECT_NAME}DoxygenDoc
      GDCMDoxygenPDF
    )
