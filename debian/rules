@@ -90,7 +90,7 @@ override_dh_auto_build-indep:
 override_dh_auto_build-arch: 
 	dh_auto_build 
 
-override_dh_auto_install:
+override_dh_auto_install-arch:
 	# See #664188
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-2.6/GDCMTargets-*.cmake
 	# See #711214
