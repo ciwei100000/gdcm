@@ -1,4 +1,4 @@
-gdcm (2.6.2-3) UNRELEASED; urgency=medium
+gdcm (2.6.2-3) unstable; urgency=medium
 
   * d/control: Add dependency on php5-common for php5-* Closes: #810668
 
