@@ -116,7 +116,7 @@ Description: Grassroots DICOM CLI bindings
 Package: php5-gdcm
 Section: php
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}, php5-common 
 Description: Grassroots DICOM PHP5 bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
@@ -178,7 +178,7 @@ Description: Grassroots DICOM VTK CLI bindings
 Package: php5-vtkgdcm
 Section: php
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}, libgdcm2.6 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}, php5-common, libgdcm2.6 (= ${binary:Version})
 Suggests: php-gdcm
 Description: Grassroots DICOM VTK PHP bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is

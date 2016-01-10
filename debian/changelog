@@ -1,3 +1,9 @@
+gdcm (2.6.2-3) UNRELEASED; urgency=medium
+
+  * d/control: Add dependency on php5-common for php5-* Closes: #810668
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 10 Jan 2016 22:03:57 +0100
+
 gdcm (2.6.2-2) unstable; urgency=medium
 
   * Run doxygen only if gdcm-doc-*.deb is really build. Closes: #746268
