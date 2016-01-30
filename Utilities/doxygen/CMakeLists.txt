@@ -247,10 +247,41 @@ set(MANPAGES_XML
 find_package(LibXslt)
 # need an XSLT 1.0 processor, use xsltproc, maybe add more implementations later
 if(LIBXSLT_XSLTPROC_EXECUTABLE)
+  set(XSLT_PROCESSOR ${LIBXSLT_XSLTPROC_EXECUTABLE})
+# http://docbook.sourceforge.net/release/xsl/current/doc/manpages/man.output.quietly.html
+  set(XSLT_PROCESSOR_ARG --param man.output.quietly 1)
+  # User can change the behavior at cmake time:
+  if(NOT DEFINED GDCM_MANPAGES_USE_NONET)
+    set(GDCM_MANPAGES_USE_NONET FALSE)
+    # By default I want nonet on Debian:
+    if(EXISTS /etc/xml/catalog)
+      set(GDCM_MANPAGES_USE_NONET TRUE)
+    endif()
+  endif()
+  if(GDCM_MANPAGES_USE_NONET)
+    list(APPEND XSLT_PROCESSOR_ARG --nonet)
+  endif()
+else()
+  find_program(MSXSL_EXECUTABLE
+    msxsl
+    )
+  if(MSXSL_EXECUTABLE)
+    set(XSLT_PROCESSOR ${MSXSL_EXECUTABLE})
+    set(XSLT_PROCESSOR_ARG "-pi")
+# msxsl.exe -pi gdcmimg.xml
+#
+#Error occurred while executing stylesheet 'http://docbook.sourceforge.net/release/xsl-ns/current/manpages/docbook.xsl'.
+#
+#Code:   0x80004005
+#Namespace 'http://exslt.org/common' does not contain any functions.
+# -> http://stackoverflow.com/a/16605034/136285 ??
+  endif()
+endif()
+if(XSLT_PROCESSOR)
 foreach(docbook ${MANPAGES_XML})
   add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${docbook}.1
-    COMMAND ${LIBXSLT_XSLTPROC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/man/${docbook}.xml
+    COMMAND ${XSLT_PROCESSOR} ${XSLT_PROCESSOR_ARG} ${CMAKE_CURRENT_SOURCE_DIR}/man/${docbook}.xml
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/man/${docbook}.xml
     )
   list(APPEND MANPAGES
@@ -267,5 +298,5 @@ install(FILES
   DESTINATION ${GDCM_INSTALL_MAN_DIR}/man1 COMPONENT DebugDevel
 )
 else()
-  message(WARNING "Cannot build man page from docbook (need xsltproc)")
+  message(WARNING "Cannot build man page from docbook (need an XSL processor)")
 endif()
