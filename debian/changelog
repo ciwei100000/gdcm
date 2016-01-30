@@ -1,3 +1,10 @@
+gdcm (2.6.3-1) UNRELEASED; urgency=medium
+
+  * New upstream version 
+  * Add patch 06 to tolerate buggy dicom files. Related: #753809
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 30 Jan 2016 21:01:54 +0100
+
 gdcm (2.6.2-3) unstable; urgency=medium
 
   * d/control: Add dependency on php5-common for php5-* Closes: #810668
