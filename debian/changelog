@@ -1,7 +1,8 @@
 gdcm (2.6.3-1) UNRELEASED; urgency=medium
 
   * New upstream version 
-  * Add patch 06 to tolerate buggy dicom files. Related: #753809
+  * d/b: Add patch 06 to tolerate buggy dicom files. Related: #753809
+  * d/control: changed docbook-xls to the now needed docbook-xsl-ns 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 30 Jan 2016 21:01:54 +0100
 
