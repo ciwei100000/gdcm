@@ -41,4 +41,6 @@
 +    cur_len += xde.GetLength();
 +    }
 +  }
-
+ 
+   // Now is a good time to compute the transfer syntax:
+   ComputeDataSetTransferSyntax();
