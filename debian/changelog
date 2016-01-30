@@ -3,6 +3,8 @@ gdcm (2.6.3-1) UNRELEASED; urgency=medium
   * New upstream version 
   * d/b: Add patch 06 to tolerate buggy dicom files. Related: #753809
   * d/control: changed docbook-xls to the now needed docbook-xsl-ns 
+  * d/gdcm-doc.*: remove micro version from pdf docu, there will never 
+    be two versions of the file installed. 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 30 Jan 2016 21:01:54 +0100
 
