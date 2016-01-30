@@ -1,4 +1,4 @@
-gdcm (2.6.3-1) unstable; urgency=medium
+gdcm (2.6.3-1) UNRELEASED; urgency=medium
 
   * New upstream version 
   * d/b: Add patch 06 to tolerate buggy dicom files. Related: #753809
