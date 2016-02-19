@@ -1,3 +1,6 @@
+Description: Tolerate some buggy DICOM files 
+Author: Mathieu Malaterre <malat@debian.org>
+
 --- a/Source/DataStructureAndEncodingDefinition/gdcmFileMetaInformation.cxx
 +++ b/Source/DataStructureAndEncodingDefinition/gdcmFileMetaInformation.cxx
 @@ -526,6 +526,7 @@
