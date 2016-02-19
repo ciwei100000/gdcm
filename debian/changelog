@@ -1,3 +1,12 @@
+gdcm (2.6.3-2) unstable; urgency=medium
+
+  * [d96d77] d/p/03: Update patch to use new VTK perl scripts
+  * [8ef9c3] d/control: Tighten dependency on vtk6-doc
+  * [4d67e1] d/p/06: Add patch description
+  * [c88176] d/control: update standards version
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 19 Feb 2016 20:19:32 +0000
+
 gdcm (2.6.3-1) unstable; urgency=medium
 
   * New upstream version 
