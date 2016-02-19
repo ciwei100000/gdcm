@@ -33,7 +33,7 @@ Build-Depends: debhelper (>= 9),
 	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 ppc64 ppc64el s390x],
                xsltproc, 
                docbook-xsl-ns
-Build-Depends-Indep: vtk6-doc,
+Build-Depends-Indep: vtk6-doc (>= 6.2.0+dfsg1-9),
 		     doxygen,
 		     doxygen-latex,
 		     ghostscript, 

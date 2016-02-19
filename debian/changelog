@@ -1,6 +1,7 @@
 gdcm (2.6.3-2) UNRELEASED; urgency=medium
 
   * [8885b5] d/p/03: Update patch to use new VTK perl scripts
+  * [e04f8f] d/control: Tighten dependency on vtk6-doc 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 19 Feb 2016 15:03:02 +0000
 
