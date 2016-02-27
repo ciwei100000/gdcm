@@ -1,6 +1,8 @@
 gdcm (2.6.3-3) UNRELEASED; urgency=medium
 
-  * re-instate java package 
+  * d/control*, d/rules: Re-instate java package 
+  * d/p: Add patch 07 to not try to link against vtk-java modules
+  * d/control*: Update standards version to 3.9.7
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 27 Feb 2016 19:28:48 +0000
 
