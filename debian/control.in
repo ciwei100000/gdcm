@@ -15,7 +15,6 @@ Build-Depends: cmake (>= 2.8.9),
 	       uuid-dev,
 	       libz-dev,
 	       libexpat-dev,
-	       doxygen,
 	       swig3.0,
 	       javahelper,
 	       libvtk6-dev,
@@ -33,12 +32,15 @@ Build-Depends: cmake (>= 2.8.9),
 	       libsocket++-dev,
 	       libpapyrus3-dev,
 	       cli-common-dev (>= 0.9) [@DEB_MONO_ARCHS@],
-	       mono-devel (>= 2.10.5) [@DEB_MONO_ARCHS@]
+	       mono-devel (>= 2.10.5) [@DEB_MONO_ARCHS@],
+	       xsltproc, 
+               docbook-xsl-ns
 Build-Depends-Indep: vtk6-doc,
-		     doxygen-latex,
-		     ghostscript, 
-                     graphviz
-Build-Conflicts: libopenjp2-7-dev 		     
+	       doxygen,
+	       doxygen-latex,
+	       ghostscript, 
+               graphviz
+Build-Conflicts: libopenjp2-7-dev
 Standards-Version: 3.9.7
 X-Python-Version: @PYVER@
 Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
