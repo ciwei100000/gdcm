@@ -3,3 +3,4 @@
 04_multiarch.patch
 05_add_global_doxydoc_target.patch
 06_dcm_group2_buggyfiles_fallback.patch
+07_don_t_link_vtkjava_modules.patch
