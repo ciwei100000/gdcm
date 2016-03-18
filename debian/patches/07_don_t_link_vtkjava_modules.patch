@@ -1,3 +1,10 @@
+Description: Don't link against the vtk-java modules
+ I could be utterly wrong, but AAFAIK Java modules are not
+ shared libraries in the sense  that one would link against
+ them at compile time. Instread they are loaded dynamically
+ during run-time by the java run-time engine.
+Author: Gert Wollny  <gw.fossdev@gmail.com>
+
 --- a/Utilities/VTK/CMakeLists.txt
 +++ b/Utilities/VTK/CMakeLists.txt
 @@ -670,9 +670,9 @@
