@@ -1,0 +1,642 @@
+Description: Support VTK6.3
+Author: Thiago Franco de Moraes <totonixsame@gmail.com>
+Forwardded: not needed
+   
+
+diff --git a/Utilities/VTK/Applications/gdcm2vtk.cxx b/Utilities/VTK/Applications/gdcm2vtk.cxx
+index 4841dce..59bc0eb 100644
+--- a/Utilities/VTK/Applications/gdcm2vtk.cxx
++++ b/Utilities/VTK/Applications/gdcm2vtk.cxx
+@@ -64,6 +64,10 @@
+ 
+ #include <getopt.h>
+ 
++#ifndef vtkFloatingPointType
++#define vtkFloatingPointType double
++#endif
++
+ void PrintVersion()
+ {
+   std::cout << "gdcm2vtk: gdcm " << gdcm::Version::GetVersion() << " ";
+diff --git a/Utilities/VTK/Applications/gdcmviewer.cxx b/Utilities/VTK/Applications/gdcmviewer.cxx
+index 57facd6..7be48be 100644
+--- a/Utilities/VTK/Applications/gdcmviewer.cxx
++++ b/Utilities/VTK/Applications/gdcmviewer.cxx
+@@ -88,6 +88,11 @@ class vtkAngleWidget;
+ 
+ #include <getopt.h>
+ #include <assert.h>
++
++#ifndef vtkFloatingPointType
++#define vtkFloatingPointType double
++#endif
++
+ //----------------------------------------------------------------------------
+ // vtkImageViewer2 new interface wants SetSlice, but vtkImageViewer does not have
+ // this new interface (what a pain), so let's fake a new interface to
+@@ -95,7 +100,7 @@ class vtkAngleWidget;
+ class vtkGDCMImageViewer : public vtkImageViewer
+ {
+ public:
+-  vtkTypeRevisionMacro(vtkGDCMImageViewer,vtkImageViewer);
++  vtkTypeMacro(vtkGDCMImageViewer,vtkImageViewer);
+ 
+   static vtkGDCMImageViewer *New()
+     {
+@@ -118,7 +123,7 @@ public:
+   double GetOverlayVisibility() { return 0; }
+   void SetOverlayVisibility(double vis) {(void)vis;}
+ };
+-vtkCxxRevisionMacro(vtkGDCMImageViewer, "$Revision: 1.30 $")
++//vtkCxxRevisionMacro(vtkGDCMImageViewer, "$Revision: 1.30 $")
+ vtkInstantiatorNewMacro(vtkGDCMImageViewer)
+ 
+ #if VTK_MAJOR_VERSION >= 5
+@@ -126,7 +131,7 @@ vtkInstantiatorNewMacro(vtkGDCMImageViewer)
+ class vtkImageColorViewer : public vtkImageViewer2
+ {
+ public:
+-  vtkTypeRevisionMacro(vtkImageColorViewer,vtkImageViewer2);
++  vtkTypeMacro(vtkImageColorViewer,vtkImageViewer2);
+ 
+   static vtkImageColorViewer *New()
+     {
+@@ -164,7 +169,7 @@ public:
+ private:
+   vtkImageActor                   *OverlayImageActor;
+ };
+-vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.30 $")
++//vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.30 $")
+ vtkInstantiatorNewMacro(vtkImageColorViewer)
+ #endif
+ 
+diff --git a/Utilities/VTK/Examples/Cxx/Compute3DSpacing.cxx b/Utilities/VTK/Examples/Cxx/Compute3DSpacing.cxx
+index d37deb9..cd6065d 100644
+--- a/Utilities/VTK/Examples/Cxx/Compute3DSpacing.cxx
++++ b/Utilities/VTK/Examples/Cxx/Compute3DSpacing.cxx
+@@ -16,6 +16,10 @@
+ #include "vtkStringArray.h"
+ #include "gdcmIPPSorter.h"
+ 
++#ifndef vtkFloatingPointType
++#define vtkFloatingPointType double
++#endif
++
+ /*
+  * Simple example to check computation of spacing within vtkGDCMImageReader2
+  * This is a direct implementation of:
+diff --git a/Utilities/VTK/Examples/Cxx/gdcmorthoplanes.cxx b/Utilities/VTK/Examples/Cxx/gdcmorthoplanes.cxx
+index d86101a..1b4217d 100644
+--- a/Utilities/VTK/Examples/Cxx/gdcmorthoplanes.cxx
++++ b/Utilities/VTK/Examples/Cxx/gdcmorthoplanes.cxx
+@@ -51,7 +51,7 @@
+ #include "gdcmIPPSorter.h"
+ 
+ #ifndef vtkFloatingPointType
+-#define vtkFloatingPointType float
++#define vtkFloatingPointType double
+ #endif
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/VTK4/vtkMedicalImageProperties.cxx b/Utilities/VTK/VTK4/vtkMedicalImageProperties.cxx
+index 34c55a7..0903242 100644
+--- a/Utilities/VTK/VTK4/vtkMedicalImageProperties.cxx
++++ b/Utilities/VTK/VTK4/vtkMedicalImageProperties.cxx
+@@ -39,7 +39,7 @@
+ #include <assert.h>
+ 
+ //----------------------------------------------------------------------------
+-vtkCxxRevisionMacro(vtkMedicalImageProperties, "1.21")
++//vtkCxxRevisionMacro(vtkMedicalImageProperties, "1.21")
+ vtkStandardNewMacro(vtkMedicalImageProperties)
+ 
+ static const char *vtkMedicalImagePropertiesOrientationString[] = {
+diff --git a/Utilities/VTK/VTK4/vtkMedicalImageProperties.h b/Utilities/VTK/VTK4/vtkMedicalImageProperties.h
+index 7ae1103..38322e9 100644
+--- a/Utilities/VTK/VTK4/vtkMedicalImageProperties.h
++++ b/Utilities/VTK/VTK4/vtkMedicalImageProperties.h
+@@ -51,7 +51,7 @@ class VTK_IO_EXPORT vtkMedicalImageProperties : public vtkObject
+ {
+ public:
+   static vtkMedicalImageProperties *New();
+-  vtkTypeRevisionMacro(vtkMedicalImageProperties,vtkObject);
++  vtkTypeMacro(vtkMedicalImageProperties,vtkObject);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/VTK4/vtkStringArray.cxx b/Utilities/VTK/VTK4/vtkStringArray.cxx
+index 940a9ba..5b5c7c8 100644
+--- a/Utilities/VTK/VTK4/vtkStringArray.cxx
++++ b/Utilities/VTK/VTK4/vtkStringArray.cxx
+@@ -18,7 +18,7 @@
+ #include <vector>
+ #include <string>
+ 
+-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkStringArray)
+ 
+ struct vtkStringArrayInternals
+diff --git a/Utilities/VTK/VTK4/vtkStringArray.h b/Utilities/VTK/VTK4/vtkStringArray.h
+index 90748d7..848ac7f 100644
+--- a/Utilities/VTK/VTK4/vtkStringArray.h
++++ b/Utilities/VTK/VTK4/vtkStringArray.h
+@@ -34,7 +34,7 @@ class VTK_EXPORT vtkStringArray : public vtkObject
+ {
+ public:
+   static vtkStringArray *New();
+-  vtkTypeRevisionMacro(vtkStringArray,vtkObject);
++  vtkTypeMacro(vtkStringArray,vtkObject);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+ //BTX
+diff --git a/Utilities/VTK/vtkGDCMImageReader.cxx b/Utilities/VTK/vtkGDCMImageReader.cxx
+index 7b64dce..3f96217 100644
+--- a/Utilities/VTK/vtkGDCMImageReader.cxx
++++ b/Utilities/VTK/vtkGDCMImageReader.cxx
+@@ -51,7 +51,7 @@
+ 
+ #include <sstream>
+ 
+-vtkCxxRevisionMacro(vtkGDCMImageReader, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkGDCMImageReader, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkGDCMImageReader)
+ 
+ static inline bool vtkGDCMImageReader_IsCharTypeSigned()
+diff --git a/Utilities/VTK/vtkGDCMImageReader.h b/Utilities/VTK/vtkGDCMImageReader.h
+index bf016f1..731b053 100644
+--- a/Utilities/VTK/vtkGDCMImageReader.h
++++ b/Utilities/VTK/vtkGDCMImageReader.h
+@@ -103,7 +103,7 @@ class VTK_EXPORT vtkGDCMImageReader : public vtkMedicalImageReader2
+ {
+ public:
+   static vtkGDCMImageReader *New();
+-  vtkTypeRevisionMacro(vtkGDCMImageReader,vtkMedicalImageReader2);
++  vtkTypeMacro(vtkGDCMImageReader,vtkMedicalImageReader2);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description: is the given file name a DICOM file containing an image ?
+diff --git a/Utilities/VTK/vtkGDCMImageReader2.cxx b/Utilities/VTK/vtkGDCMImageReader2.cxx
+index 5dafdbf..80bf550 100644
+--- a/Utilities/VTK/vtkGDCMImageReader2.cxx
++++ b/Utilities/VTK/vtkGDCMImageReader2.cxx
+@@ -49,7 +49,7 @@
+ 
+ #include <sstream>
+ 
+-vtkCxxRevisionMacro(vtkGDCMImageReader2, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkGDCMImageReader2, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkGDCMImageReader2)
+ 
+ static inline bool vtkGDCMImageReader2_IsCharTypeSigned()
+diff --git a/Utilities/VTK/vtkGDCMImageReader2.h b/Utilities/VTK/vtkGDCMImageReader2.h
+index 4e3e09b..92e69d1 100644
+--- a/Utilities/VTK/vtkGDCMImageReader2.h
++++ b/Utilities/VTK/vtkGDCMImageReader2.h
+@@ -95,7 +95,7 @@ class VTK_EXPORT vtkGDCMImageReader2 : public vtkMedicalImageReader2
+ {
+ public:
+   static vtkGDCMImageReader2 *New();
+-  vtkTypeRevisionMacro(vtkGDCMImageReader2,vtkMedicalImageReader2);
++  vtkTypeMacro(vtkGDCMImageReader2,vtkMedicalImageReader2);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description: is the given file name a DICOM file containing an image ?
+diff --git a/Utilities/VTK/vtkGDCMImageWriter.cxx b/Utilities/VTK/vtkGDCMImageWriter.cxx
+index 9785525..ad3444e 100644
+--- a/Utilities/VTK/vtkGDCMImageWriter.cxx
++++ b/Utilities/VTK/vtkGDCMImageWriter.cxx
+@@ -47,7 +47,7 @@
+ 
+ #include <limits>
+ 
+-vtkCxxRevisionMacro(vtkGDCMImageWriter, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkGDCMImageWriter, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkGDCMImageWriter)
+ 
+ //vtkCxxSetObjectMacro(vtkGDCMImageWriter,LookupTable,vtkLookupTable)
+@@ -66,7 +66,7 @@ inline bool vtkGDCMImageWriter_IsCharTypeSigned()
+ }
+ 
+ #ifndef vtkFloatingPointType
+-#define vtkFloatingPointType float
++#define vtkFloatingPointType double
+ #endif
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkGDCMImageWriter.h b/Utilities/VTK/vtkGDCMImageWriter.h
+index 2fc8760..6e3981d 100644
+--- a/Utilities/VTK/vtkGDCMImageWriter.h
++++ b/Utilities/VTK/vtkGDCMImageWriter.h
+@@ -48,7 +48,7 @@ class VTK_EXPORT vtkGDCMImageWriter : public vtkImageWriter
+ {
+ public:
+   static vtkGDCMImageWriter *New();
+-  vtkTypeRevisionMacro(vtkGDCMImageWriter,vtkImageWriter);
++  vtkTypeMacro(vtkGDCMImageWriter,vtkImageWriter);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkGDCMMedicalImageProperties.cxx b/Utilities/VTK/vtkGDCMMedicalImageProperties.cxx
+index 5b1a955..b3c3bdc 100644
+--- a/Utilities/VTK/vtkGDCMMedicalImageProperties.cxx
++++ b/Utilities/VTK/vtkGDCMMedicalImageProperties.cxx
+@@ -17,7 +17,7 @@
+ #include "gdcmFile.h"
+ 
+ //----------------------------------------------------------------------------
+-vtkCxxRevisionMacro(vtkGDCMMedicalImageProperties, "1.21")
++//vtkCxxRevisionMacro(vtkGDCMMedicalImageProperties, "1.21")
+ vtkStandardNewMacro(vtkGDCMMedicalImageProperties)
+ 
+ class vtkGDCMMedicalImagePropertiesInternals
+diff --git a/Utilities/VTK/vtkGDCMMedicalImageProperties.h b/Utilities/VTK/vtkGDCMMedicalImageProperties.h
+index 826d1b9..7c05874 100644
+--- a/Utilities/VTK/vtkGDCMMedicalImageProperties.h
++++ b/Utilities/VTK/vtkGDCMMedicalImageProperties.h
+@@ -34,7 +34,7 @@ class VTK_EXPORT vtkGDCMMedicalImageProperties : public vtkMedicalImagePropertie
+ {
+ public:
+   static vtkGDCMMedicalImageProperties *New();
+-  vtkTypeRevisionMacro(vtkGDCMMedicalImageProperties,vtkMedicalImageProperties);
++  vtkTypeMacro(vtkGDCMMedicalImageProperties,vtkMedicalImageProperties);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkGDCMPolyDataReader.cxx b/Utilities/VTK/vtkGDCMPolyDataReader.cxx
+index de88431..0c7445c 100644
+--- a/Utilities/VTK/vtkGDCMPolyDataReader.cxx
++++ b/Utilities/VTK/vtkGDCMPolyDataReader.cxx
+@@ -30,7 +30,7 @@
+ #include "gdcmSequenceOfItems.h"
+ #include "gdcmDirectoryHelper.h"
+ 
+-vtkCxxRevisionMacro(vtkGDCMPolyDataReader, "$Revision: 1.74 $")
++//vtkCxxRevisionMacro(vtkGDCMPolyDataReader, "$Revision: 1.74 $")
+ vtkStandardNewMacro(vtkGDCMPolyDataReader)
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkGDCMPolyDataReader.h b/Utilities/VTK/vtkGDCMPolyDataReader.h
+index 251cacb..abec5ee 100644
+--- a/Utilities/VTK/vtkGDCMPolyDataReader.h
++++ b/Utilities/VTK/vtkGDCMPolyDataReader.h
+@@ -39,7 +39,7 @@ class VTK_EXPORT vtkGDCMPolyDataReader : public vtkPolyDataAlgorithm
+ {
+ public:
+   static vtkGDCMPolyDataReader *New();
+-  vtkTypeRevisionMacro(vtkGDCMPolyDataReader,vtkPolyDataAlgorithm);
++  vtkTypeMacro(vtkGDCMPolyDataReader,vtkPolyDataAlgorithm);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkGDCMPolyDataWriter.cxx b/Utilities/VTK/vtkGDCMPolyDataWriter.cxx
+index ead79a3..e2c661c 100644
+--- a/Utilities/VTK/vtkGDCMPolyDataWriter.cxx
++++ b/Utilities/VTK/vtkGDCMPolyDataWriter.cxx
+@@ -40,7 +40,7 @@
+ #include "gdcmAttribute.h"
+ #include "gdcmDirectoryHelper.h"
+ 
+-vtkCxxRevisionMacro(vtkGDCMPolyDataWriter, "$Revision: 1.74 $")
++//vtkCxxRevisionMacro(vtkGDCMPolyDataWriter, "$Revision: 1.74 $")
+ vtkStandardNewMacro(vtkGDCMPolyDataWriter)
+ vtkCxxSetObjectMacro(vtkGDCMPolyDataWriter,MedicalImageProperties,vtkMedicalImageProperties)
+ vtkCxxSetObjectMacro(vtkGDCMPolyDataWriter,RTStructSetProperties,vtkRTStructSetProperties)
+diff --git a/Utilities/VTK/vtkGDCMPolyDataWriter.h b/Utilities/VTK/vtkGDCMPolyDataWriter.h
+index aa456f3..afbc9f1 100644
+--- a/Utilities/VTK/vtkGDCMPolyDataWriter.h
++++ b/Utilities/VTK/vtkGDCMPolyDataWriter.h
+@@ -39,7 +39,7 @@ class VTK_EXPORT vtkGDCMPolyDataWriter : public vtkPolyDataWriter
+ {
+ public:
+   static vtkGDCMPolyDataWriter *New();
+-  vtkTypeRevisionMacro(vtkGDCMPolyDataWriter,vtkPolyDataWriter);
++  vtkTypeMacro(vtkGDCMPolyDataWriter,vtkPolyDataWriter);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkGDCMTesting.cxx b/Utilities/VTK/vtkGDCMTesting.cxx
+index 0cd2c26..79fb87f 100644
+--- a/Utilities/VTK/vtkGDCMTesting.cxx
++++ b/Utilities/VTK/vtkGDCMTesting.cxx
+@@ -18,7 +18,7 @@
+ #include "gdcmTesting.h"
+ #include "gdcmFilename.h"
+ 
+-vtkCxxRevisionMacro(vtkGDCMTesting, "$Revision: 1.31 $")
++//vtkCxxRevisionMacro(vtkGDCMTesting, "$Revision: 1.31 $")
+ vtkStandardNewMacro(vtkGDCMTesting)
+ 
+ // DICOM Filename, MHD MD5, RAW MD5
+diff --git a/Utilities/VTK/vtkGDCMTesting.h b/Utilities/VTK/vtkGDCMTesting.h
+index 57fe57d..a011b17 100644
+--- a/Utilities/VTK/vtkGDCMTesting.h
++++ b/Utilities/VTK/vtkGDCMTesting.h
+@@ -27,7 +27,7 @@ class VTK_EXPORT vtkGDCMTesting : public vtkObject
+ {
+ public:
+   static vtkGDCMTesting *New();
+-  vtkTypeRevisionMacro(vtkGDCMTesting,vtkObject);
++  vtkTypeMacro(vtkGDCMTesting,vtkObject);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   static const char *GetVTKDataRoot();
+diff --git a/Utilities/VTK/vtkGDCMThreadedImageReader.cxx b/Utilities/VTK/vtkGDCMThreadedImageReader.cxx
+index 93e281e..eb75839 100644
+--- a/Utilities/VTK/vtkGDCMThreadedImageReader.cxx
++++ b/Utilities/VTK/vtkGDCMThreadedImageReader.cxx
+@@ -43,7 +43,7 @@
+ #include <sys/sysctl.h>
+ #endif
+ 
+-vtkCxxRevisionMacro(vtkGDCMThreadedImageReader, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkGDCMThreadedImageReader, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkGDCMThreadedImageReader)
+ 
+ // Output Ports are as follow:
+diff --git a/Utilities/VTK/vtkGDCMThreadedImageReader.h b/Utilities/VTK/vtkGDCMThreadedImageReader.h
+index 2f554b1..9210d1f 100644
+--- a/Utilities/VTK/vtkGDCMThreadedImageReader.h
++++ b/Utilities/VTK/vtkGDCMThreadedImageReader.h
+@@ -43,7 +43,7 @@ class VTK_EXPORT vtkGDCMThreadedImageReader : public vtkGDCMImageReader
+ {
+ public:
+   static vtkGDCMThreadedImageReader *New();
+-  vtkTypeRevisionMacro(vtkGDCMThreadedImageReader,vtkGDCMImageReader);
++  vtkTypeMacro(vtkGDCMThreadedImageReader,vtkGDCMImageReader);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkGDCMThreadedImageReader2.cxx b/Utilities/VTK/vtkGDCMThreadedImageReader2.cxx
+index 9a856bc..6df2ea2 100644
+--- a/Utilities/VTK/vtkGDCMThreadedImageReader2.cxx
++++ b/Utilities/VTK/vtkGDCMThreadedImageReader2.cxx
+@@ -25,7 +25,7 @@
+ 
+ #include <assert.h>
+ 
+-vtkCxxRevisionMacro(vtkGDCMThreadedImageReader2, "$Revision: 1.1 $")
++//vtkCxxRevisionMacro(vtkGDCMThreadedImageReader2, "$Revision: 1.1 $")
+ vtkStandardNewMacro(vtkGDCMThreadedImageReader2)
+ vtkCxxSetObjectMacro(vtkGDCMThreadedImageReader2,FileNames,vtkStringArray)
+ 
+diff --git a/Utilities/VTK/vtkGDCMThreadedImageReader2.h b/Utilities/VTK/vtkGDCMThreadedImageReader2.h
+index 5b60101..8b6473d 100644
+--- a/Utilities/VTK/vtkGDCMThreadedImageReader2.h
++++ b/Utilities/VTK/vtkGDCMThreadedImageReader2.h
+@@ -50,7 +50,7 @@ class VTK_EXPORT vtkGDCMThreadedImageReader2 : public vtkThreadedImageAlgorithm
+ {
+ public:
+   static vtkGDCMThreadedImageReader2 *New();
+-  vtkTypeRevisionMacro(vtkGDCMThreadedImageReader2,vtkThreadedImageAlgorithm);
++  vtkTypeMacro(vtkGDCMThreadedImageReader2,vtkThreadedImageAlgorithm);
+   virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   vtkGetMacro(FileLowerLeft,int);
+diff --git a/Utilities/VTK/vtkImageColorViewer.cxx b/Utilities/VTK/vtkImageColorViewer.cxx
+index e1fa303..3d6df39 100644
+--- a/Utilities/VTK/vtkImageColorViewer.cxx
++++ b/Utilities/VTK/vtkImageColorViewer.cxx
+@@ -49,7 +49,7 @@
+ #include "vtkInformation.h"
+ #endif
+ 
+-vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.3 $")
++//vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.3 $")
+ vtkStandardNewMacro(vtkImageColorViewer)
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkImageColorViewer.h b/Utilities/VTK/vtkImageColorViewer.h
+index 6d83592..7673dba 100644
+--- a/Utilities/VTK/vtkImageColorViewer.h
++++ b/Utilities/VTK/vtkImageColorViewer.h
+@@ -71,7 +71,7 @@ class VTK_EXPORT vtkImageColorViewer : public vtkObject
+ {
+ public:
+   static vtkImageColorViewer *New();
+-  vtkTypeRevisionMacro(vtkImageColorViewer,vtkObject);
++  vtkTypeMacro(vtkImageColorViewer,vtkObject);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkImageMapToColors16.cxx b/Utilities/VTK/vtkImageMapToColors16.cxx
+index ae8d7e7..0300da7 100644
+--- a/Utilities/VTK/vtkImageMapToColors16.cxx
++++ b/Utilities/VTK/vtkImageMapToColors16.cxx
+@@ -37,7 +37,7 @@
+ #include "vtkScalarsToColors.h"
+ #include "vtkPointData.h"
+ 
+-vtkCxxRevisionMacro(vtkImageMapToColors16, "$Revision: 1.30 $")
++//vtkCxxRevisionMacro(vtkImageMapToColors16, "$Revision: 1.30 $")
+ vtkStandardNewMacro(vtkImageMapToColors16)
+ vtkCxxSetObjectMacro(vtkImageMapToColors16,LookupTable,vtkScalarsToColors)
+ 
+diff --git a/Utilities/VTK/vtkImageMapToColors16.h b/Utilities/VTK/vtkImageMapToColors16.h
+index c7d0cd3..48f763f 100644
+--- a/Utilities/VTK/vtkImageMapToColors16.h
++++ b/Utilities/VTK/vtkImageMapToColors16.h
+@@ -50,7 +50,7 @@ class VTK_EXPORT vtkImageMapToColors16 : public vtkThreadedImageAlgorithm
+ {
+ public:
+   static vtkImageMapToColors16 *New();
+-  vtkTypeRevisionMacro(vtkImageMapToColors16,vtkThreadedImageAlgorithm);
++  vtkTypeMacro(vtkImageMapToColors16,vtkThreadedImageAlgorithm);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkImageMapToWindowLevelColors2.cxx b/Utilities/VTK/vtkImageMapToWindowLevelColors2.cxx
+index a9233e2..337583a 100644
+--- a/Utilities/VTK/vtkImageMapToWindowLevelColors2.cxx
++++ b/Utilities/VTK/vtkImageMapToWindowLevelColors2.cxx
+@@ -37,7 +37,7 @@
+ #include "vtkScalarsToColors.h"
+ #include "vtkPointData.h"
+ 
+-vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors2, "$Revision: 1.3 $")
++//vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors2, "$Revision: 1.3 $")
+ vtkStandardNewMacro(vtkImageMapToWindowLevelColors2)
+ 
+ // Constructor sets default values
+diff --git a/Utilities/VTK/vtkImageMapToWindowLevelColors2.h b/Utilities/VTK/vtkImageMapToWindowLevelColors2.h
+index dc2db27..1ea8dde 100644
+--- a/Utilities/VTK/vtkImageMapToWindowLevelColors2.h
++++ b/Utilities/VTK/vtkImageMapToWindowLevelColors2.h
+@@ -49,7 +49,7 @@ class VTK_EXPORT vtkImageMapToWindowLevelColors2 : public vtkImageMapToColors
+ {
+ public:
+   static vtkImageMapToWindowLevelColors2 *New();
+-  vtkTypeRevisionMacro(vtkImageMapToWindowLevelColors2,vtkImageMapToColors);
++  vtkTypeMacro(vtkImageMapToWindowLevelColors2,vtkImageMapToColors);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/VTK/vtkImagePlanarComponentsToComponents.cxx b/Utilities/VTK/vtkImagePlanarComponentsToComponents.cxx
+index 01a189a..af0e544 100644
+--- a/Utilities/VTK/vtkImagePlanarComponentsToComponents.cxx
++++ b/Utilities/VTK/vtkImagePlanarComponentsToComponents.cxx
+@@ -41,7 +41,7 @@
+ 
+ #include <assert.h>
+ 
+-vtkCxxRevisionMacro(vtkImagePlanarComponentsToComponents, "$Revision: 1.31 $")
++//vtkCxxRevisionMacro(vtkImagePlanarComponentsToComponents, "$Revision: 1.31 $")
+ vtkStandardNewMacro(vtkImagePlanarComponentsToComponents)
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkImagePlanarComponentsToComponents.h b/Utilities/VTK/vtkImagePlanarComponentsToComponents.h
+index d9bb13f..d378549 100644
+--- a/Utilities/VTK/vtkImagePlanarComponentsToComponents.h
++++ b/Utilities/VTK/vtkImagePlanarComponentsToComponents.h
+@@ -49,8 +49,8 @@ class VTK_EXPORT vtkImagePlanarComponentsToComponents : public vtkImageAlgorithm
+ {
+ public:
+   static vtkImagePlanarComponentsToComponents *New();
+-  //vtkTypeRevisionMacro(vtkImagePlanarComponentsToComponents,vtkThreadedImageAlgorithm);
+-  vtkTypeRevisionMacro(vtkImagePlanarComponentsToComponents,vtkImageAlgorithm);
++  //vtkTypeMacro(vtkImagePlanarComponentsToComponents,vtkThreadedImageAlgorithm);
++  vtkTypeMacro(vtkImagePlanarComponentsToComponents,vtkImageAlgorithm);
+ 
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+diff --git a/Utilities/VTK/vtkImageRGBToYBR.cxx b/Utilities/VTK/vtkImageRGBToYBR.cxx
+index 8914346..3b2a400 100644
+--- a/Utilities/VTK/vtkImageRGBToYBR.cxx
++++ b/Utilities/VTK/vtkImageRGBToYBR.cxx
+@@ -34,7 +34,7 @@
+ #include "vtkMath.h"
+ #include "vtkObjectFactory.h"
+ 
+-vtkCxxRevisionMacro(vtkImageRGBToYBR, "$Revision: 1.31 $")
++//vtkCxxRevisionMacro(vtkImageRGBToYBR, "$Revision: 1.31 $")
+ vtkStandardNewMacro(vtkImageRGBToYBR)
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkImageRGBToYBR.h b/Utilities/VTK/vtkImageRGBToYBR.h
+index 132429b..7bcec29 100644
+--- a/Utilities/VTK/vtkImageRGBToYBR.h
++++ b/Utilities/VTK/vtkImageRGBToYBR.h
+@@ -45,7 +45,7 @@ class VTK_EXPORT vtkImageRGBToYBR : public vtkThreadedImageAlgorithm
+ {
+ public:
+   static vtkImageRGBToYBR *New();
+-  vtkTypeRevisionMacro(vtkImageRGBToYBR,vtkThreadedImageAlgorithm);
++  vtkTypeMacro(vtkImageRGBToYBR,vtkThreadedImageAlgorithm);
+ 
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+diff --git a/Utilities/VTK/vtkImageYBRToRGB.cxx b/Utilities/VTK/vtkImageYBRToRGB.cxx
+index 06c54c7..60aad2c 100644
+--- a/Utilities/VTK/vtkImageYBRToRGB.cxx
++++ b/Utilities/VTK/vtkImageYBRToRGB.cxx
+@@ -34,7 +34,7 @@
+ #include "vtkMath.h"
+ #include "vtkObjectFactory.h"
+ 
+-vtkCxxRevisionMacro(vtkImageYBRToRGB, "$Revision: 1.31 $")
++//vtkCxxRevisionMacro(vtkImageYBRToRGB, "$Revision: 1.31 $")
+ vtkStandardNewMacro(vtkImageYBRToRGB)
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Utilities/VTK/vtkImageYBRToRGB.h b/Utilities/VTK/vtkImageYBRToRGB.h
+index d83cc57..8c7e14f 100644
+--- a/Utilities/VTK/vtkImageYBRToRGB.h
++++ b/Utilities/VTK/vtkImageYBRToRGB.h
+@@ -45,7 +45,7 @@ class VTK_EXPORT vtkImageYBRToRGB : public vtkThreadedImageAlgorithm
+ {
+ public:
+   static vtkImageYBRToRGB *New();
+-  vtkTypeRevisionMacro(vtkImageYBRToRGB,vtkThreadedImageAlgorithm);
++  vtkTypeMacro(vtkImageYBRToRGB,vtkThreadedImageAlgorithm);
+ 
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+diff --git a/Utilities/VTK/vtkLookupTable16.cxx b/Utilities/VTK/vtkLookupTable16.cxx
+index 8559104..45be3be 100644
+--- a/Utilities/VTK/vtkLookupTable16.cxx
++++ b/Utilities/VTK/vtkLookupTable16.cxx
+@@ -32,7 +32,7 @@
+ 
+ #include <cassert>
+ 
+-vtkCxxRevisionMacro(vtkLookupTable16, "$Revision: 1.107 $")
++//vtkCxxRevisionMacro(vtkLookupTable16, "$Revision: 1.107 $")
+ vtkStandardNewMacro(vtkLookupTable16)
+ 
+ vtkLookupTable16::vtkLookupTable16(int sze, int ext)
+diff --git a/Utilities/VTK/vtkLookupTable16.h b/Utilities/VTK/vtkLookupTable16.h
+index ea65d67..2ddd2f4 100644
+--- a/Utilities/VTK/vtkLookupTable16.h
++++ b/Utilities/VTK/vtkLookupTable16.h
+@@ -46,7 +46,7 @@ class VTK_EXPORT vtkLookupTable16 : public vtkLookupTable
+ public:
+   static vtkLookupTable16 *New();
+ 
+-  vtkTypeRevisionMacro(vtkLookupTable16,vtkLookupTable);
++  vtkTypeMacro(vtkLookupTable16,vtkLookupTable);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   void Build();
+diff --git a/Utilities/VTK/vtkRTStructSetProperties.cxx b/Utilities/VTK/vtkRTStructSetProperties.cxx
+index 6f03a6b..6310b60 100644
+--- a/Utilities/VTK/vtkRTStructSetProperties.cxx
++++ b/Utilities/VTK/vtkRTStructSetProperties.cxx
+@@ -28,7 +28,7 @@
+ #include <assert.h>
+ 
+ //----------------------------------------------------------------------------
+-vtkCxxRevisionMacro(vtkRTStructSetProperties, "1.21")
++//vtkCxxRevisionMacro(vtkRTStructSetProperties, "1.21")
+ vtkStandardNewMacro(vtkRTStructSetProperties)
+ 
+ 
+diff --git a/Utilities/VTK/vtkRTStructSetProperties.h b/Utilities/VTK/vtkRTStructSetProperties.h
+index a5aef7c..0beb5ef 100644
+--- a/Utilities/VTK/vtkRTStructSetProperties.h
++++ b/Utilities/VTK/vtkRTStructSetProperties.h
+@@ -28,7 +28,7 @@ class VTK_EXPORT vtkRTStructSetProperties : public vtkObject
+ {
+ public:
+   static vtkRTStructSetProperties *New();
+-  vtkTypeRevisionMacro(vtkRTStructSetProperties,vtkObject);
++  vtkTypeMacro(vtkRTStructSetProperties,vtkObject);
+   void PrintSelf(ostream& os, vtkIndent indent);
+ 
+   // Description:
+diff --git a/Utilities/gdcmopenjpeg-v1/common/format_defs.h b/Utilities/gdcmopenjpeg-v1/common/format_defs.h
+index d4be93b..5c31b18 100644
+--- a/Utilities/gdcmopenjpeg-v1/common/format_defs.h
++++ b/Utilities/gdcmopenjpeg-v1/common/format_defs.h
+@@ -45,4 +45,4 @@
+ #define TGA_DFMT 16
+ #define PNG_DFMT 17
+ 
+-#endif /* _OPJ_FORMAT_DEFS_H_ */
+\ No newline at end of file
++#endif /* _OPJ_FORMAT_DEFS_H_ */
+diff --git a/Utilities/wxWidgets/wxVTKRenderWindowInteractor.cxx b/Utilities/wxWidgets/wxVTKRenderWindowInteractor.cxx
+index 69f6110..44e17e3 100644
+--- a/Utilities/wxWidgets/wxVTKRenderWindowInteractor.cxx
++++ b/Utilities/wxWidgets/wxVTKRenderWindowInteractor.cxx
+@@ -134,7 +134,7 @@ BEGIN_EVENT_TABLE(wxVTKRenderWindowInteractor, wxWindow)
+   EVT_SIZE        (wxVTKRenderWindowInteractor::OnSize)
+ END_EVENT_TABLE()
+ 
+-vtkCxxRevisionMacro(wxVTKRenderWindowInteractor, "$Revision: 1.42 $")
++//vtkCxxRevisionMacro(wxVTKRenderWindowInteractor, "$Revision: 1.42 $")
+ vtkInstantiatorNewMacro(wxVTKRenderWindowInteractor)
+ 
+ //---------------------------------------------------------------------------
+diff --git a/Utilities/wxWidgets/wxVTKRenderWindowInteractor.h b/Utilities/wxWidgets/wxVTKRenderWindowInteractor.h
+index ead4444..0652395 100644
+--- a/Utilities/wxWidgets/wxVTKRenderWindowInteractor.h
++++ b/Utilities/wxWidgets/wxVTKRenderWindowInteractor.h
+@@ -102,7 +102,7 @@ class wxVTKRenderWindowInteractor : public wxWindow, public vtkRenderWindowInter
+                                 const wxSize &size = wxDefaultSize,
+                                 long style = wxWANTS_CHARS | wxNO_FULL_REPAINT_ON_RESIZE,
+                                 const wxString &name = wxPanelNameStr);
+-    vtkTypeRevisionMacro(wxVTKRenderWindowInteractor,vtkRenderWindowInteractor);
++    vtkTypeMacro(wxVTKRenderWindowInteractor,vtkRenderWindowInteractor);
+     static wxVTKRenderWindowInteractor * New();
+     void PrintSelf(ostream& os, vtkIndent indent);
+ 
