@@ -1,6 +1,6 @@
 Description: Support VTK6.3
 Author: Thiago Franco de Moraes <totonixsame@gmail.com>
-Forwardded: not needed
+Forwarded: not needed
    
 
 diff --git a/Utilities/VTK/Applications/gdcm2vtk.cxx b/Utilities/VTK/Applications/gdcm2vtk.cxx

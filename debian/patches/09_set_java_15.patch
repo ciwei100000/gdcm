@@ -1,3 +1,7 @@
+Description: Support java versions from 1.5 on 
+Author: Tobias Frost <tobi@coldtobi.de>
+Forwarded: not needed
+
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -524,8 +524,8 @@
