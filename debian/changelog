@@ -2,8 +2,10 @@ gdcm (2.6.3-4) unstable; urgency=medium
 
   * d/p/08: Add patch to compile against VTK 6.3
   * d/p/09: Set minimum requirements for JAVA to 1.5 Closes: 821959
+  * d/control+rules: remove php bindings since the upcoming php7 is 
+    not yet supported by upstream (swig doesn't support php7 yet). 
 
- -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 17 Apr 2016 09:12:56 +0000
+ -- Gert Wollny <gw.fossdev@gmail.com>  Thu, 21 Apr 2016 09:59:59 +0000
 
 gdcm (2.6.3-3) unstable; urgency=medium
 

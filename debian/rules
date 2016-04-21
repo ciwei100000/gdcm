@@ -9,7 +9,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 LD_LIBRARY_PATH:=$(LD_LIBRARY_PATH):/usr/lib/jni
 
 # PHP5 extensions dir:
-PHP_EX=$(shell /usr/bin/php-config5 --extension-dir)
+#PHP_EX=$(shell /usr/bin/php-config5 --extension-dir)
 
 # required for DEB_MONO_ARCHS (debian/control.in)
 -include /usr/share/mono/mono-archs.make
@@ -54,7 +54,7 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 		-DGDCM_WRAP_PYTHON:BOOL=ON \
 		-DGDCM_WRAP_CSHARP:BOOL=$(DEB_WRAP_CSHARP) \
 		-DGDCM_WRAP_JAVA:BOOL=ON \
-		-DGDCM_WRAP_PHP:BOOL=ON \
+		-DGDCM_WRAP_PHP:BOOL=OFF \
 		-DGDCM_USE_PVRG:BOOL=ON \
 		-DGDCM_USE_SYSTEM_PVRG:BOOL=ON \
 		-DGMCS_EXECUTABLE:FILEPATH=/usr/bin/mono-csc \
@@ -99,14 +99,15 @@ override_dh_auto_install-arch:
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-2.6/GDCMTargets.cmake
 	dh_auto_install
 	# PHP
-	mkdir -p debian/tmp/$(PHP_EX)
-	mkdir -p debian/tmp/usr/share/php
-	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcm.php debian/tmp/usr/share/php
-	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcm.so debian/tmp/$(PHP_EX)
-	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/vtkgdcm.php debian/tmp/usr/share/php
-	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/vtkgdcm.so debian/tmp/$(PHP_EX)
-	echo "php:Depends=phpapi-`php-config5 --phpapi`" >> debian/php5-gdcm.substvars
-	echo "php:Depends=phpapi-`php-config5 --phpapi`" >> debian/php5-vtkgdcm.substvars
+	#mkdir -p debian/tmp/$(PHP_EX)
+	#mkdir -p debian/tmp/usr/share/php
+	#mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcm.php debian/tmp/usr/share/php
+	#mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcm.so debian/tmp/$(PHP_EX)
+	#mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/vtkgdcm.php debian/tmp/usr/share/php
+	#mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/vtkgdcm.so debian/tmp/$(PHP_EX)
+	#echo "php:Depends=phpapi-`php-config5 --phpapi`" >> debian/php5-gdcm.substvars
+	#echo "php:Depends=phpapi-`php-config5 --phpapi`" >> debian/php5-vtkgdcm.substvars
+
 	# Python
 	mv debian/tmp/usr/lib/python debian/tmp/$(PYMODDIR)
 	#mv debian/tmp/usr/lib/_gdcmswig.so* debian/tmp/$(PYMODDIR)/dist-packages/
