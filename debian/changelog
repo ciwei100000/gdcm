@@ -1,6 +1,7 @@
 gdcm (2.6.3-4) UNRELEASED; urgency=medium
 
   * d/p/08: Add patch to compile against VTK 6.3
+  * d/control: Set minimum requirements for JAVA to 1.7 Closes: 821959
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 17 Apr 2016 09:12:56 +0000
 
