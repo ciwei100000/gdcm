@@ -1,4 +1,4 @@
-gdcm (2.6.3-4) UNRELEASED; urgency=medium
+gdcm (2.6.3-4) unstable; urgency=medium
 
   * d/p/08: Add patch to compile against VTK 6.3
   * d/p/09: Set minimum requirements for JAVA to 1.5 Closes: 821959
