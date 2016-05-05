@@ -22,8 +22,6 @@ Build-Depends: cmake (>= 2.8.9),
 	       libcharls-dev, 
 	       libopenjpeg-dev,
 	       libvtk6-java,
-	       php5-dev,
-	       php5-cli,
 	       libxml2-dev,
 	       libjson-c-dev,
 	       libpoppler-private-dev,
@@ -116,18 +114,6 @@ Description: Grassroots DICOM CLI bindings
  CLI bindings to the GDCM DICOM library. It allows developers to use
  GDCM from C# environment.
 
-Package: php5-gdcm
-Section: php
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}
-Description: Grassroots DICOM PHP5 bindings
- Grassroots DiCoM is a C++ library for DICOM medical files. It is
- automatically wrapped to python/C#/Java (using swig). It supports
- RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
- .
- PHP5 bindings to the GDCM DICOM library. It allows developers to use
- GDCM from PHP5 environment.
-
 Package: python-gdcm
 Section: python
 Architecture: any
@@ -177,18 +163,6 @@ Description: Grassroots DICOM VTK CLI bindings
  RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
  .
  VTK CLI bindings to the GDCM DICOM library.
-
-Package: php5-vtkgdcm
-Section: php
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}, libgdcm2.6 (= ${binary:Version})
-Suggests: php-gdcm
-Description: Grassroots DICOM VTK PHP bindings
- Grassroots DiCoM is a C++ library for DICOM medical files. It is
- automatically wrapped to python/C#/Java (using swig). It supports
- RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
- .
- VTK PHP bindings to the GDCM DICOM library.
 
 Package: python-vtkgdcm
 Section: python

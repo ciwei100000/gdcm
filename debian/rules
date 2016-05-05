@@ -8,9 +8,6 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # to please dpkg-shlibdeps and java private libs in /usr/lib/jni
 LD_LIBRARY_PATH:=$(LD_LIBRARY_PATH):/usr/lib/jni
 
-# PHP5 extensions dir:
-#PHP_EX=$(shell /usr/bin/php-config5 --extension-dir)
-
 # required for DEB_MONO_ARCHS (debian/control.in)
 -include /usr/share/mono/mono-archs.make
 
