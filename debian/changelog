@@ -1,3 +1,10 @@
+gdcm (2.6.3-5) UNRELEASED; urgency=medium
+
+  * d/control* +d/rules +d/php5-* 
+    Really remove php bindings on all archs 
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Thu, 05 May 2016 09:27:03 +0000
+
 gdcm (2.6.3-4) unstable; urgency=medium
 
   * d/p/08: Add patch to compile against VTK 6.3
