@@ -1,0 +1,30 @@
+commit 0511b1d6d356a1c5d1f4e22cd5bb862ef233a332
+Author: Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Date:   Thu May 26 12:02:34 2016 +0200
+
+    This is a legitimate init
+    
+    DICOM standard allow storing lossless J2K within the broad JPEG 2000 TS
+
+diff --git a/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx b/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx
+index d6f3192..3025621 100644
+--- a/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx
++++ b/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx
+@@ -574,6 +574,8 @@ std::pair<char *, size_t> JPEG2000Codec::DecodeByStreamsCommon(char *dummy_buffe
+   // needs to be before call to opj_decode...
+   reversible = opj_get_reversible(dinfo, &parameters );
+   assert( reversible == 0 || reversible == 1 );
++#else
++  reversible = 0;
+ #endif
+ #endif
+ 
+@@ -1360,6 +1362,8 @@ bool JPEG2000Codec::GetHeaderInfo(const char * dummy_buffer, size_t buf_size, Tr
+   assert( reversible == 0 || reversible == 1 );
+   // FIXME
+   assert( mct == 0 || mct == 1 );
++#else
++  reversible = 0;
+ #endif
+ #endif // OPENJPEG_MAJOR_VERSION == 1
+   LossyFlag = !reversible;

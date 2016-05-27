@@ -19,8 +19,8 @@ Build-Depends: cmake (>= 2.8.9),
 	       swig3.0,
 	       javahelper,
 	       libvtk6-dev,
-	       libcharls-dev, 
-	       libopenjpeg-dev,
+	       libcharls-dev,
+	       libopenjp2-7-dev,
 	       libvtk6-java,
 	       libxml2-dev,
 	       libjson-c-dev,
@@ -39,7 +39,7 @@ Build-Depends-Indep: vtk6-doc,
 	       doxygen-latex,
 	       ghostscript, 
                graphviz
-Build-Conflicts: libopenjp2-7-dev
+Build-Conflicts: libopenjpeg-dev
 Standards-Version: 3.9.8
 X-Python-Version: 2.7
 Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
