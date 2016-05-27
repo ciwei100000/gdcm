@@ -1,3 +1,9 @@
+gdcm (2.6.3-6) UNRELEASED; urgency=medium
+
+  * d/control,d/p/10+11: compile against openjpeg-2.1 Closes: #825307
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 27 May 2016 07:43:21 +0000
+
 gdcm (2.6.3-5) unstable; urgency=medium
 
   * d/control* +d/rules +d/php5-*: 
