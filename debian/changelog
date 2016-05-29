@@ -1,9 +1,9 @@
-gdcm (2.6.3-6) UNRELEASED; urgency=medium
+gdcm (2.6.3-6) unstable; urgency=medium
 
   * d/control,d/p/10+11: compile against openjpeg-2.1 Closes: #825307
   * d/control, d/p/12: update to and require lincharls-dev >= 1.1.0
 
- -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 27 May 2016 07:43:21 +0000
+ -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 29 May 2016 13:18:50 +0000
 
 gdcm (2.6.3-5) unstable; urgency=medium
 
