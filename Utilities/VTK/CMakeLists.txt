@@ -76,8 +76,12 @@ else()
     vtkRenderingCore
     vtkRenderingFreeType
     vtkRenderingFreeTypeOpenGL
-    vtkRenderingOpenGL
   )
+  if("${VTK_MAJOR_VERSION}" EQUAL 6)
+    list(APPEND vtkgdcm_COND_LIBS vtkRenderingOpenGL)
+  else()
+    list(APPEND vtkgdcm_COND_LIBS vtkRenderingOpenGL2)
+  endif()
   foreach(TMP_LIB ${VTK_LIBRARIES})
     foreach(TRY_LIB ${vtkgdcm_COND_LIBS})
       if("${TMP_LIB}" STREQUAL "${TRY_LIB}")
@@ -636,14 +640,13 @@ if(GDCM_WRAP_JAVA)
     find_package(JNI REQUIRED)
     include_directories(${JNI_INCLUDE_DIRS})
     set(VTK_WRAP_JAVA3_INIT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-    # Lars Matthäus patch (package vtk => imply vtk subdir )
+    # Lars Matthaus patch (package vtk => imply vtk subdir )
     set(VTK_JAVA_HOME ${CMAKE_CURRENT_BINARY_DIR}/java/vtk)
     # This is *required* don't ask
     file(MAKE_DIRECTORY ${VTK_JAVA_HOME})
     include(${VTK_CMAKE_DIR}/vtkWrapJava.cmake)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-    VTK_WRAP_JAVA3(${VTKGDCM_NAME}Java vtkgdcmJAVA_SRCS "${vtkgdcm_SRCS}")
     # libvtk-java is a pain to handle...
     if(EXISTS ${VTK_JAVA_JAR})
       # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=533193
@@ -660,9 +663,7 @@ if(GDCM_WRAP_JAVA)
     endif()
     mark_as_advanced(GDCM_VTK_JAVA_JAR)
     if(EXISTS ${GDCM_VTK_JAVA_JAR})
-    else()
-      message(FATAL_ERROR "Could not find vtk.jar file, VTK_JAVA_JAR is wrong: ${VTK_JAVA_JAR}, please set proper GDCM_VTK_JAVA_JAR: ${GDCM_VTK_JAVA_JAR} replacement var")
-    endif()
+    VTK_WRAP_JAVA3(${VTKGDCM_NAME}Java vtkgdcmJAVA_SRCS "${vtkgdcm_SRCS}")
     add_library(${VTKGDCM_NAME}Java SHARED ${vtkgdcmJAVA_SRCS})
     # special jnilib extension:
     if(APPLE)
@@ -670,9 +671,13 @@ if(GDCM_WRAP_JAVA)
     endif()
     target_link_libraries(${VTKGDCM_NAME}Java ${VTKGDCM_NAME})
     set_property(TARGET ${VTKGDCM_NAME}Java PROPERTY NO_SONAME 1)
-    foreach(c ${vtkgdcm_LIBS})
-      target_link_libraries(${VTKGDCM_NAME}Java ${c}Java)
-    endforeach()
+    # By default link those module since APPLE and WIN32 needs fully resolved
+    # shared lib allow advanced users to skip the link step:
+    if(NOT GDCM_NO_VTKJAVA_LIBS_LINKING)
+      foreach(c ${vtkgdcm_LIBS})
+        target_link_libraries(${VTKGDCM_NAME}Java ${c}Java)
+      endforeach()
+    endif()
     # Create the jar file:
     # I am pretty sure this *.java thingy will bite me one day, when someone will try
     # to recompile from an existing build tree with invalid generated *.java file...
@@ -718,6 +723,10 @@ if(GDCM_WRAP_JAVA)
       )
     endif()
 
+
+    else()
+      message(WARNING "Could not find vtk.jar file, VTK_JAVA_JAR is wrong: ${VTK_JAVA_JAR}, please set proper GDCM_VTK_JAVA_JAR: ${GDCM_VTK_JAVA_JAR} replacement var")
+    endif()
   else()
     message(STATUS "GDCM_WRAP_JAVA canot be build without VTK_WRAP_JAVA")
   endif()
@@ -758,6 +767,12 @@ if(GDCM_WRAP_PYTHON)
     set_property(TARGET ${VTKGDCM_NAME}PythonD PROPERTY LINK_INTERFACE_LIBRARIES "")
     set_property(TARGET ${VTKGDCM_NAME}Python PROPERTY NO_SONAME 1)
     #set_property(TARGET ${VTKGDCM_NAME}PythonD PROPERTY NO_SONAME 1)
+    # Removing lib prefix if we are at VTK7. Based on a reply by David Gobbi to
+    # this Thread
+    # http://vtk.1045678.n5.nabble.com/python-wrapping-with-VTK-7-td5737442.html
+    if( "${VTK_MAJOR_VERSION}" GREATER 6 )
+      set_target_properties(${VTKGDCM_NAME}Python PROPERTIES PREFIX "")
+    endif()
     # Python extension modules on Windows must have the extension ".pyd"
     # instead of ".dll" as of Python 2.5.  Older python versions do support
     # this suffix.
