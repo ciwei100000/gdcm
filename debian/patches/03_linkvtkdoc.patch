@@ -42,15 +42,6 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
    if(INCLUDE_QT_DOCUMENTATION)
      set (TAGFILES "${TAGFILES} \"${QT_TAG_FILE}=http://doc.trolltech.com/4.2\"")
    endif()
-@@ -109,7 +107,7 @@
-     ${CMAKE_CURRENT_BINARY_DIR}/doc_makeall.sh @ONLY )
- 
-   add_custom_target(${DOXYGEN_PROJECT_NAME}DoxygenDoc
--    #ALL
-+    ALL
-     ${BASH}
-     ${CMAKE_CURRENT_BINARY_DIR}/doc_makeall.sh)
- 
 --- a/Utilities/doxygen/vtk/doc_makeall.sh.in
 +++ b/Utilities/doxygen/vtk/doc_makeall.sh.in
 @@ -169,12 +169,12 @@
