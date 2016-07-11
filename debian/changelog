@@ -1,6 +1,6 @@
 gdcm (2.6.4-1) unstable; urgency=medium
 
-  * Imported Upstream version 2.6.4
+  * Imported Upstream version 2.6.4, Closes: #829664
   * update patches and remove patches 05-12 because they were applied 
     upstream 
 
