@@ -1,9 +1,10 @@
-gdcm (2.6.4-1) UNRELEASED; urgency=medium
+gdcm (2.6.4-1) unstable; urgency=medium
 
   * Imported Upstream version 2.6.4
-  * update patches
+  * update patches and remove patches 05-12 because they were applied 
+    upstream 
 
- -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 11 Jul 2016 13:39:17 +0000
+ -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 11 Jul 2016 14:14:40 +0000
 
 gdcm (2.6.3-6) unstable; urgency=medium
 

@@ -1,11 +1,3 @@
 02_fixhurd.patch
 03_linkvtkdoc.patch
 04_multiarch.patch
-#05_add_global_doxydoc_target.patch
-#06_dcm_group2_buggyfiles_fallback.patch
-#07_don_t_link_vtkjava_modules.patch
-#08_supportvtk6.3.patch
-#09_set_java_15.patch
-#10_gdcm_openjpeg2_git4f793f.patch
-#11_gdcm_openjpeg2_git0511b1.patch
-#12_gdcm_system_charls_includes.patch
