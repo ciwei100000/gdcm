@@ -1,0 +1,15 @@
+Description: Correct the fprintf call to ensure save format string
+Author: Gert Wollny <gw.fossdev@gmail.com>
+Forwarded: https://sourceforge.net/p/gdcm/bugs/401/
+
+--- a/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx
++++ b/Source/MediaStorageAndFileFormat/gdcmJPEG2000Codec.cxx
+@@ -302,7 +302,7 @@
+   else
+ #endif
+     {
+-    fprintf( stderr, msg );
++    fprintf( stderr, "%s", msg );
+     }
+ }
+ 
