@@ -1,3 +1,10 @@
+gdcm (2.6.5-1) UNRELEASED; urgency=medium
+
+  * New upstream release, Closes: #834802
+    Closes: #828964
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 20 Aug 2016 16:55:32 +0000
+
 gdcm (2.6.4-1) unstable; urgency=medium
 
   * Imported Upstream version 2.6.4, Closes: #829664
