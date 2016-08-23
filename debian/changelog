@@ -1,3 +1,9 @@
+gdcm (2.6.5-2) unstable; urgency=medium
+
+  * d/rules: Set default java version to 1.5 on hurd-i386
+
+ -- Gert Wollny <gw.fossdev@gmail.com>  Tue, 23 Aug 2016 16:58:00 +0000
+
 gdcm (2.6.5-1) unstable; urgency=medium
 
   * New upstream release, Closes: #834802
