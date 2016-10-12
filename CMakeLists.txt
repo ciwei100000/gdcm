@@ -32,7 +32,7 @@ set(GDCM_PACKAGE_CONTACT "GDCM Developers <gdcm-developers@lists.sourceforge.net
 #----------------------------------------------------------------------------
 set(GDCM_MAJOR_VERSION 2)
 set(GDCM_MINOR_VERSION 6)
-set(GDCM_BUILD_VERSION 5)
+set(GDCM_BUILD_VERSION 6)
 set(GDCM_VERSION
   "${GDCM_MAJOR_VERSION}.${GDCM_MINOR_VERSION}.${GDCM_BUILD_VERSION}")
 # let advanced user the option to define GDCM_API_VERSION:
@@ -518,6 +518,7 @@ if(GDCM_STANDALONE)
   option(GDCM_WRAP_PHP "build php wrapping" OFF)
   option(GDCM_WRAP_JAVA "build java wrapping" OFF)
   option(GDCM_WRAP_CSHARP "build csharp wrapping" OFF)
+  mark_as_advanced(GDCM_WRAP_PHP)
   mark_as_advanced(GDCM_WRAP_PERL)
   mark_as_advanced(GDCM_USE_RLE)
   mark_as_advanced(GDCM_USE_ACTIVIZ)
