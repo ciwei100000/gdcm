@@ -1,4 +1,4 @@
-gdcm (2.6.6-1) UNRELEASED; urgency=medium
+gdcm (2.6.6-1) unstable; urgency=medium
 
   * New upstream version 2.6.6
   * Update patches and drop format-error.patch
