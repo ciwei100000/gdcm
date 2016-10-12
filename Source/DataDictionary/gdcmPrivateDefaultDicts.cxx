@@ -37,6 +37,11 @@ typedef struct
 } DICT_ENTRY;
 
 static const DICT_ENTRY DICOMV3DataDict [] = {
+  {0x0075,0x0000,"LLTech, Light-CT Viewer group",VR::CS,VM::VM1,"Enable MPR",false },
+  {0x0075,0x0001,"LLTech, Light-CT Viewer group",VR::LO,VM::VM1,"Imaged surface",false },
+  {0x0075,0x0002,"LLTech, Light-CT Viewer group",VR::LO,VM::VM1,"Imaged depth",false },
+  {0x0075,0x0003,"LLTech, Light-CT Viewer group",VR::LO,VM::VM1,"Sample description",false },
+  {0x0075,0x0004,"LLTech, Light-CT Viewer group",VR::SH,VM::VM1,"Number of accumulations",false }, // UL ?
   {0x0857,0x0000,"Nautilus Medical",VR::LO,VM::VM1,"?",false },
   {0x0857,0x0001,"Nautilus Medical",VR::LO,VM::VM1,"?Source Application Entity Title?",false },
   {0x0857,0x0002,"Nautilus Medical",VR::LO,VM::VM1,"?",false },
@@ -4464,11 +4469,11 @@ static const DICT_ENTRY DICOMV3DataDict [] = {
   {0x0009,0x0011,"MeVis eD: Geometry Information",VR::UN,VM::VM1,"GeoScannerOrigin",false },
   {0x0009,0x0021,"MeVis eD: Geometry Information",VR::UN,VM::VM1,"SlicesID",false },
   {0x0009,0x0010,"MeVis eD: Slice Information",VR::UN,VM::VM1,"SlicesSOPInstanceUID",false },
-  {0x0009,0x0010,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPDateTime",false },
-  {0x0009,0x0011,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPDateTimeType",false },
-  {0x0009,0x0012,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPSeriesDescription",false },
-  {0x0009,0x0013,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPGradientDirections",false },
-  {0x0009,0x0021,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"GeometryID",false },
+  {0x0021,0x0010,"MeVis eD: Timepoint Information",VR::LT,VM::VM1,"TPDateTime",false },
+  {0x0021,0x0011,"MeVis eD: Timepoint Information",VR::CS,VM::VM1,"TPDateTimeType",false },
+  {0x0021,0x0012,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPSeriesDescription",false },
+  {0x0021,0x0013,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"TPGradientDirections",false },
+  {0x0021,0x0021,"MeVis eD: Timepoint Information",VR::UN,VM::VM1,"GeometryID",false },
   {0x0009,0x0010,"MeVis eatDicom",VR::UN,VM::VM1,"EatDicomVersion",false },
   {0x0009,0x0011,"MeVis eatDicom",VR::UN,VM::VM1,"EatDicomOptions",false },
   {0x0009,0x0021,"MeVis eatDicom",VR::UN,VM::VM1,"TimepointsID",false },
