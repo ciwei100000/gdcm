@@ -5,7 +5,7 @@ Author: Mathieu Malaterre <malat@debian.org>
 
 --- a/Source/Common/gdcmSystem.cxx
 +++ b/Source/Common/gdcmSystem.cxx
-@@ -365,6 +365,10 @@
+@@ -367,6 +367,10 @@
  #define PATH_MAX 4096
  #endif
  
