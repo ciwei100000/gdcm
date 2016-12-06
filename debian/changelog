@@ -1,6 +1,7 @@
 gdcm (2.6.6-3) unstable; urgency=medium
 
   * re-create debian/control, Closes: #839934
+  * d/rules: enable hardening 
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Tue, 06 Dec 2016 08:38:52 +0000
 
