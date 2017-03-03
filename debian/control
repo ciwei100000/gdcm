@@ -88,20 +88,6 @@ Description: Grassroots DICOM development libraries and headers
  GDCM, but are needed to build plugins or programs that link against
  libgdcm.
 
-Package: libgdcm2.6-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Multi-Arch: same
-Depends: libgdcm2.6 (= ${binary:Version}), ${misc:Depends}
-Description: Grassroots DICOM runtime libraries, debug version
- Grassroots DiCoM is a C++ library for DICOM medical files. It is
- automatically wrapped to python/C#/Java (using swig). It supports
- RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
- .
- Debug symbols for libgdcm that will allow useful tracebacks and
- debugging on end user machines.
-
 Package: libgdcm-cil
 Section: cli-mono
 Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64
