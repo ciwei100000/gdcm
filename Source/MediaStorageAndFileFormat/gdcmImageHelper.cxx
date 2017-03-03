@@ -1819,7 +1819,31 @@ void ImageHelper::SetOriginValue(DataSet & ds, const Image & image)
       ipp.SetValue( new_origin[2], 2);
       SetDataElementInSQAsItemNumber(ds, ipp.GetAsDataElement(), tfgs, i+1);
       }
+    // cleanup the sharedgroup:
+    {
+      const Tag tfgs0(0x5200,0x9229);
+      if( ds.FindDataElement( tfgs0 ) )
+      {
+        SmartPointer<SequenceOfItems> sqi = ds.GetDataElement( tfgs0 ).GetValueAsSQ();
+        assert( sqi );
+        SequenceOfItems::SizeType nitems = sqi->GetNumberOfItems();
+        for(SequenceOfItems::SizeType i0 = 1; i0 <= nitems; ++i0)
+        {
+          // Get first item:
+          Item &item = sqi->GetItem(i0);
+          DataSet & subds = item.GetNestedDataSet();
+          const Tag tpms(0x0020,0x9113);
+          subds.Remove(tpms);
+        }
+      }
+    }
+    // Cleanup root level:
+    {
+    const Tag tiop(0x0020,0x0032);
+    ds.Remove(tiop);
+    }
 
+ 
     // C.7.6.6.1.2 Frame Increment Pointer
     // (0028,0009) AT (0018,2005)                                        # 4,1-n Frame Increment Pointer
     if( ms == MediaStorage::MultiframeGrayscaleWordSecondaryCaptureImageStorage
@@ -1980,6 +2004,11 @@ void ImageHelper::SetDirectionCosinesValue(DataSet & ds, const std::vector<doubl
         }
       }
     }
+    // Cleanup root level:
+    {
+    const Tag tiop(0x0020,0x0037);
+    ds.Remove(tiop);
+    }
 
     return;
     }
@@ -2107,6 +2136,15 @@ void ImageHelper::SetRescaleInterceptSlopeValue(File & f, const Image & img)
           subds.Remove(tpms);
         }
       }
+    }
+    // cleanup root (famous MR -> EMR case) 
+    {
+    const Tag t1(0x0028,0x1052);
+    ds.Remove(t1);
+    const Tag t2(0x0028,0x1053);
+    ds.Remove(t2);
+    const Tag t3(0x0028,0x1053);
+    ds.Remove(t3);
     }
     return;
     }
