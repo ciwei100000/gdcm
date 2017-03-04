@@ -2,7 +2,8 @@ gdcm (2.6.7-1~exp1) experimental; urgency=medium
 
   * New upstream version 2.6.7
   * d/control: Depend on libssl-dev Closes: #850896
-  * d/control: Drop -dbg packages Closes: #842678
+  * d/control,d/rules: Drop -dbg packages Closes: #842678
+  * d/control: Update GW uploader email 
 
  -- Gert Wollny <gewo@debian.org>  Fri, 03 Mar 2017 17:47:13 +0000
 

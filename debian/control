@@ -5,7 +5,7 @@ Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.
 Uploaders: Andreas Tille <tille@debian.org>,
  Steve M. Robbins <smr@debian.org>,
  Sébastien Jodogne <s.jodogne@gmail.com>, 
- Gert Wollny <gw.fossdev@gmail.com> 
+ Gert Wollny <gewo@debian.org> 
 Build-Depends: cmake (>= 2.8.9),
                debhelper (>= 9),
 	       default-jdk, 
