@@ -1,3 +1,10 @@
+gdcm (2.6.8-1~exp1) experimental; urgency=medium
+
+  * New upstream version 2.6.8
+  * Update d/p/02_fixhurd.patch
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 23 May 2017 10:49:45 +0000
+
 gdcm (2.6.7-1~exp1) experimental; urgency=medium
 
   * New upstream version 2.6.7
