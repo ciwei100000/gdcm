@@ -5,6 +5,9 @@ endif()
 if(POLICY CMP0025)
   cmake_policy(SET CMP0025 NEW)
 endif()
+if(POLICY CMP0026)
+  cmake_policy(SET CMP0026 OLD)
+endif()
 if(POLICY CMP0042)
   cmake_policy(SET CMP0042 NEW)
 endif()
@@ -32,7 +35,7 @@ set(GDCM_PACKAGE_CONTACT "GDCM Developers <gdcm-developers@lists.sourceforge.net
 #----------------------------------------------------------------------------
 set(GDCM_MAJOR_VERSION 2)
 set(GDCM_MINOR_VERSION 6)
-set(GDCM_BUILD_VERSION 7)
+set(GDCM_BUILD_VERSION 8)
 set(GDCM_VERSION
   "${GDCM_MAJOR_VERSION}.${GDCM_MINOR_VERSION}.${GDCM_BUILD_VERSION}")
 # let advanced user the option to define GDCM_API_VERSION:
@@ -409,6 +412,7 @@ endif()
 if(GDCM_USE_SYSTEM_ZLIB)
   # If user say so, then this is a requirement !
   find_package(ZLIB REQUIRED)
+  include_directories(${ZLIB_INCLUDE_DIR})
   set(GDCM_ZLIB_LIBRARIES ${ZLIB_LIBRARIES})
 else()
   set(GDCM_ZLIB_LIBRARIES "gdcmzlib")

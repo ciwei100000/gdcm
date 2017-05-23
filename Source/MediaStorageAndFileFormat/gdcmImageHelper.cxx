@@ -63,7 +63,8 @@ static bool GetOriginValueFromSequence(const DataSet& ds, const Tag& tfgs, std::
   if( !subds.FindDataElement(tpms) ) return false;
   //const SequenceOfItems * sqi2 = subds.GetDataElement( tpms ).GetSequenceOfItems();
   SmartPointer<SequenceOfItems> sqi2 = subds.GetDataElement( tpms ).GetValueAsSQ();
-  assert( sqi2 );
+  if( sqi2 && !sqi2->IsEmpty() )
+  {
   const Item &item2 = sqi2->GetItem(1);
   const DataSet & subds2 = item2.GetNestedDataSet();
   //
@@ -79,6 +80,8 @@ static bool GetOriginValueFromSequence(const DataSet& ds, const Tag& tfgs, std::
   ori.push_back( at.GetValue(2) );
 
   return true;
+  }
+  return false;
 }
 
 static bool GetDirectionCosinesValueFromSequence(const DataSet& ds, const Tag& tfgs, std::vector<double> &dircos)
@@ -969,12 +972,14 @@ std::vector<double> ImageHelper::GetRescaleInterceptSlopeValue(File const & f)
       const DataElement &priv_rescaleslope = ds.GetDataElement( tpriv_rescaleslope );
       Element<VR::DS,VM::VM1> el_ri = {{ 0 }};
       el_ri.SetFromDataElement( priv_rescaleintercept );
-      Element<VR::DS,VM::VM1> el_rs = {{ 0 }};
+      Element<VR::DS,VM::VM1> el_rs = {{ 1 }};
       el_rs.SetFromDataElement( priv_rescaleslope );
       if( PMSRescaleInterceptSlope )
       {
         interceptslope[0] = el_ri.GetValue();
         interceptslope[1] = el_rs.GetValue();
+        if( interceptslope[1] == 0 )
+          interceptslope[1] = 1;
         gdcmWarningMacro( "PMS Modality LUT loaded for MR Image Storage: [" << interceptslope[0] << "," << interceptslope[1] << "]" );
       }
       }

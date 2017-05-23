@@ -140,6 +140,8 @@ const char * System::GetCWD()
 
 bool System::MakeDirectory(const char *path)
 {
+  if( !path || !*path )
+    return false;
   if(System::FileExists(path))
     {
     return true;
@@ -975,6 +977,7 @@ static const char *CharsetAliasToName(const char *alias)
       }
     }
   // We need to tell the user...
+  gdcmWarningMacro( "Could not find Charset from alias: " + alias );
   return NULL;
 }
 #endif //_WIN32
