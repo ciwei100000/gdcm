@@ -530,18 +530,10 @@ bool RLECodec::Code(DataElement const &in, DataElement &out)
     frag.SetByteValue( &str[0], strSize );
     sq->AddFragment( frag );
     }
-
   out.SetValue( *sq );
 
-  if( buffer /*GetPixelFormat().GetBitsAllocated() > 8*/ )
-    {
-    //RequestPaddedCompositePixelCode = true;
-    delete[] buffer;
-    }
-  if ( bufferrgb /*GetPhotometricInterpretation() == PhotometricInterpretation::RGB*/ )
-    {
-    delete[] bufferrgb;
-    }
+  delete[] buffer;
+  delete[] bufferrgb;
 
   return true;
 }

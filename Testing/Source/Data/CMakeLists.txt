@@ -66,20 +66,9 @@ set(BLACK_LIST_READER
   lena512_rot90.j2k.dcm
 # Remove this one for now:
   LengthOfItemLarger.dcm
-# Need CharLS 1.1
+# https://github.com/team-charls/charls/issues/16
   JPEG_LS_InvalidEscapeSequence_COM_padding.dcm
-# something wrong with OPJ 1.4
-  JPEGLS_CharLS_10742.dcm
 )
-if(GDCM_USE_SYSTEM_OPENJPEG)
-  if(OPENJPEG_MAJOR_VERSION EQUAL 1)
-    set(BLACK_LIST_READER
-      ${BLACK_LIST_READER}
-      # openjpeg system on travis buildd seems broken
-      TOSHIBA_J2K_OpenJPEGv2Regression.dcm
-    )
-  endif()
-endif()
 if(NOT GDCM_USE_PVRG)
   set(BLACK_LIST_READER
     # The following should really fails according to JPEG spec, IJG is failing and even when forcing

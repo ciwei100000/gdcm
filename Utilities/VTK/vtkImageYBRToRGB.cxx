@@ -34,11 +34,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkImageYBRToRGB, "$Revision: 1.31 $")
-#else
 //vtkCxxRevisionMacro(vtkImageYBRToRGB, "$Revision: 1.31 $")
-#endif
 vtkStandardNewMacro(vtkImageYBRToRGB)
 
 //----------------------------------------------------------------------------

@@ -92,16 +92,8 @@ set(MSFF_SRCS
   gdcmSurfaceReader.cxx
   gdcmSurfaceHelper.cxx
   gdcmSegmentHelper.cxx
+  gdcmJPEG2000Codec.cxx
   )
-if(OPENJPEG_VERSION VERSION_LESS 2.0)
-  list(APPEND MSFF_SRCS
-    gdcmJPEG2000Codec.cxx
-  )
-else ()
-  list(APPEND MSFF_SRCS
-    gdcmOpenJPEG2Codec.cxx
-  )
-endif()
 
   list(APPEND MSFF_SRCS
     ${GDCM_SOURCE_DIR}/Utilities/gdcmrle/rle.cxx
@@ -123,7 +115,7 @@ if(NOT BUILD_SHARED_LIBS)
 else()
   set_source_files_properties(gdcmJPEGLSCodec.cxx
                               PROPERTIES
-                              COMPILE_FLAGS -DCHARLS_SHARED
+                              COMPILE_FLAGS -DCHARLS_DLL
                               )
 endif()
 
@@ -159,15 +151,10 @@ if(GDCM_USE_SYSTEM_OPENJPEG)
 else()
   include_directories(
   "${GDCM_BINARY_DIR}/Utilities/gdcmopenjpeg"
+  "${GDCM_BINARY_DIR}/Utilities/gdcmopenjpeg/src/lib/openjp2"
     )
-if(GDCM_USE_OPENJPEG_V2)
-  INCLUDE_DIRECTORIES(
-  "${GDCM_BINARY_DIR}/Utilities/gdcmopenjpeg-v2"
-    )
-endif()
 endif()
 if(GDCM_USE_SYSTEM_LJPEG)
-  #message(${LJPEG_INCLUDE_DIRS} )
   include_directories(${LJPEG_INCLUDE_DIRS} )
 endif()
 if(NOT GDCM_USE_SYSTEM_ZLIB)

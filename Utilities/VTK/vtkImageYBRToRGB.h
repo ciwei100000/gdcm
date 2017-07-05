@@ -45,11 +45,7 @@ class VTK_EXPORT vtkImageYBRToRGB : public vtkThreadedImageAlgorithm
 {
 public:
   static vtkImageYBRToRGB *New();
-#if VTK_MAJOR_VERSION < 6
-  vtkTypeRevisionMacro(vtkImageYBRToRGB,vtkThreadedImageAlgorithm);
-#else
   vtkTypeMacro(vtkImageYBRToRGB,vtkThreadedImageAlgorithm);
-#endif
 
   void PrintSelf(ostream& os, vtkIndent indent);
 

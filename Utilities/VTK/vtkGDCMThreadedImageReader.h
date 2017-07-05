@@ -43,11 +43,7 @@ class VTK_EXPORT vtkGDCMThreadedImageReader : public vtkGDCMImageReader
 {
 public:
   static vtkGDCMThreadedImageReader *New();
-#if VTK_MAJOR_VERSION < 6
-  vtkTypeRevisionMacro(vtkGDCMThreadedImageReader,vtkGDCMImageReader);
-#else
   vtkTypeMacro(vtkGDCMThreadedImageReader,vtkGDCMImageReader);
-#endif
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

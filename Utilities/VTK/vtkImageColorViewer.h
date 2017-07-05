@@ -71,11 +71,7 @@ class VTK_EXPORT vtkImageColorViewer : public vtkObject
 {
 public:
   static vtkImageColorViewer *New();
-#if VTK_MAJOR_VERSION < 6
-  vtkTypeRevisionMacro(vtkImageColorViewer,vtkObject);
-#else
   vtkTypeMacro(vtkImageColorViewer,vtkObject);
-#endif
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
