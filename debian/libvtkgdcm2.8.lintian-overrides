@@ -1,4 +1,4 @@
 
 # C++ library, Symbols files are really difficult here
-libvtkgdcm2.6: no-symbols-control-file
+libvtkgdcm2.8: no-symbols-control-file
 

@@ -180,8 +180,19 @@ License: BSD-3-clause-alike-Alexander-Chemeris
  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+Files: Utilities/gdcmcharls/jpegimagedatasegment.h
+ Utilities/gdcmcharls/jpegmarkersegment.cpp
+ Utilities/gdcmcharls/jpegmarkersegment.h
+ Utilities/gdcmcharls/jpegsegment.h
+ Utilities/gdcmcharls/jpegstreamwriter.cpp
+ Utilities/gdcmcharls/jpegstreamwriter.h
+Copyright: (C) CharLS Team 2014
+License: BSD-3-clause-alike-Jan-de-Vaan
+ 
 Files: Utilities/gdcmcharls/*
 Copyright: 2007-2010, Jan de Vaan
+License: BSD-3-clause-alike-Jan-de-Vaan
+
 License: BSD-3-clause-alike-Jan-de-Vaan
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:

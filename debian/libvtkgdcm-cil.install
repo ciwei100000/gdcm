@@ -1,2 +1,2 @@
-usr/lib/*/vtkgdcm-sharp.dll                   usr/lib/cli/vtkgdcm-sharp-2.6
-usr/lib/*/libvtkgdcmsharpglue.so              usr/lib/cli/vtkgdcm-sharp-2.6
+usr/lib/*/vtkgdcm-sharp.dll                   usr/lib/cli/vtkgdcm-sharp-2.8
+usr/lib/*/libvtkgdcmsharpglue.so              usr/lib/cli/vtkgdcm-sharp-2.8
