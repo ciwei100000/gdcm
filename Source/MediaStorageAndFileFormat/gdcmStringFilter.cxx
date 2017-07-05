@@ -470,17 +470,6 @@ std::pair<std::string, std::string> StringFilter::ToStringPairInternal(const Dat
   return ret;
 }
 
-#if !defined(GDCM_LEGACY_REMOVE)
-std::string StringFilter::FromString(const Tag&t, const char * value, VL const & vl)
-{
-  (void)t;
-  (void)value;
-  (void)vl;
-  assert(0 && "TODO");
-  return "";
-}
-#endif
-
 #define FromStringFilterCase(type) \
   case VR::type: \
       { \

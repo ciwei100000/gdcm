@@ -33,8 +33,10 @@ endif()
 
 set(EXAMPLES_SRCS
   EmptyMask
+  DumpSiemensBase64
   TemplateEmptyImage
   MakeTemplate
+  DeriveSeries
   FixOrientation
   DumpGEMSMovieGroup
   QIDO-RS
@@ -88,14 +90,12 @@ set(EXAMPLES_SRCS
   GenSeqs
   GetJPEGSamplePrecision
 )
-if(GDCM_USE_OPENJPEG_V2)
-set(EXAMPLES_SRCS
-  ${EXAMPLES_SRCS}
-  StreamImageReaderTest
-  Extracting_All_Resolution
-  Fake_Image_Using_Stream_Image_Writer
-  )
-endif()
+#set(EXAMPLES_SRCS
+#  ${EXAMPLES_SRCS}
+#  StreamImageReaderTest
+#  Extracting_All_Resolution
+#  Fake_Image_Using_Stream_Image_Writer
+#  )
 if(GDCM_USE_JPEGLS)
 set(EXAMPLES_SRCS
   ${EXAMPLES_SRCS}
@@ -138,7 +138,7 @@ endif()
 if(BUILD_SHARED_LIBS)
   set_source_files_properties(FixJAIBugJPEGLS.cxx
                               PROPERTIES
-                              COMPILE_FLAGS -DCHARLS_SHARED
+                              COMPILE_FLAGS -DCHARLS_DLL
                               )
 endif()
 

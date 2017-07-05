@@ -49,11 +49,7 @@
 #include "vtkInformation.h"
 #endif
 
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.3 $")
-#else
 //vtkCxxRevisionMacro(vtkImageColorViewer, "$Revision: 1.3 $")
-#endif
 vtkStandardNewMacro(vtkImageColorViewer)
 
 //----------------------------------------------------------------------------

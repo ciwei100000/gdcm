@@ -18,8 +18,8 @@ date
 echo ""
 
 major=2
-minor=4
-patch=5
+minor=6
+patch=8
 dirversion="$major.$minor"
 version="$major.$minor.$patch"
 version2="$major-$minor-$patch"
@@ -115,31 +115,39 @@ cpack -G TBZ2 --config CPackSourceConfig.cmake
 check_exit_value $? "cpack did not return properly" || exit 1
 
 # Let's start doing the VTK documentation then:
-cmake -DGDCM_VTK_DOCUMENTATION:BOOL=ON -DGDCM_USE_VTK:BOOL=ON -DVTK_DIR:PATH=/home/mathieu/Kitware/VTK5.10.1-gcc .
+#cmake -DGDCM_VTK_DOCUMENTATION:BOOL=ON -DGDCM_USE_VTK:BOOL=ON -DVTK_DIR:PATH=/home/mathieu/tmp/vtk-5.10.1+dfsg/Build .
+cmake -DGDCM_VTK_DOCUMENTATION:BOOL=ON -DGDCM_USE_VTK:BOOL=ON -DVTK_DIR:PATH=/home/mathieu/tmp/vtk6-6.2.0+dfsg1/debian/build .
 check_exit_value $? "cmake did not return properly" || exit 1
 #make -j4
 make rebuild_cache
 make vtkgdcmDoxygenDoc
 check_exit_value $? "vtkgdcmDoxygenDoc did not return properly" || exit 1
 
+# https://sourceforge.net/p/forge/documentation/File%20Management/#rsync-over-ssh
 # Warning need to create /manually/ the subfolder:
-# https://sourceforge.net/project/admin/explorer.php?group_id=137895
 # https://sourceforge.net/projects/gdcm/files/gdcm%202.x/#folder-create
 
 # Update default version:
 #https://sourceforge.net/p/forge/documentation/Using%20the%20Release%20API/
-exit 1
-rsync -e ssh GDCM-$version-Linux-x86_64.tar.gz          "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
-check_exit_value $? "rsync did not return properly" || exit 1
-rsync -e ssh GDCM-$version-Linux-x86_64.tar.bz2         "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
-check_exit_value $? "rsync did not return properly" || exit 1
-rsync -e ssh gdcm-$version.zip                          "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
-check_exit_value $? "rsync did not return properly" || exit 1
+#rsync -e ssh GDCM-$version-Linux-x86_64.tar.gz          "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
+#check_exit_value $? "rsync did not return properly" || exit 1
+#rsync -e ssh GDCM-$version-Linux-x86_64.tar.bz2         "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
+#check_exit_value $? "rsync did not return properly" || exit 1
+#rsync -e ssh gdcm-$version.zip                          "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
+#check_exit_value $? "rsync did not return properly" || exit 1
 rsync -e ssh gdcm-$version.tar.gz                       "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
 check_exit_value $? "rsync did not return properly" || exit 1
+
+def_prop="default=windows&default=mac&default=linux&default=bsd&default=solaris&default=others"
+def_path="https://sourceforge.net/projects/gdcm/files/gdcm%202.x/GDCM%20$version/gdcm-$version.tar.gz"
+curl -k -H "Accept: application/json" -X PUT -d $def_prop -d "api_key=$SFAPIKEY" $def_path
+
 rsync -e ssh gdcm-$version.tar.bz2                      "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
 check_exit_value $? "rsync did not return properly" || exit 1
 rsync -e ssh Utilities/doxygen/gdcm-$version-doc.tar.gz "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
+check_exit_value $? "rsync did not return properly" || exit 1
+sed "s/vVERSION/v$version/" $basedir/gdcm/Utilities/Release/README.md > $basedir/README.md
+rsync -e ssh $basedir/README.md "malat,gdcm@frs.sourceforge.net:/home/frs/project/g/gd/gdcm/gdcm\ 2.x/GDCM\ $version"
 check_exit_value $? "rsync did not return properly" || exit 1
 
 rsync -a -r Utilities/doxygen/html malat,gdcm@web.sourceforge.net:htdocs/$dirversion

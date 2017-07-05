@@ -64,10 +64,8 @@
 
 #include <getopt.h>
 
-#if VTK_MAJOR_VERSION >= 6
 #ifndef vtkFloatingPointType
 #define vtkFloatingPointType double
-#endif
 #endif
 
 void PrintVersion()

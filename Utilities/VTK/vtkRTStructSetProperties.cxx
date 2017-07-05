@@ -28,11 +28,7 @@
 #include <assert.h>
 
 //----------------------------------------------------------------------------
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkRTStructSetProperties, "1.21")
-#else
 //vtkCxxRevisionMacro(vtkRTStructSetProperties, "1.21")
-#endif
 vtkStandardNewMacro(vtkRTStructSetProperties)
 
 

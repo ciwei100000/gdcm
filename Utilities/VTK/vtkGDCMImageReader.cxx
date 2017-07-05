@@ -51,11 +51,7 @@
 
 #include <sstream>
 
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkGDCMImageReader, "$Revision: 1.1 $")
-#else
 //vtkCxxRevisionMacro(vtkGDCMImageReader, "$Revision: 1.1 $")
-#endif
 vtkStandardNewMacro(vtkGDCMImageReader)
 
 static inline bool vtkGDCMImageReader_IsCharTypeSigned()

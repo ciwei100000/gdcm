@@ -25,11 +25,7 @@
 
 #include <assert.h>
 
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkGDCMThreadedImageReader2, "$Revision: 1.1 $")
-#else
 //vtkCxxRevisionMacro(vtkGDCMThreadedImageReader2, "$Revision: 1.1 $")
-#endif
 vtkStandardNewMacro(vtkGDCMThreadedImageReader2)
 vtkCxxSetObjectMacro(vtkGDCMThreadedImageReader2,FileNames,vtkStringArray)
 

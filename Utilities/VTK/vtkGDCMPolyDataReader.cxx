@@ -30,11 +30,7 @@
 #include "gdcmSequenceOfItems.h"
 #include "gdcmDirectoryHelper.h"
 
-#if VTK_MAJOR_VERSION < 6
-vtkCxxRevisionMacro(vtkGDCMPolyDataReader, "$Revision: 1.74 $")
-#else
 //vtkCxxRevisionMacro(vtkGDCMPolyDataReader, "$Revision: 1.74 $")
-#endif
 vtkStandardNewMacro(vtkGDCMPolyDataReader)
 
 //----------------------------------------------------------------------------
