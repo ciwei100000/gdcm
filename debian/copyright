@@ -296,15 +296,15 @@ License: zlib/libpng
  3. This notice may not be removed or altered from any source distribution.
 
 Files: Utilities/gdcmopenjpeg/*
- Copyright (c) 2002-2014, Universite catholique de Louvain (UCL), Belgium
- Copyright (c) 2002-2014, Professor Benoit Macq
- Copyright (c) 2003-2014, Antonin Descampe
- Copyright (c) 2003-2009, Francois-Olivier Devaux
- Copyright (c) 2005, Herve Drolon, FreeImage Team
- Copyright (c) 2002-2003, Yannick Verschueren
- Copyright (c) 2001-2003, David Janssens
- Copyright (c) 2011-2012, Centre National d'Etudes Spatiales (CNES), France 
- Copyright (c) 2012, CS Systemes d'Information, France
+Copyright: 2002-2014, Universite catholique de Louvain (UCL), Belgium
+ 2002-2014, Professor Benoit Macq
+ 2003-2014, Antonin Descampe
+ 2003-2009, Francois-Olivier Devaux
+ 2005, Herve Drolon, FreeImage Team
+ 2002-2003, Yannick Verschueren
+ 2001-2003, David Janssens
+ 2011-2012, Centre National d'Etudes Spatiales (CNES), France 
+ 2012, CS Systemes d'Information, France
 License: BSD-2-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions
