@@ -105,6 +105,7 @@ override_dh_auto_install-arch:
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-2.8/GDCMTargets-*.cmake
 	# See #711214
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-2.8/GDCMTargets.cmake
+
 	dh_auto_install
 	# PHP
 	#mkdir -p debian/tmp/$(PHP_EX)
@@ -119,6 +120,9 @@ override_dh_auto_install-arch:
 	# Python
 	mv debian/tmp/usr/lib/python debian/tmp/$(PYMODDIR)
 	#mv debian/tmp/usr/lib/_gdcmswig.so* debian/tmp/$(PYMODDIR)/dist-packages/
+
+	#Csharp correct file name (Why did it change from 2.8.0 to 2.8.2?) 
+	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcmsharpglue.so debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libgdcmsharpglue.so
 
 override_dh_auto_install-indep: 
 	DESTDIR=$(CURDIR)/debian/tmp/ $(MAKE) -C obj-*/Utilities/doxygen/ install 
