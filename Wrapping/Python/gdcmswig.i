@@ -26,7 +26,6 @@
 // "There is no option to suppress all SWIG warning messages."
 #pragma SWIG nowarn=302,303,312,362,383,389,401,503,504,509,510,514,516
 %{
-#define SWIG_PYTHON_STRICT_BYTE_CHAR
 #include <cstddef> // ptrdiff_t
 #include "gdcmTypes.h"
 #include "gdcmASN1.h"
@@ -71,6 +70,7 @@
 #include "gdcmBasicOffsetTable.h"
 //#include "gdcmLO.h"
 #include "gdcmCSAElement.h"
+#include "gdcmMrProtocol.h"
 #include "gdcmPDBElement.h"
 #include "gdcmFileSet.h"
 
@@ -195,6 +195,7 @@
 #include "gdcmImageRegionReader.h"
 #include "gdcmJSON.h"
 #include "gdcmFileDecompressLookupTable.h"
+#include "gdcmEmptyMaskGenerator.h"
 
 using namespace gdcm;
 %}
@@ -444,6 +445,8 @@ EXTEND_CLASS_PRINT(gdcm::Fragment)
 EXTEND_CLASS_PRINT(gdcm::PDBElement)
 %include "gdcmPDBHeader.h"
 EXTEND_CLASS_PRINT(gdcm::PDBHeader)
+%include "gdcmMrProtocol.h"
+EXTEND_CLASS_PRINT(gdcm::MrProtocol)
 %include "gdcmCSAElement.h"
 EXTEND_CLASS_PRINT(gdcm::CSAElement)
 %include "gdcmCSAHeader.h"
@@ -797,3 +800,4 @@ EXTEND_CLASS_PRINT(gdcm::BoxRegion)
 %clear char* inreadbuffer;
 %include "gdcmJSON.h"
 %include "gdcmFileDecompressLookupTable.h"
+%include "gdcmEmptyMaskGenerator.h"
