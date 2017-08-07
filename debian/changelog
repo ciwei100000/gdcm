@@ -1,3 +1,10 @@
+gdcm (2.8.2-3) unstable; urgency=medium
+
+  * d/rules: rename gdcmsharpglue.so only when needed. 
+    Closes: #871023
+
+ -- Gert Wollny <gewo@debian.org>  Mon, 07 Aug 2017 07:28:44 +0000
+
 gdcm (2.8.2-2) unstable; urgency=medium
 
   * d/rules: ignore csharp rules on archs that don't support it
