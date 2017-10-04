@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8.7)
 if(POLICY CMP0022)
-  cmake_policy(SET CMP0022 OLD)
+  cmake_policy(SET CMP0022 NEW)
 endif()
 if(POLICY CMP0025)
   cmake_policy(SET CMP0025 NEW)
 endif()
 if(POLICY CMP0026)
-  cmake_policy(SET CMP0026 OLD)
+  cmake_policy(SET CMP0026 NEW)
 endif()
 if(POLICY CMP0042)
   cmake_policy(SET CMP0042 NEW)
@@ -35,7 +35,7 @@ set(GDCM_PACKAGE_CONTACT "GDCM Developers <gdcm-developers@lists.sourceforge.net
 #----------------------------------------------------------------------------
 set(GDCM_MAJOR_VERSION 2)
 set(GDCM_MINOR_VERSION 8)
-set(GDCM_BUILD_VERSION 2)
+set(GDCM_BUILD_VERSION 3)
 set(GDCM_VERSION
   "${GDCM_MAJOR_VERSION}.${GDCM_MINOR_VERSION}.${GDCM_BUILD_VERSION}")
 # let advanced user the option to define GDCM_API_VERSION:
@@ -543,7 +543,10 @@ set(GDCM_EXECUTABLE_DIR ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_CFG_INTDIR})
 #-----------------------------------------------------------------------------
 # we need to link against CoreFoundation so that we can use CFBundle to get the executable path.
 if(APPLE)
-  find_library(COREFOUNDATION_LIBRARY CoreFoundation )
+  option(GDCM_USE_COREFOUNDATION_LIBRARY "Use COREFOUNDATION_LIBRARY?" ON)
+  if(GDCM_USE_COREFOUNDATION_LIBRARY)
+    find_library(COREFOUNDATION_LIBRARY CoreFoundation )
+  endif()
 endif()
 
 #-----------------------------------------------------------------------------
