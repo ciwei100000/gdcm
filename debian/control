@@ -40,7 +40,7 @@ Build-Depends-Indep: vtk6-doc,
 	       ghostscript, 
                graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.0.0
+Standards-Version: 4.1.1
 X-Python-Version: 2.7
 Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
 Vcs-git: https://anonscm.debian.org/git/debian-med/gdcm.git
