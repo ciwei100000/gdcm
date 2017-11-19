@@ -2,3 +2,4 @@
 03_linkvtkdoc.patch
 04_multiarch.patch
 use_system_findjni.patch
+unforce_cxx98.patch
