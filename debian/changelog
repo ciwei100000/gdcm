@@ -33,6 +33,12 @@ gdcm (2.8.6-1) unstable; urgency=medium
 
  -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 10:30:49 +0200
 
+gdcm (2.8.4-2) unstable; urgency=medium
+
+  * d/rules: update default java version on all archs
+
+ -- Gert Wollny <gewo@debian.org>  Mon, 02 Apr 2018 19:12:36 +0200
+
 gdcm (2.8.4-1) unstable; urgency=medium
 
   * New upstream version 2.8.4
