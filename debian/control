@@ -11,23 +11,23 @@ Build-Depends: cmake (>= 2.8.9),
 	       default-jdk,
                dh-strip-nondeterminism, 
                dh-python, 
-	       python-all-dev,
+	       python3-all-dev,
 	       pvrg-jpeg,
 	       uuid-dev,
 	       libz-dev,
 	       libexpat-dev,
 	       swig3.0,
 	       javahelper,
-	       libvtk6-dev,
+	       libvtk7-dev,
 	       libcharls-dev (>= 1.1.0),
 	       libopenjp2-7-dev,
-	       libvtk6-java,
+	       libvtk7-java,
 	       libxml2-dev,
 	       libjson-c-dev,
 	       libpoppler-private-dev,
 	       libssl-dev,
 	       ninja-build,
-	       python-vtk6,
+	       python3-vtk7,
 	       castxml,
 	       libsocket++-dev,
 	       libpapyrus3-dev,
@@ -35,7 +35,7 @@ Build-Depends: cmake (>= 2.8.9),
 	       mono-devel (>= 2.10.5) [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64],
 	       xsltproc, 
                docbook-xsl-ns
-Build-Depends-Indep: vtk6-doc,
+Build-Depends-Indep: vtk7-doc,
 	       doxygen,
 	       doxygen-latex,
 	       ghostscript, 
@@ -100,10 +100,10 @@ Description: Grassroots DICOM CLI bindings
  CLI bindings to the GDCM DICOM library. It allows developers to use
  GDCM from C# environment.
 
-Package: python-gdcm
+Package: python3-gdcm
 Section: python
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, libgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libgdcm2.8 (= ${binary:Version})
 Provides: ${python:Provides}
 Description: Grassroots DICOM Python bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
@@ -150,12 +150,12 @@ Description: Grassroots DICOM VTK CLI bindings
  .
  VTK CLI bindings to the GDCM DICOM library.
 
-Package: python-vtkgdcm
+Package: python3-vtkgdcm
 Section: python
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, libvtkgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libvtkgdcm2.8 (= ${binary:Version})
 Provides: ${python:Provides}
-Suggests: python-gdcm
+Suggests: python3-gdcm
 Description: Grassroots DICOM VTK/Python bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports

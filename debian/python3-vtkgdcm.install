@@ -1,0 +1,3 @@
+usr/lib/python3*/dist-packages/vtkgdcm.py
+usr/lib/python3*/dist-packages/libvtkgdcmPython.so*
+usr/lib/*/libvtkgdcmPythonD.so*
