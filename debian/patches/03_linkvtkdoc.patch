@@ -1,6 +1,5 @@
-Description: Correct use of scripts from vtk6-doc 
- In vtk6-doc these scripts are installed compresses. The patch
- takes care of providing uncompressed versions.  
+Description: Correct use of scripts from vtk7-doc 
+ In vtk7-doc these scripts are installed uncompressed. 
  In addition the patch changes the vtk doxygen source directory and
  incorporates an patch to link to the VTK doc and replace PNG by SVG,
  Merged to one patch because they overlap partially. 
@@ -25,8 +24,8 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
 -  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk-doc/html")
 -  elseif(EXISTS "/usr/share/doc/vtk6-doc/doxygen")
 -  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk6-doc/doxygen")
-+  if(EXISTS "/usr/share/vtk-6.2/doxygen")
-+  set(DOXYGEN_SOURCE_DIR "/usr/share/vtk-6.2/doxygen")
++  if(EXISTS "/usr/share/vtk-7.1/doxygen")
++  set(DOXYGEN_SOURCE_DIR "/usr/share/vtk-7.1/doxygen")
    else()
 -  message(WARNING "DOXYGEN_SOURCE_DIR need to be set.")
 +  message("DOXYGEN_SOURCE_DIR need to be set.")
@@ -44,29 +43,13 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
    endif()
 --- a/Utilities/doxygen/vtk/doc_makeall.sh.in
 +++ b/Utilities/doxygen/vtk/doc_makeall.sh.in
-@@ -169,12 +169,12 @@
- # Convert the VTK headers to the Doxygen format.
- echo "Convert the VTK headers to the Doxygen format."
- if test "x$PERL_PROG" != "xNOTFOUND" ; then
--    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl" \
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl"  \
-         --to "$INTERMEDIATE_DOX_DIR" \
-         --relativeto "@DOXYGEN_SOURCE_LOCATIONS_DIR@" \
-         @DOXYGEN_SOURCE_LOCATIONS@ || echoexit "Problem converting VTK headers"
-     if test "x@DOXYGEN_BINARY_LOCATIONS_DIR@" != "x"; then
--      $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl" \
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl.gz" \
-         --to "$INTERMEDIATE_DOX_DIR" \
-         --relativeto "@DOXYGEN_BINARY_LOCATIONS_DIR@" \
-         @DOXYGEN_BINARY_LOCATIONS@ || echoexit "Problem converting VTK headers"
 @@ -186,13 +186,16 @@
  # Build the full-text index.
  echo "Build the full-text index."
  if test "x$PERL_PROG" != "xNOTFOUND" ; then
--    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl" \
 +   cp "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.stop" doc_index.stop
 +
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl.gz" \
+     $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl" \
          --project "$PROJECT_NAME" \
 -        --stop  "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.stop" \
 +        --stop  "doc_index.stop" \
@@ -78,24 +61,6 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
  fi
  echo "Build the full-text index - done"
  
-@@ -201,7 +204,7 @@
- #  # demos that use that class.
- 
- #  if test "x$PERL_PROG" != "xNOTFOUND" ; then
--#      $PERL_PROG $PATH_TO_VTK_DOX_SCRIPTS/doc_class2example.pl \
-+#      gzip -dc $PATH_TO_VTK_DOX_SCRIPTS/doc_class2example.pl | $PERL_PROG - \
- #          --datamatch "\W((VTK|ParaView)_DATA_ROOT|(VTK|MedVIP)Data|(vtk)?GetDataRoot|ExpandDataFileName)\W" \
- #          --dataicon "paper-clip.gif" \
- #          --dirmatch "^demos$" \
-@@ -246,7 +249,7 @@
- # Clean the HTML pages to remove the path to the intermediate Doxygen dir.
- 
- if test "x$PERL_PROG" != "xNOTFOUND" ; then
--    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_rmpath.pl" \
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_rmpath.pl.gz" \
-         --to "$INTERMEDIATE_DOX_DIR" \
-         --html "$OUTPUT_DIRECTORY/html" || echoexit "Problem cleaning HTML pages"
- fi
 --- a/Utilities/doxygen/vtk/doxyfile.in
 +++ b/Utilities/doxygen/vtk/doxyfile.in
 @@ -23,6 +23,7 @@

@@ -3,3 +3,4 @@
 04_multiarch.patch
 use_system_findjni.patch
 unforce_cxx98.patch
+add_cxx11_vtk_defines.patch
