@@ -11,10 +11,11 @@ gdcm (2.8.6-1) unstable; urgency=medium
 
  -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 10:30:49 +0200
 
-gdcm (2.8.5-1) UNRELEASED; urgency=medium
+gdcm (2.8.5-1~exp1) experimental; urgency=medium
 
   * Move to vtk7 and python3
   * New upstream version 2.8.5
+  * d/gdcm-doc.doc-base: Update version umber in pdf file
 
  -- Gert Wollny <gewo@debian.org>  Tue, 10 Apr 2018 09:04:33 +0200
 
