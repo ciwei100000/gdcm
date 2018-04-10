@@ -1216,6 +1216,8 @@ std::vector<double> ImageHelper::GetSpacingValue(File const & f)
     // Else.
     // How do I send an error ?
     sp.resize( 3 ); // FIXME !!
+    sp[0] = 1.;
+    sp[1] = 1.;
     sp[2] = 1.;
     gdcmWarningMacro( "Could not find Spacing" );
     return sp;
@@ -1535,13 +1537,13 @@ void ImageHelper::SetSpacingValue(DataSet & ds, const std::vector<double> & spac
 
         // <entry group="0028" element="9110" vr="SQ" vm="1" name="Pixel Measures Sequence"/>
         // do not set spacing between slices since GDCM always recompute it from the IOP/IPP
-        //Attribute<0x0018,0x0088> at2;
-        //at2.SetValue( fabs(spacing[2]) );
+        Attribute<0x0018,0x0088> at2;
+        at2.SetValue( fabs(spacing[2]) );
         Attribute<0x0028,0x0030> at1;
         at1.SetValue( spacing[1], 0 );
         at1.SetValue( spacing[0], 1 );
         subds2.Replace( at1.GetAsDataElement() );
-        //subds2.Replace( at2.GetAsDataElement() );
+        subds2.Replace( at2.GetAsDataElement() );
       }
     // cleanup per-frame
     {
@@ -1561,7 +1563,14 @@ void ImageHelper::SetSpacingValue(DataSet & ds, const std::vector<double> & spac
         }
       }
     }
-
+    // cleanup root (famous MR -> EMR case) 
+    {
+    const Tag t1(0x0018,0x0088);
+    ds.Remove(t1);
+    const Tag t2(0x0028,0x0030);
+    ds.Remove(t2);
+    }
+ 
     return;
     }
 
@@ -2570,7 +2579,7 @@ SmartPointer<LookupTable> ImageHelper::GetLUT(File const& f)
         {
         // LookupTableType::RED == 0
         lut->SetLUT( LookupTable::LookupTableType(i),
-          (unsigned char*)lut_raw->GetPointer(), lut_raw->GetLength() );
+          (const unsigned char*)lut_raw->GetPointer(), lut_raw->GetLength() );
         //assert( pf.GetBitsAllocated() == el_us3.GetValue(2) );
         }
       else
@@ -2589,7 +2598,7 @@ SmartPointer<LookupTable> ImageHelper::GetLUT(File const& f)
       if( lut_raw )
         {
         lut->SetLUT( LookupTable::LookupTableType(i),
-          (unsigned char*)lut_raw->GetPointer(), lut_raw->GetLength() );
+          (const unsigned char*)lut_raw->GetPointer(), lut_raw->GetLength() );
         //assert( pf.GetBitsAllocated() == el_us3.GetValue(2) );
         }
       else
