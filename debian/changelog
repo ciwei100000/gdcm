@@ -1,9 +1,12 @@
-gdcm (2.8.6-1) unstable; urgency=medium
+gdcm (2.8.6-1) UNRELEASED; urgency=medium
 
   * New upstream version 2.8.6
   * d/gdcm-doc.doc-base: update version
+  * d/rules: update default java version on all archs
+  * d/p/03: update for VTK-6.3
+  * d/p/use_swig..: use new swig_add_library for csharp
 
- -- Gert Wollny <gewo@debian.org>  Fri, 27 Apr 2018 15:56:15 +0200
+ -- Gert Wollny <gewo@debian.org>  Sat, 28 Apr 2018 22:44:37 +0200
 
 gdcm (2.8.4-1) unstable; urgency=medium
 
