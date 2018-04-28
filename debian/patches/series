@@ -3,3 +3,4 @@
 04_multiarch.patch
 use_system_findjni.patch
 unforce_cxx98.patch
+use_swig_add_library_for_csharp.patch
