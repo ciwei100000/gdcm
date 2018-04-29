@@ -40,7 +40,7 @@ else
 endif
 
 %:
-	dh $@ $(WITH_CLI) --with python2 --parallel --with javahelper 
+	dh $@ $(WITH_CLI) --with python2 --with javahelper  --buildsystem=cmake+ninja
 
 PYVER 	 := $(shell pyversions -dv)
 PYMODDIR := /usr/lib/$(shell pyversions -r)
