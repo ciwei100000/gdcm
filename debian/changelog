@@ -1,3 +1,9 @@
+gdcm (2.8.6-1python3) experimental; urgency=medium
+
+  * Experimental upload with python 3 support 
+
+ -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 23:51:14 +0200
+
 gdcm (2.8.6-1) unstable; urgency=medium
 
   * New upstream version 2.8.6
