@@ -5,8 +5,11 @@ gdcm (2.8.6-1) UNRELEASED; urgency=medium
   * d/rules: update default java version on all archs
   * d/p/03: update for VTK-6.3
   * d/p/use_swig..: use new swig_add_library for csharp
+  * d/rules: update default java version on all archs
+  * d/control: Force openjdk-8 to work around #894371
+  * d/control: update vcs-url's
 
- -- Gert Wollny <gewo@debian.org>  Sat, 28 Apr 2018 22:44:37 +0200
+ -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 10:30:49 +0200
 
 gdcm (2.8.4-1) unstable; urgency=medium
 
