@@ -55,7 +55,7 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
          @DOXYGEN_SOURCE_LOCATIONS@ || echoexit "Problem converting VTK headers"
      if test "x@DOXYGEN_BINARY_LOCATIONS_DIR@" != "x"; then
 -      $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl" \
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl.gz" \
++    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_header2doxygen.pl" \
          --to "$INTERMEDIATE_DOX_DIR" \
          --relativeto "@DOXYGEN_BINARY_LOCATIONS_DIR@" \
          @DOXYGEN_BINARY_LOCATIONS@ || echoexit "Problem converting VTK headers"
@@ -63,10 +63,9 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
  # Build the full-text index.
  echo "Build the full-text index."
  if test "x$PERL_PROG" != "xNOTFOUND" ; then
--    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl" \
 +   cp "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.stop" doc_index.stop
 +
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl.gz" \
+     $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.pl" \
          --project "$PROJECT_NAME" \
 -        --stop  "$PATH_TO_VTK_DOX_SCRIPTS/doc_index.stop" \
 +        --stop  "doc_index.stop" \
@@ -87,15 +86,6 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
  #          --datamatch "\W((VTK|ParaView)_DATA_ROOT|(VTK|MedVIP)Data|(vtk)?GetDataRoot|ExpandDataFileName)\W" \
  #          --dataicon "paper-clip.gif" \
  #          --dirmatch "^demos$" \
-@@ -246,7 +249,7 @@
- # Clean the HTML pages to remove the path to the intermediate Doxygen dir.
- 
- if test "x$PERL_PROG" != "xNOTFOUND" ; then
--    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_rmpath.pl" \
-+    $PERL_PROG "$PATH_TO_VTK_DOX_SCRIPTS/doc_rmpath.pl.gz" \
-         --to "$INTERMEDIATE_DOX_DIR" \
-         --html "$OUTPUT_DIRECTORY/html" || echoexit "Problem cleaning HTML pages"
- fi
 --- a/Utilities/doxygen/vtk/doxyfile.in
 +++ b/Utilities/doxygen/vtk/doxyfile.in
 @@ -23,6 +23,7 @@
