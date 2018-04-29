@@ -128,7 +128,7 @@ ifeq ($(DEB_WRAP_CSHARP), 1)
 endif
 
 override_dh_auto_install-indep: 
-	DESTDIR=$(CURDIR)/debian/tmp/ $(MAKE) -C obj-*/Utilities/doxygen/ install 
+	DESTDIR=$(CURDIR)/debian/tmp/ cmake --build  obj-* --target Utilities/doxygen/install 
 
 #override_dh_auto_install-arch:
 #	dh_install --list-missing
@@ -143,6 +143,8 @@ endif
 
 # No tests needed for docs
 override_dh_auto_test-indep:
+
+override_dh_auto_test-arch:
 
 pkg_doc = gdcm-doc
 pkg_exa = gdcm-examples
