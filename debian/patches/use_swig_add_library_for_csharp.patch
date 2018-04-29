@@ -1,4 +1,5 @@
 Description: Use_swig_add_library_for_csharp
+Author: Gert Wollny <gewo@debian.org>
 --- a/Wrapping/Csharp/CMakeLists.txt
 +++ b/Wrapping/Csharp/CMakeLists.txt
 @@ -23,7 +23,8 @@

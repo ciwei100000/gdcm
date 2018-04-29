@@ -1,3 +1,5 @@
+Author: Gert Wollny <gewo@debian.org>
+Description: Make building with ninja possible
 --- a/Utilities/doxygen/CMakeLists.txt
 +++ b/Utilities/doxygen/CMakeLists.txt
 @@ -124,12 +124,12 @@
