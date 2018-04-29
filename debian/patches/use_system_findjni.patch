@@ -1,3 +1,4 @@
+Description: Use_system_findjni
 --- a/CMake/FindJNI.cmake
 +++ /dev/null
 @@ -1,83 +0,0 @@

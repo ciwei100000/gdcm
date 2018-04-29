@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: gdcm
 Upstream-Contact: malat@users.sf.net
 Source: http://gdcm.sf.net
@@ -33,7 +33,7 @@ License: BSD-3-clause-alike-CREATIS
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Files:Source/MediaStorageAndFileFormat/gdcmStreamImageReader.cxx
+Files: Source/MediaStorageAndFileFormat/gdcmStreamImageReader.cxx
  Source/MediaStorageAndFileFormat/gdcmStreamImageReader.h
  Source/MediaStorageAndFileFormat/gdcmStreamImageWriter.h
  Source/MediaStorageAndFileFormat/gdcmStreamImageWriter.cxx
@@ -102,17 +102,17 @@ Files:Source/MediaStorageAndFileFormat/gdcmStreamImageReader.cxx
  Testing/Source/MessageExchangeDefinition/Cxx/TestPresentationContextRQ.cxx
  Testing/Source/MessageExchangeDefinition/Cxx/TestSCUFunctions.cxx
 Copyright: Insight Software Consortium
-License: Apache-2.0 
+License: Apache-2.0
 
 Files: Applications/Python/*
-Copyright:  2008 Emanuele Rocca <ema@galliera.it>
+Copyright: 2008 Emanuele Rocca <ema@galliera.it>
  2008 Marco De Benedetto <debe@galliera.it>
  2006-2011 Mathieu Malaterre
-License: Apache-2.0 
+License: Apache-2.0
 
-Files:Examples/Csharp/MpegVideoInfo.cs
+Files: Examples/Csharp/MpegVideoInfo.cs
 Copyright: 2007 Chris Anderson >chrisa@wordpress.com>
-License: LGPL-2+ 
+License: LGPL-2+
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
@@ -188,36 +188,10 @@ Files: Utilities/gdcmcharls/jpegimagedatasegment.h
  Utilities/gdcmcharls/jpegstreamwriter.h
 Copyright: (C) CharLS Team 2014
 License: BSD-3-clause-alike-Jan-de-Vaan
- 
+
 Files: Utilities/gdcmcharls/*
 Copyright: 2007-2010, Jan de Vaan
 License: BSD-3-clause-alike-Jan-de-Vaan
-
-License: BSD-3-clause-alike-Jan-de-Vaan
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
- .
- * Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
- .
- * Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
- .
- * Neither the name of my employer, nor the names of its contributors may be
-   used to endorse or promote products derived from this software without
-   specific prior written permission.
- .
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Files: Utilities/gdcmexpat/*
 Copyright: 1998, 1999, 2000 Thai Open Source Software Center Ltd
@@ -245,7 +219,7 @@ License: Expat
 
 Files: Utilities/gdcmjpeg/*
 Copyright: 1991-1998, Thomas G. Lane.
-License: gdcmjpeg 
+License: gdcmjpeg
  Permission is hereby granted to use, copy, modify, and distribute this
  software (or portions thereof) for any purpose, without fee, subject to these
  conditions:
@@ -273,10 +247,9 @@ License: gdcmjpeg
  commercial products, provided that all warranty or liability claims are
  assumed by the product vendor.
 
-
 Files: Utilities/gdcmmd5/md5main.c
  Utilities/gdcmmd5/md5.c
- Utilities/gdcmmd5/md5.h 
+ Utilities/gdcmmd5/md5.h
 Copyright: 1999, 2002 Aladdin Enterprises.  All rights reserved.
 License: zlib/libpng
  This software is provided 'as-is', without any express or implied
@@ -401,7 +374,7 @@ License: Zlib
  3. This notice may not be removed or altered from any source distribution.
 
 Files: Utilities/getopt/*
-Copyright: 2000 The NetBSD Foundation, Inc.                      
+Copyright: 2000 The NetBSD Foundation, Inc.
 License: BSD-4-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions
@@ -458,3 +431,29 @@ License: socketxx
 License: Apache-2.0
  On Debian GNU/Linux system you can find the complete text of the
  Apache 2.0 license in '/usr/share/common-licenses/Apache-2.0'.
+
+License: BSD-3-clause-alike-Jan-de-Vaan
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+ .
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ .
+ * Neither the name of my employer, nor the names of its contributors may be
+   used to endorse or promote products derived from this software without
+   specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

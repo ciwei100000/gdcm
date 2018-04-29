@@ -1,7 +1,6 @@
 Description: fix relative links now that gdcm is multi-arched
+Bug-Debian: https://bugs.debian.org/764029
 Author: Mathieu Malaterre <malat@debian.org>
-Bug-Debian: http://bugs.debian.org/764029
-
 --- a/CMake/ExportConfiguration/GDCMConfig.cmake.in
 +++ b/CMake/ExportConfiguration/GDCMConfig.cmake.in
 @@ -37,9 +37,9 @@

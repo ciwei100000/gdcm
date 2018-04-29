@@ -5,10 +5,10 @@ Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.
 Uploaders: Andreas Tille <tille@debian.org>,
  Steve M. Robbins <smr@debian.org>,
  Sébastien Jodogne <s.jodogne@gmail.com>, 
- Gert Wollny <gewo@debian.org> 
+ Gert Wollny <gw.fossdev@gmail.com> 
 Build-Depends: cmake (>= 2.8.9),
                debhelper (>= 9),
-	       openjdk-8-jdk, 
+	       openjdk-8-jdk,
                dh-strip-nondeterminism, 
                dh-python, 
 	       python-all-dev,
@@ -40,10 +40,10 @@ Build-Depends-Indep: vtk6-doc,
 	       ghostscript, 
                graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.1.1
+Standards-Version: 4.1.4
 X-Python-Version: 2.7
-Vcs-Browser: https://anonscm.debian.org/cgit/debian-med/gdcm.git
-Vcs-git: https://anonscm.debian.org/git/debian-med/gdcm.git
+Vcs-Browser: https://salsa.debian.org/med-team/gdcm
+Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
 
 Package: libgdcm2.8
