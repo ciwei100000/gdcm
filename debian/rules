@@ -32,6 +32,12 @@ ifeq ($(DEB_BUILD_ARCH),$(filter $(DEB_BUILD_ARCH),hppa hurd-i386))
   DEFAULT_JAVA_VERSION=1.5
 endif 
 
+# set JAVA path on arm, doesn't seem to find it otherwise
+ifeq ($(DEB_BUILD_ARCH),$(filter $(DEB_BUILD_ARCH),armhf armel arm64 powerpc ppc64el))
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-$(DEB_BUILD_ARCH)
+endif 
+
+
 # deduce documentation option (build-indep target)
 ifeq "" "$(filter %-doc,$(shell dh_listpackages))"
   BUILDDOC = OFF
