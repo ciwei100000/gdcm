@@ -1,4 +1,4 @@
-gdcm (2.8.6-2python3-1) experimental; urgency=medium
+gdcm (2.8.6-2python3.1) experimental; urgency=medium
 
   * Experimental upload with python 3 support 
 
