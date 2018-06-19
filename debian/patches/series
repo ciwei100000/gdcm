@@ -6,3 +6,4 @@ unforce_cxx98.patch
 use_swig_add_library_for_csharp.patch
 enable_ninja_build.patch
 add_cxx11_vtk_defines.patch
+gdcm-fix-xslt-maxdepth.patch
