@@ -8,3 +8,4 @@ enable_ninja_build.patch
 gdcm-fix-xslt-maxdepth.patch
 fix-vtkjava-build-dir.patch
 add_cxx11_vtk_defines.patch
+gdcm-fix-xslt-maxdepth.patch
