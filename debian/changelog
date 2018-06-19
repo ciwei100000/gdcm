@@ -6,12 +6,6 @@ gdcm (2.8.7-1) unstable; urgency=medium
 
  -- Gert Wollny <gewo@debian.org>  Sat, 30 Jun 2018 11:41:20 +0200
 
-gdcm (2.8.6-2exp1python3) experimental; urgency=medium
-
-  * Experimental upload with python 3 support 
-
- -- Gert Wollny <gewo@debian.org>  Tue, 19 Jun 2018 23:58:51 +0200
-
 gdcm (2.8.6-2) unstable; urgency=medium
 
   * d/p/gdcm-fix-xslt-maxdepth.patch set maxdeph Closes: #901519
@@ -25,12 +19,6 @@ gdcm (2.8.6-2) unstable; urgency=medium
     powerpc ppc64el
 
  -- Gert Wollny <gewo@debian.org>  Wed, 16 May 2018 01:04:30 +0200
-
-gdcm (2.8.6-1python3) experimental; urgency=medium
-
-  * Experimental upload with python 3 support 
-
- -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 23:51:14 +0200
 
 gdcm (2.8.6-1) unstable; urgency=medium
 
