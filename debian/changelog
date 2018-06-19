@@ -1,3 +1,10 @@
+gdcm (2.8.6-3) unstable; urgency=medium
+
+  * d/p/gdcm-fix-xslt-maxdepth.patch set maxdeph Closes: #901519
+  * d/control: remove useless python version field
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 19 Jun 2018 23:58:51 +0200
+
 gdcm (2.8.6-2) unstable; urgency=medium
 
   * d/rules: Add explicit java home path on arm* and 
