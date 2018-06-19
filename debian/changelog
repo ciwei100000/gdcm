@@ -1,3 +1,9 @@
+gdcm (2.8.6-3exp1python3) experimental; urgency=medium
+
+  * d/p/gdcm-fix-xslt-maxdepth.patch set maxdeph Closes: #901519
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 19 Jun 2018 23:48:42 +0200
+
 gdcm (2.8.6-2exp1python3) experimental; urgency=medium
 
   * Experimental upload with python 3 support 
