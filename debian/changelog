@@ -1,3 +1,9 @@
+gdcm (2.8.7-2python3-exp1) experimental; urgency=medium
+
+  * Experimental upload with python3 support
+
+ -- Gert Wollny <gewo@debian.org>  Sat, 30 Jun 2018 12:02:59 +0200
+
 gdcm (2.8.7-1) unstable; urgency=medium
 
   * d/control: Change back to default-jdk
