@@ -7,3 +7,4 @@ use_swig_add_library_for_csharp.patch
 enable_ninja_build.patch
 gdcm-fix-xslt-maxdepth.patch
 
+fix-vtkjava-build-dir.patch
