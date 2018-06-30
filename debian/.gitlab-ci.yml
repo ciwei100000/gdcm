@@ -8,7 +8,7 @@ build:
   script:
     - git checkout pristine-tar 
     - git pull 
-    - git checkout master 
+    - git checkout experimental
     - git pull 
     # silence build to not exceed build log size of gitlab-ci
     - gbp buildpackage -uc -us 2>&1 >../build.log
