@@ -1,4 +1,4 @@
-gdcm (2.8.7-1) UNRELEASED; urgency=medium
+gdcm (2.8.7-1) unstable; urgency=medium
 
   * d/control: Change back to default-jdk
   * New upstream version 2.8.7
