@@ -8,7 +8,7 @@ Uploaders: Andreas Tille <tille@debian.org>,
  Gert Wollny <gewo@debian.org> 
 Build-Depends: cmake (>= 2.8.9),
                debhelper (>= 11),
-	       openjdk-8-jdk,
+	       default-jdk,
                dh-strip-nondeterminism, 
                dh-python, 
 	       python-all-dev,
