@@ -1,9 +1,17 @@
-gdcm (2.8.7-1.1) UNRELEASED; urgency=medium
+
+gdcm (2.8.7-2) UNRELEASED; urgency=medium
 
   [ Andreas Tille ]
   * Remove myself from Uploaders
 
+
  -- Andreas Tille <tille@debian.org>  Sat, 18 Aug 2018 07:22:27 +0200
+
+gdcm (2.8.7-1python3exp1) experimental; urgency=medium
+
+  * Experimental upload with python3 support
+
+ -- Gert Wollny <gewo@debian.org>  Sat, 30 Jun 2018 12:02:59 +0200
 
 gdcm (2.8.7-1) unstable; urgency=medium
 
@@ -13,7 +21,7 @@ gdcm (2.8.7-1) unstable; urgency=medium
 
  -- Gert Wollny <gewo@debian.org>  Sat, 30 Jun 2018 11:41:20 +0200
 
-gdcm (2.8.6-3) unstable; urgency=medium
+gdcm (2.8.6-2) unstable; urgency=medium
 
   * d/p/gdcm-fix-xslt-maxdepth.patch set maxdeph Closes: #901519
   * d/control: remove useless python version field
@@ -39,6 +47,20 @@ gdcm (2.8.6-1) unstable; urgency=medium
   * d/control: update vcs-url's
 
  -- Gert Wollny <gewo@debian.org>  Sun, 29 Apr 2018 10:30:49 +0200
+
+gdcm (2.8.5-1~exp1) experimental; urgency=medium
+
+  * Move to vtk7 and python3
+  * New upstream version 2.8.5
+  * d/gdcm-doc.doc-base: Update version umber in pdf file
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 10 Apr 2018 09:04:33 +0200
+
+gdcm (2.8.4-2) unstable; urgency=medium
+
+  * d/rules: update default java version on all archs
+
+ -- Gert Wollny <gewo@debian.org>  Mon, 02 Apr 2018 19:12:36 +0200
 
 gdcm (2.8.4-1) unstable; urgency=medium
 

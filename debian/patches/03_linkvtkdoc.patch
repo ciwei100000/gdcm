@@ -1,6 +1,5 @@
-Description: Correct use of scripts from vtk6-doc 
- In vtk6-doc these scripts are installed compresses. The patch
- takes care of providing uncompressed versions.  
+Description: Correct use of scripts from vtk7-doc 
+ In vtk7-doc these scripts are installed uncompressed. 
  In addition the patch changes the vtk doxygen source directory and
  incorporates an patch to link to the VTK doc and replace PNG by SVG,
  Merged to one patch because they overlap partially. 
@@ -25,8 +24,8 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
 -  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk-doc/html")
 -  elseif(EXISTS "/usr/share/doc/vtk6-doc/doxygen")
 -  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk6-doc/doxygen")
-+  if(EXISTS "/usr/share/vtk-6.3/doxygen")
-+  set(DOXYGEN_SOURCE_DIR "/usr/share/vtk-6.3/doxygen")
++  if(EXISTS "/usr/share/vtk-7.1/doxygen")
++  set(DOXYGEN_SOURCE_DIR "/usr/share/vtk-7.1/doxygen")
    else()
 -  message(WARNING "DOXYGEN_SOURCE_DIR need to be set.")
 +  message("DOXYGEN_SOURCE_DIR need to be set.")
