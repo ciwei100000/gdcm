@@ -3,7 +3,9 @@ gdcm (2.8.7-2) UNRELEASED; urgency=medium
 
   [ Andreas Tille ]
   * Remove myself from Uploaders
-
+  
+  [ Gert Wollny ]
+  * switch to python3 Closes: #906535
 
  -- Andreas Tille <tille@debian.org>  Sat, 18 Aug 2018 07:22:27 +0200
 
