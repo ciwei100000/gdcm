@@ -6,8 +6,9 @@ gdcm (2.8.7-2) UNRELEASED; urgency=medium
   
   [ Gert Wollny ]
   * switch to python3 Closes: #906535
+  * d/control.in: Depend on python3 versions of packages
 
- -- Andreas Tille <tille@debian.org>  Sat, 18 Aug 2018 07:22:27 +0200
+ -- Gert Wollny <gewo@debian.org>  Sat, 08 Sep 2018 12:53:00 +0200
 
 gdcm (2.8.7-1python3exp1) experimental; urgency=medium
 
