@@ -1,5 +1,4 @@
-
-gdcm (2.8.7-2) UNRELEASED; urgency=medium
+gdcm (2.8.7-2) unstable; urgency=medium
 
   [ Andreas Tille ]
   * Remove myself from Uploaders
@@ -7,8 +6,11 @@ gdcm (2.8.7-2) UNRELEASED; urgency=medium
   [ Gert Wollny ]
   * switch to python3 Closes: #906535
   * d/control.in: Depend on python3 versions of packages
+  * d/dontrol: Build-depend only on default python3 version,  the 
+    current gdcm build  only supports one python version at a time
+  * d/.gitlab: build from master branch
 
- -- Gert Wollny <gewo@debian.org>  Sat, 08 Sep 2018 12:53:00 +0200
+ -- Gert Wollny <gewo@debian.org>  Sun, 09 Sep 2018 13:36:59 +0200
 
 gdcm (2.8.7-1python3exp1) experimental; urgency=medium
 
