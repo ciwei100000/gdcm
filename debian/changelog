@@ -1,3 +1,9 @@
+gdcm (2.8.7-3) unstable; urgency=medium
+
+  * d/control: Add conflict with python2 packages, Closes: #908472
+
+ -- Gert Wollny <gewo@debian.org>  Mon, 01 Oct 2018 20:48:07 +0200
+
 gdcm (2.8.7-2) unstable; urgency=medium
 
   [ Andreas Tille ]
