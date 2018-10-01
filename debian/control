@@ -104,6 +104,7 @@ Section: python
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libgdcm2.8 (= ${binary:Version})
 Provides: ${python:Provides}
+Conflicts: python-gdcm
 Description: Grassroots DICOM Python bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
@@ -155,6 +156,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libvtkgdcm2.8 (= ${binary:Version})
 Provides: ${python:Provides}
 Suggests: python3-gdcm
+Conflicts: python-vtkgdcm
 Description: Grassroots DICOM VTK/Python bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
