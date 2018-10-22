@@ -53,7 +53,17 @@ Index: gdcm-2.8.7/Applications/Cxx/gdcmpdf.cxx
    int year, mon, day, hour, min, sec, n;
    struct tm tmStruct;
    //char buf[256];
-@@ -104,7 +104,7 @@
+@@ -49,7 +49,8 @@
+   if (infoDict->lookup((char*)key, &obj)->isString())
+ #endif
+     {
+-    s = obj.getString()->getCString();
++    const GooString* gs = obj.getString();
++    s = gs->getCString();
+     if (s[0] == 'D' && s[1] == ':')
+       {
+       s += 2;
+@@ -104,7 +105,7 @@
  static std::string getInfoString(Dict *infoDict, const char *key, UnicodeMap *uMap, GBool & unicode)
  {
    Object obj;
