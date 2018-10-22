@@ -1,3 +1,11 @@
+gdcm (2.8.7-5) unstable; urgency=medium
+
+  * Team upload
+  * d/p/5083513138fc90aa602b93293d2e44ae73e883b0.patch
+    - grab an additional fix from Ubuntu
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 22 Oct 2018 12:48:10 +0200
+
 gdcm (2.8.7-4) unstable; urgency=medium
 
   * Team upload

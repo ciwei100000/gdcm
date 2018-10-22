@@ -40,3 +40,25 @@ index d926a2a8e..2c510d7df 100644
    GBool isUnicode;
    Unicode u;
    char buf[8];
+Index: gdcm-2.8.7/Applications/Cxx/gdcmpdf.cxx
+===================================================================
+--- gdcm-2.8.7.orig/Applications/Cxx/gdcmpdf.cxx
++++ gdcm-2.8.7/Applications/Cxx/gdcmpdf.cxx
+@@ -37,7 +37,7 @@
+ static std::string getInfoDate(Dict *infoDict, const char *key)
+ {
+   Object obj;
+-  char *s;
++  const char *s;
+   int year, mon, day, hour, min, sec, n;
+   struct tm tmStruct;
+   //char buf[256];
+@@ -104,7 +104,7 @@
+ static std::string getInfoString(Dict *infoDict, const char *key, UnicodeMap *uMap, GBool & unicode)
+ {
+   Object obj;
+-  GooString *s1;
++  const GooString *s1;
+   GBool isUnicode = gFalse;
+   Unicode u;
+   char buf[8];
