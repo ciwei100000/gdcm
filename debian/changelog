@@ -1,3 +1,11 @@
+gdcm (2.8.7-4) unstable; urgency=medium
+
+  * Team upload
+  * debian/patches/5083513138fc90aa602b93293d2e44ae73e883b0.patch:
+    - adapt to new poppler 0.69 with upstream patch
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 22 Oct 2018 11:35:13 +0200
+
 gdcm (2.8.7-3) unstable; urgency=medium
 
   * d/control: Add conflict with python2 packages, Closes: #908472
