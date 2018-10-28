@@ -164,7 +164,7 @@ static const char * const printmd5[][2] = {
 { "5797c9dfe94e4a4bccfbf81ab0aaa957" , "MR-SIEMENS-DICOM-WithOverlays.dcm" } ,
 { "df28467760104edc923d0625a0e2a778" , "MR-SIEMENS-DICOM-WithOverlays-extracted-overlays.dcm" } ,
 { "bf324a1c91d3a09d9136f54f5910e570" , "MR_SIEMENS_forceLoad29-1010_29-1020.dcm" } ,
-{ "acbf80a7c610b44caebd52bc22de74f9" , "MR_Spectroscopy_SIEMENS_OF.dcm" } ,
+{ "4b0a24992d94eb6c0ae5e4bb617e1718" , "MR_Spectroscopy_SIEMENS_OF.dcm" } ,
 { "1a5646a7b05840813c067d8c8dfa507e" , "NM-MONO2-16-13x-heart.dcm" } ,
 { "8d8c3b8eb830b57b162e7c9f2d64b214" , "OsirixFake16BitsStoredFakeSpacing.dcm" } ,
 { "bf793beb0e96f2399e467409e3cf5311" , "OT-MONO2-8-a7.dcm" } ,
@@ -238,7 +238,7 @@ static const char * const printmd5[][2] = {
 { "807bf2aef3bc1885217c8a12d2d2bc19" , "JPEGNote_bogus.dcm" },
 { "669cc0e807673ebe57124739a1874f35" , "RLEDebianBug816607Orig.dcm" },
 { "1daa9bb53a8ce090041472f528248686" , "IllegalGroup2ImplicitTS.dcm" },
-{ "49542e6002129f42f86f25e840b6beed" , "GE_MR_0025xx1bProtocolDataBlockXML.dcm" },
+{ "14c982413ba9bce288c2af88f4f751b6" , "GE_MR_0025xx1bProtocolDataBlockXML.dcm" },
 
 
 { 0 ,0 }
@@ -259,7 +259,13 @@ int TestPrint(const char *filename, bool verbose= false)
   std::ostringstream out;
   if( verbose )
     print.Print( std::cout );
+#if defined(_MSC_VER) && (_MSC_VER <= 1800) // Visual Studio 2013
+  auto old_exponent_format = _set_output_format(_TWO_DIGIT_EXPONENT);
+#endif
   print.Print( out );
+#if defined(_MSC_VER) && (_MSC_VER <= 1800) // Visual Studio 2013
+  _set_output_format(old_exponent_format);
+#endif
 
   gdcm::Filename fn( filename );
   const char *name = fn.GetName();
