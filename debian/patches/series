@@ -7,4 +7,3 @@ use_swig_add_library_for_csharp.patch
 enable_ninja_build.patch
 gdcm-fix-xslt-maxdepth.patch
 add_cxx11_vtk_defines.patch
-5083513138fc90aa602b93293d2e44ae73e883b0.patch
