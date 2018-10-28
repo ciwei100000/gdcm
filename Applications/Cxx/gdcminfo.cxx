@@ -189,7 +189,7 @@ static int checkdeflated(const char *name)
 static std::string getInfoDate(Dict *infoDict, const char *key)
 {
   Object obj;
-  char *s;
+  const char *s;
   int year, mon, day, hour, min, sec, n;
   struct tm tmStruct;
   //char buf[256];
@@ -201,7 +201,8 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
   if (infoDict->lookup((char*)key, &obj)->isString())
 #endif
     {
-    s = obj.getString()->getCString();
+    const GooString* gs = obj.getString();
+    s = gs->getCString();
     if (s[0] == 'D' && s[1] == ':')
       {
       s += 2;
@@ -256,7 +257,7 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
 static std::string getInfoString(Dict *infoDict, const char *key, UnicodeMap *uMap)
 {
   Object obj;
-  GooString *s1;
+  const GooString *s1;
   GBool isUnicode;
   Unicode u;
   char buf[8];
@@ -429,6 +430,7 @@ static int ProcessOneFile( std::string const & filename, gdcm::Defs const & defs
 
     if( md5sum )
       {
+      int ret = 0;
       char *buffer = new char[ pimage->GetBufferLength() ];
       gdcm::ImageChangePlanarConfiguration icpc;
       icpc.SetPlanarConfiguration( 0 );
@@ -449,9 +451,11 @@ static int ProcessOneFile( std::string const & filename, gdcm::Defs const & defs
         }
       else
         {
-        std::cout << "Problem decompressing file: " << filename << std::endl;
+        std::cerr << "Problem decompressing file: " << filename << std::endl;
+        ret = 1;
         }
       delete[] buffer;
+      return ret;
       }
     }
   else if ( ms == gdcm::MediaStorage::EncapsulatedPDFStorage )
