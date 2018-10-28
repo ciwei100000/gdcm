@@ -4,8 +4,8 @@ Author: Gert Wollny <gewo@debian.org>
 
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -15,7 +15,6 @@
-   cmake_policy(SET CMP0063 NEW)
+@@ -18,7 +18,6 @@
+   cmake_policy(SET CMP0074 NEW)
  endif()
  project(GDCM)
 -set(CMAKE_CXX_STANDARD 98)
