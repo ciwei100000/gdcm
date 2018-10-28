@@ -1,6 +1,8 @@
 gdcm (2.8.8-2) unstable; urgency=medium
 
   * Fix upload (forgot to pull latest changes)
+  * Remove d/p/5083513138fc90aa602b93293d2e44ae73e883b0.patch
+    (applied upstream)
 
  -- Gert Wollny <gewo@debian.org>  Sun, 28 Oct 2018 18:05:07 +0100
 
