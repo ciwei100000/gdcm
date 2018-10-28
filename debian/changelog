@@ -1,3 +1,10 @@
+gdcm (2.8.8-1) UNRELEASED; urgency=medium
+
+  * New upstream version 2.8.8
+  * d/p: remove fix-vtkjava-build-dir.patch (applied upstream)
+
+ -- Gert Wollny <gewo@debian.org>  Sun, 28 Oct 2018 08:47:13 +0100
+
 gdcm (2.8.7-5) unstable; urgency=medium
 
   * Team upload
