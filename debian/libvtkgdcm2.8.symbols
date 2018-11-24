@@ -71,7 +71,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _Z38vtkImageMapToWindowLevelColors2ExecuteIyEvP31vtkImageMapToWindowLevelColors2P12vtkImageDataPT_S3_PhPii@Base 2.8.7
  _ZN10vtkCommand10UnRegisterEP13vtkObjectBase@Base 2.8.7
  _ZN10vtkCommand3IsAEPKc@Base 2.8.7
- _ZN11vtkBitArray14GetVoidPointerEx@Base 2.8.7
  _ZN12vtkAlgorithm11GetProgressEv@Base 2.8.7
  _ZN12vtkAlgorithm11SetProgressEd@Base 2.8.7
  _ZN12vtkAlgorithm12GetErrorCodeEv@Base 2.8.7
@@ -88,6 +87,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN12vtkAlgorithm19GetProgressMinValueEv@Base 2.8.7
  _ZN12vtkAlgorithm19GetProgressObserverEv@Base 2.8.7
  _ZN12vtkCellArray14InsertNextCellExPKx@Base 2.8.7
+ _ZN12vtkImageData10GetSpacingEv@Base 2.8.7-2
  _ZN12vtkImageData17GetNumberOfPointsEv@Base 2.8.7
  _ZN12vtkImageData9GetExtentEPi@Base 2.8.7
  _ZN12vtkImageData9GetExtentERiS0_S0_S0_S0_S0_@Base 2.8.7
@@ -119,7 +119,11 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN13vtkDataWriter18SetPedigreeIdsNameEPKc@Base 2.8.7
  _ZN13vtkDataWriter19GetFileTypeMaxValueEv@Base 2.8.7
  _ZN13vtkDataWriter19GetFileTypeMinValueEv@Base 2.8.7
+ _ZN13vtkDataWriter20WriteArrayMetaDataOnEv@Base 2.8.7-2
  _ZN13vtkDataWriter21GetOutputStringLengthEv@Base 2.8.7
+ _ZN13vtkDataWriter21GetWriteArrayMetaDataEv@Base 2.8.7-2
+ _ZN13vtkDataWriter21SetWriteArrayMetaDataEb@Base 2.8.7-2
+ _ZN13vtkDataWriter21WriteArrayMetaDataOffEv@Base 2.8.7-2
  _ZN13vtkDataWriter21WriteToOutputStringOnEv@Base 2.8.7
  _ZN13vtkDataWriter22GetWriteToOutputStringEv@Base 2.8.7
  _ZN13vtkDataWriter22SetWriteToOutputStringEi@Base 2.8.7
@@ -252,8 +256,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN15vtkImageReader231SetDataScalarTypeToUnsignedCharEv@Base 2.8.7
  _ZN15vtkImageReader232SetDataScalarTypeToUnsignedShortEv@Base 2.8.7
  _ZN15vtkRenderWindow17SetNumberOfLayersEi@Base 2.8.7
- _ZN16vtkAbstractArray21SetNumberOfComponentsEi@Base 2.8.7
- _ZN16vtkAbstractArray7SetNameEPKc@Base 2.8.7
  _ZN16vtkImageRGBToYBR15ThreadedExecuteEP12vtkImageDataS1_Pii@Base 2.8.7
  _ZN16vtkImageRGBToYBR3IsAEPKc@Base 2.8.7
  _ZN16vtkImageRGBToYBR3NewEv@Base 2.8.7
@@ -472,6 +474,8 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN19vtkGDCMImageReader2D0Ev@Base 2.8.7
  _ZN19vtkGDCMImageReader2D1Ev@Base 2.8.7
  _ZN19vtkGDCMImageReader2D2Ev@Base 2.8.7
+ _ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIxExE11InsertValueExx@Base 2.8.7-2
+ _ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIxExE19EnsureAccessToTupleEx@Base 2.8.7-2
  _ZN19vtkIOImage_AutoInitD1Ev@Base 2.8.7
  _ZN19vtkIOImage_AutoInitD2Ev@Base 2.8.7
  _ZN19vtkImageColorViewer11GetPositionEv@Base 2.8.7
@@ -552,7 +556,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN19vtkImageMapToColors20GetPassAlphaToOutputEv@Base 2.8.7
  _ZN19vtkImageMapToColors20PassAlphaToOutputOffEv@Base 2.8.7
  _ZN19vtkImageMapToColors20SetPassAlphaToOutputEi@Base 2.8.7
- _ZN20vtkDataArrayTemplateIxE8GetValueEx@Base 2.8.7
  _ZN21vtkGDCMPolyDataReader11GetFileNameEv@Base 2.8.7
  _ZN21vtkGDCMPolyDataReader11RequestDataEP14vtkInformationPP20vtkInformationVectorS3_@Base 2.8.7
  _ZN21vtkGDCMPolyDataReader11SetFileNameEPKc@Base 2.8.7
@@ -610,6 +613,8 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN21vtkImageMapToColors16D1Ev@Base 2.8.7
  _ZN21vtkImageMapToColors16D2Ev@Base 2.8.7
  _ZN22vtkMedicalImageReader225GetMedicalImagePropertiesEv@Base 2.8.7
+ _ZN23vtkFiltersCore_AutoInitD1Ev@Base 2.8.7-2
+ _ZN23vtkFiltersCore_AutoInitD2Ev@Base 2.8.7-2
  _ZN23vtkInteractorStyleImage27GetWindowLevelStartPositionEv@Base 2.8.7
  _ZN23vtkInteractorStyleImage29GetWindowLevelCurrentPositionEv@Base 2.8.7
  _ZN24vtkRTStructSetProperties17GetSOPInstanceUIDEv@Base 2.8.7
@@ -729,8 +734,21 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN25vtkMedicalImageProperties6SetKVPEPKc@Base 2.8.7
  _ZN25vtkRenderingCore_AutoInitD1Ev@Base 2.8.7
  _ZN25vtkRenderingCore_AutoInitD2Ev@Base 2.8.7
+ _ZN25vtkThreadedImageAlgorithm12GetEnableSMPEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm12GetSplitModeEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm12SetEnableSMPEb@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm12SetSplitModeEi@Base 2.8.7-2
  _ZN25vtkThreadedImageAlgorithm18GetNumberOfThreadsEv@Base 2.8.7
  _ZN25vtkThreadedImageAlgorithm18SetNumberOfThreadsEi@Base 2.8.7
+ _ZN25vtkThreadedImageAlgorithm19GetMinimumPieceSizeEPi@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm19GetMinimumPieceSizeERiS0_S0_@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm19GetMinimumPieceSizeEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm19SetMinimumPieceSizeEPi@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm19SetMinimumPieceSizeEiii@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm20GetSplitModeMaxValueEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm20GetSplitModeMinValueEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm23GetDesiredBytesPerPieceEv@Base 2.8.7-2
+ _ZN25vtkThreadedImageAlgorithm23SetDesiredBytesPerPieceEx@Base 2.8.7-2
  _ZN25vtkThreadedImageAlgorithm26GetNumberOfThreadsMaxValueEv@Base 2.8.7
  _ZN25vtkThreadedImageAlgorithm26GetNumberOfThreadsMinValueEv@Base 2.8.7
  _ZN25vtkWindowLevelLookupTable14InverseVideoOnEv@Base 2.8.7
@@ -816,6 +834,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN31vtkImageMapToWindowLevelColors2D1Ev@Base 2.8.7
  _ZN31vtkImageMapToWindowLevelColors2D2Ev@Base 2.8.7
  _ZN4gdcm11DataElement12SetByteValueEPKcNS_2VLE@Base 2.8.7
+ _ZN4gdcm12SmartPointerINS_15SequenceOfItemsEEaSEPS1_@Base 2.8.7-2
  _ZN4gdcm12SmartPointerINS_5ValueEEaSEPS1_@Base 2.8.7
  _ZN4gdcm20BitmapToBitmapFilterD1Ev@Base 2.8.7
  _ZN4gdcm20BitmapToBitmapFilterD2Ev@Base 2.8.7
@@ -823,7 +842,9 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc0EEEEEvPT_mRSi@Base 2.8.7
  _ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc32EEEEEvPT_mRSi@Base 2.8.7
  _ZN4gdcm22EncodingImplementationILi74550907EE4ReadIdEEvPT_mRSi@Base 2.8.7
+ _ZN4gdcm22EncodingImplementationILi74550907EE4ReadIiEEvPT_mRSi@Base 2.8.7-2
  _ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc0EEEEEvPKT_mRSo@Base 2.8.7
+ _ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc32EEEEEvPKT_mRSo@Base 2.8.7-2
  _ZN4gdcm4ItemD1Ev@Base 2.8.7
  _ZN4gdcm4ItemD2Ev@Base 2.8.7
  _ZN4gdcm6Object10UnRegisterEv@Base 2.8.7
@@ -885,7 +906,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZNK4gdcm15SequenceOfItems9GetLengthEv@Base 2.8.7
  _ZNK4gdcm6Object5PrintERSo@Base 2.8.7
  _ZNK4gdcm7DataSet14GetDataElementERKNS_3TagE@Base 2.8.7
- _ZNK4gdcm7DataSet15FindDataElementERKNS_3TagE@Base 2.8.7
  _ZNK4gdcm9ByteValue9GetLengthEv@Base 2.8.7
  _ZNKSt5ctypeIcE8do_widenEc@Base 2.8.7
  _ZNKSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_@Base 2.8.7
