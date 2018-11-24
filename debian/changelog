@@ -1,3 +1,11 @@
+gdcm (2.8.8-3) experimental; urgency=medium
+
+  * Team upload.
+  * Introduce a .symbols file for libvtkgdcm2.
+  * Drop d/source/options setting compression to xz, now the default.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Sat, 24 Nov 2018 16:31:23 +0100
+
 gdcm (2.8.8-2) unstable; urgency=medium
 
   * Fix upload (forgot to pull latest changes)
@@ -41,11 +49,11 @@ gdcm (2.8.7-2) unstable; urgency=medium
 
   [ Andreas Tille ]
   * Remove myself from Uploaders
-  
+
   [ Gert Wollny ]
   * switch to python3 Closes: #906535
   * d/control.in: Depend on python3 versions of packages
-  * d/dontrol: Build-depend only on default python3 version,  the 
+  * d/dontrol: Build-depend only on default python3 version,  the
     current gdcm build  only supports one python version at a time
   * d/.gitlab: build from master branch
 
@@ -74,7 +82,7 @@ gdcm (2.8.6-2) unstable; urgency=medium
 
 gdcm (2.8.6-2) unstable; urgency=medium
 
-  * d/rules: Add explicit java home path on arm* and 
+  * d/rules: Add explicit java home path on arm* and
     powerpc ppc64el
 
  -- Gert Wollny <gewo@debian.org>  Wed, 16 May 2018 01:04:30 +0200
@@ -124,7 +132,7 @@ gdcm (2.8.3-1) unstable; urgency=medium
 
 gdcm (2.8.2-3) unstable; urgency=medium
 
-  * d/rules: rename gdcmsharpglue.so only when needed. 
+  * d/rules: rename gdcmsharpglue.so only when needed.
     Closes: #871023
 
  -- Gert Wollny <gewo@debian.org>  Mon, 07 Aug 2017 07:28:44 +0000
@@ -156,7 +164,7 @@ gdcm (2.8.0-1~exp1) experimental; urgency=medium
 
 gdcm (2.6.8-1) unstable; urgency=medium
 
-  * upload to unstable 
+  * upload to unstable
 
  -- Gert Wollny <gewo@debian.org>  Sun, 18 Jun 2017 07:06:25 +0000
 
@@ -172,20 +180,20 @@ gdcm (2.6.7-1~exp1) experimental; urgency=medium
   * New upstream version 2.6.7
   * d/control: Depend on libssl-dev Closes: #850896
   * d/control,d/rules: Drop -dbg packages Closes: #842678
-  * d/control: Update GW uploader email 
+  * d/control: Update GW uploader email
 
  -- Gert Wollny <gewo@debian.org>  Fri, 03 Mar 2017 17:47:13 +0000
 
 gdcm (2.6.6-3) unstable; urgency=medium
 
   * re-create debian/control, Closes: #839934
-  * d/rules: enable hardening 
+  * d/rules: enable hardening
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Tue, 06 Dec 2016 08:38:52 +0000
 
 gdcm (2.6.6-2) unstable; urgency=medium
 
-  * Depend on libssl1.0-dev (Related to #828308) 
+  * Depend on libssl1.0-dev (Related to #828308)
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 07 Nov 2016 11:02:08 +0100
 
@@ -206,15 +214,15 @@ gdcm (2.6.5-1) unstable; urgency=medium
 
   * New upstream release, Closes: #834802
     Closes: #828964
-  * d/p/format-error: Add patch to satisfy -Wformat-error 
+  * d/p/format-error: Add patch to satisfy -Wformat-error
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sat, 20 Aug 2016 17:52:37 +0000
 
 gdcm (2.6.4-1) unstable; urgency=medium
 
   * Imported Upstream version 2.6.4, Closes: #829664
-  * update patches and remove patches 05-12 because they were applied 
-    upstream 
+  * update patches and remove patches 05-12 because they were applied
+    upstream
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 11 Jul 2016 14:14:40 +0000
 
@@ -227,8 +235,8 @@ gdcm (2.6.3-6) unstable; urgency=medium
 
 gdcm (2.6.3-5) unstable; urgency=medium
 
-  * d/control* +d/rules +d/php5-*: 
-    Really remove php bindings on all archs 
+  * d/control* +d/rules +d/php5-*:
+    Really remove php bindings on all archs
   * d/control*: Update standards version to 3.9.8
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Thu, 05 May 2016 09:39:26 +0000
@@ -244,7 +252,7 @@ gdcm (2.6.3-4) unstable; urgency=medium
 
 gdcm (2.6.3-3) unstable; urgency=medium
 
-  * d/control*, d/rules: Re-instate java package 
+  * d/control*, d/rules: Re-instate java package
   * d/p: Add patch 07 to not try to link against vtk-java modules
   * d/control*: Update standards version to 3.9.7
 
@@ -261,11 +269,11 @@ gdcm (2.6.3-2) unstable; urgency=medium
 
 gdcm (2.6.3-1) unstable; urgency=medium
 
-  * New upstream version 
+  * New upstream version
   * d/b: Add patch 06 to tolerate buggy dicom files. Related: #753809
-  * d/control: changed docbook-xls to the now needed docbook-xsl-ns 
-  * d/gdcm-doc.*: remove micro version from pdf docu, there will never 
-    be two versions of the file installed. 
+  * d/control: changed docbook-xls to the now needed docbook-xsl-ns
+  * d/gdcm-doc.*: remove micro version from pdf docu, there will never
+    be two versions of the file installed.
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Tue, 02 Feb 2016 05:04:21 +0100
 
@@ -283,9 +291,9 @@ gdcm (2.6.2-2) unstable; urgency=medium
 
 gdcm (2.6.2-1) unstable; urgency=medium
 
-  * New upstream release 
+  * New upstream release
   * d/p: remove patches 05 and 06 because they were applied upstream
-  * d/control: Add xsltproc and docbook-xsl to dependencies for 
+  * d/control: Add xsltproc and docbook-xsl to dependencies for
     building man-pages
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Fri, 08 Jan 2016 20:03:04 +0100
@@ -293,29 +301,29 @@ gdcm (2.6.2-1) unstable; urgency=medium
 gdcm (2.6.1-3) unstable; urgency=medium
 
   * Correctly set VCS path also in d/contol.in
-  * Add patch to fix regression that made ITK test suite fail. 
+  * Add patch to fix regression that made ITK test suite fail.
     Related: #808491
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Mon, 21 Dec 2015 15:56:33 +0100
 
 gdcm (2.6.1-2) unstable; urgency=medium
 
-  * Add patch 05_ to clean Doxygen file to remove obsolete values. 
+  * Add patch 05_ to clean Doxygen file to remove obsolete values.
   * Remove powerpc and add ppc64el to mono-bindings Closes: #808475
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 20 Dec 2015 18:34:37 +0100
 
 gdcm (2.6.1-1) unstable; urgency=medium
 
-  * New Upstream version 
-  * Remove patches now applied upstream: 
-    - toplevelskip.patch 
-    - enable-vtk6-bindings.patch 
-  * remov the signing patches because the actual problems 
-    was with the dh_strip_nondeterminism:  
+  * New Upstream version
+  * Remove patches now applied upstream:
+    - toplevelskip.patch
+    - enable-vtk6-bindings.patch
+  * remov the signing patches because the actual problems
+    was with the dh_strip_nondeterminism:
     - add-csharp-keyfile-from-commandline.patch
     - vtkgdcm-sharp-siging.patch
-  * Update doc-base to index.xhtml and version number in pdf file name. 
+  * Update doc-base to index.xhtml and version number in pdf file name.
 
  -- Gert Wollny <gw.fossdev@gmail.com>  Sun, 13 Dec 2015 20:42:16 +0100
 
@@ -332,7 +340,7 @@ gdcm (2.6.0+dfsg-1) unstable; urgency=medium
   * Add patch linkvtkdoc.patch to use compressed vtk6-doc helpers
     Related: #751395,  #751412
   * Add patches to properly sign C# files
-  * d/copyright update copyrights to satisfy DEP5 
+  * d/copyright update copyrights to satisfy DEP5
   * add dependency on dh-python, Closes: #797655
   * removing some static VC++ libs from tarball to make it follow DFSG
   * add lintian overrides for
@@ -658,7 +666,7 @@ gdcm (2.0.18-3) unstable; urgency=low
 gdcm (2.0.18-2) unstable; urgency=low
 
   * Remove call to dh_makeclilibs since GDCM does not install in the GAC
-  * Fix URL for ViewVC convention 
+  * Fix URL for ViewVC convention
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Tue, 06 Sep 2011 12:07:12 +0200
 
@@ -729,7 +737,7 @@ gdcm (2.0.15-1) unstable; urgency=low
 
 gdcm (2.0.14-9) unstable; urgency=low
 
-  * Completely remove findjni.cmake from GDCM. 
+  * Completely remove findjni.cmake from GDCM.
     Failure on hppa was caused by dangling symlink
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Wed, 05 May 2010 16:01:23 +0200
@@ -764,7 +772,7 @@ gdcm (2.0.14-4) unstable; urgency=low
   * Fix more lintian issue about debhelper-but-no-misc-depends
   * Fix python issue. Closes: #567694
   * Use virtual package for jpeg, tiff and expat
-  * Update debian policy 
+  * Update debian policy
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Mon, 08 Feb 2010 22:06:23 +0100
 
@@ -773,7 +781,7 @@ gdcm (2.0.14-3) unstable; urgency=low
   * csc has been removed, renamed to mono-csc. Closes: #563020
   * Fix some lintian issues (${misc:Depends} and XS-Python-Version)
   * Fix FTBS due to broken symlink in libvtk-java. Closes: #564246
-  * Update control file to deal with cmake/vtk transitive behavior. 
+  * Update control file to deal with cmake/vtk transitive behavior.
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Sun, 17 Jan 2010 18:35:45 +0100
 
@@ -822,7 +830,7 @@ gdcm (2.0.12-10) unstable; urgency=low
 
 gdcm (2.0.12-9) unstable; urgency=low
 
-  * Fix FTBS on hppa, with gcj 4.4. javac does not support -cp cmd line option 
+  * Fix FTBS on hppa, with gcj 4.4. javac does not support -cp cmd line option
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Thu, 16 Jul 2009 14:38:58 +0200
 
@@ -830,7 +838,7 @@ gdcm (2.0.12-8) unstable; urgency=low
 
   * Fix issue with LD_LIBRARY_PATH and dh_shlibdeps on private libs
     This should fix the FTBS on alpha/buildd system:
-    install: cannot change owner and permissions of `debian/libgdcm-cil/DEBIAN': 
+    install: cannot change owner and permissions of `debian/libgdcm-cil/DEBIAN':
     Operation not permitted
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Wed, 15 Jul 2009 13:53:23 +0200
@@ -838,7 +846,7 @@ gdcm (2.0.12-8) unstable; urgency=low
 gdcm (2.0.12-7) unstable; urgency=low
 
   * Fix debhelper-script-needs-versioned-build-depends
-  * Add dependency on ghostscript 
+  * Add dependency on ghostscript
   * Remove mips (mono not available)
   * Fix lintian missing-dependency-on-libc on libvtkgdcm-java package
 
@@ -855,7 +863,7 @@ gdcm (2.0.12-6) unstable; urgency=low
 gdcm (2.0.12-5) unstable; urgency=low
 
   * Yet-Another-Attempt at fixing armel/alpha. Thanks to George Danchev
-    (debian-mentors) for patch. 
+    (debian-mentors) for patch.
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Mon, 13 Jul 2009 09:24:25 +0200
 
@@ -863,8 +871,8 @@ gdcm (2.0.12-4) unstable; urgency=low
 
   * Another attempt at fixing armel
   * Fix swig/C# wrapper to load gdcmsharpglue (instead of gdcm)
-  * Reactivate the missing gcc44.patch (gdcm svn rev: 5852). 
-    Thanks to Andrea Gasparini for report 
+  * Reactivate the missing gcc44.patch (gdcm svn rev: 5852).
+    Thanks to Andrea Gasparini for report
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Wed, 08 Jul 2009 09:48:32 +0200
 
@@ -899,19 +907,19 @@ gdcm (2.0.12-1) unstable; urgency=low
 
 gdcm (2.0.10-7) unstable; urgency=low
 
-  * Try to fix /usr/bin/csc vs mono-devel >= 2.0 
+  * Try to fix /usr/bin/csc vs mono-devel >= 2.0
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Wed, 24 Jun 2009 18:32:56 +0200
 
 gdcm (2.0.10-6) unstable; urgency=low
 
-  * Fix Path to GMCS to csc compiler. 
+  * Fix Path to GMCS to csc compiler.
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Wed, 24 Jun 2009 16:18:03 +0200
 
 gdcm (2.0.10-5) unstable; urgency=low
 
-  * Fix python-policy: python-support (>= 0.5.3) 
+  * Fix python-policy: python-support (>= 0.5.3)
   * Fix cli-policy: cli-common-dev (>= 0.4.4) (copied from gmime2.4)
   * Handle "Mono Architecture" [!alpha !m68k !hppa]
 
@@ -919,13 +927,13 @@ gdcm (2.0.10-5) unstable; urgency=low
 
 gdcm (2.0.10-4) unstable; urgency=low
 
-  * Adding another patch for gcc 4.4. Closes: #529276 
+  * Adding another patch for gcc 4.4. Closes: #529276
 
  -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Mon, 22 Jun 2009 14:33:55 +0200
 
 gdcm (2.0.10-3) unstable; urgency=low
 
-  * Do not build libgdcm-cil when mono is not available. Closes: #531174 
+  * Do not build libgdcm-cil when mono is not available. Closes: #531174
   * Apply patch from Dominique Belhachemi to fix parallel builds.
   * Remove suggests on dicom3tools, pvrg until they are packaged.
 
