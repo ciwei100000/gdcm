@@ -1,6 +1,7 @@
 libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  (regex|c++|optional)ZNK?4gdcm9Attribute.*@Base 2.8.7
  (regex|c++|optional)ZNK?4gdcm7Element.*@Base 2.8.7
+ (c++|regex|optional)"^(void )?std::.*@Base$" 2.8.7
  _Z23vtkImageRGBToYBRExecuteIaEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
  _Z23vtkImageRGBToYBRExecuteIcEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
  _Z23vtkImageRGBToYBRExecuteIdEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
@@ -838,7 +839,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN4gdcm8FilenameD2Ev@Base 2.8.7
  _ZN4gdcm9ByteValueC1EPKcRKNS_2VLE@Base 2.8.7
  _ZN4gdcm9ByteValueC2EPKcRKNS_2VLE@Base 2.8.7
- _ZN4gdcm9to_stringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_@Base 2.8.7
  _ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
  _ZN4gdcmlsERSoRKNS_3TagE@Base 2.8.7
  _ZN7vtkProp13GetVisibilityEv@Base 2.8.7
@@ -890,23 +890,11 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZNKSt5ctypeIcE8do_widenEc@Base 2.8.7
  _ZNKSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_@Base 2.8.7
  _ZNKSt8_Rb_treeIN4gdcm3TagESt4pairIKS1_NS0_9DictEntryEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_@Base 2.8.7
- _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED1Ev@Base 2.8.7
- _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev@Base 2.8.7
- _ZNSt6vectorI15StructureSetROISaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_@Base 2.8.7
- _ZNSt6vectorIN4gdcm12SmartPointerINS0_4FileEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_@Base 2.8.7
  _ZNSt6vectorIN4gdcm5CurveESaIS1_EEaSERKS3_@Base 2.8.7
  _ZNSt6vectorIN4gdcm7OverlayESaIS1_EEaSERKS3_@Base 2.8.7
- _ZNSt6vectorIS_ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EESaIS9_EE17_M_default_appendEm@Base 2.8.7
- _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12emplace_backIJS7_EEEvDpOT_@Base 2.8.7
- _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_@Base 2.8.7
- _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_@Base 2.8.7
  _ZNSt6vectorIcSaIcEE17_M_default_appendEm@Base 2.8.7
- _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_@Base 2.8.7
  _ZNSt6vectorIdSaIdEEaSERKS1_@Base 2.8.7
  _ZNSt6vectorIjSaIjEEaSERKS1_@Base 2.8.7
- _ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED0Ev@Base 2.8.7
- _ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED1Ev@Base 2.8.7
- _ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS1_E@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_@Base 2.8.7
