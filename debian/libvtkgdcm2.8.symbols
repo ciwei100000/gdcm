@@ -1,4 +1,6 @@
 libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
+ (regex|c++|optional)ZNK?4gdcm9Attribute.*@Base 2.8.7
+ (regex|c++|optional)ZNK?4gdcm7Element.*@Base 2.8.7
  _Z23vtkImageRGBToYBRExecuteIaEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
  _Z23vtkImageRGBToYBRExecuteIcEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
  _Z23vtkImageRGBToYBRExecuteIdEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
@@ -832,12 +834,8 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN4gdcm7DataSet12ReplaceEmptyERKNS_11DataElementE@Base 2.8.7
  _ZN4gdcm7DataSet17InsertDataElementERKNS_11DataElementE@Base 2.8.7
  _ZN4gdcm7DataSet6InsertERKNS_11DataElementE@Base 2.8.7
- _ZN4gdcm7ElementILi1024ELi218367EED1Ev@Base 2.8.7
- _ZN4gdcm7ElementILi1024ELi218367EED2Ev@Base 2.8.7
- _ZN4gdcm7ElementILi32ELi218367EE9SetLengthEm@Base 2.8.7
  _ZN4gdcm8FilenameD1Ev@Base 2.8.7
  _ZN4gdcm8FilenameD2Ev@Base 2.8.7
- (regex|c++|optional)ZN4gdcm9Attribute.*@Base 2.8.7
  _ZN4gdcm9ByteValueC1EPKcRKNS_2VLE@Base 2.8.7
  _ZN4gdcm9ByteValueC2EPKcRKNS_2VLE@Base 2.8.7
  _ZN4gdcm9to_stringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_@Base 2.8.7
@@ -888,11 +886,6 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZNK4gdcm6Object5PrintERSo@Base 2.8.7
  _ZNK4gdcm7DataSet14GetDataElementERKNS_3TagE@Base 2.8.7
  _ZNK4gdcm7DataSet15FindDataElementERKNS_3TagE@Base 2.8.7
- _ZNK4gdcm7ElementILi1024ELi218367EE16GetAsDataElementEv@Base 2.8.7
- _ZNK4gdcm7ElementILi32ELi218367EE16GetAsDataElementEv@Base 2.8.7
- _ZNK4gdcm9AttributeILt12294ELt132ELi512ELi1EE16GetAsDataElementEv@Base 2.8.7
- _ZNK4gdcm9AttributeILt8ELt4432ELi4194304ELi1EE16GetAsDataElementEv@Base 2.8.7
- _ZNK4gdcm9AttributeILt8ELt4437ELi4194304ELi1EE16GetAsDataElementEv@Base 2.8.7
  _ZNK4gdcm9ByteValue9GetLengthEv@Base 2.8.7
  _ZNKSt5ctypeIcE8do_widenEc@Base 2.8.7
  _ZNKSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_@Base 2.8.7
