@@ -1,4 +1,4 @@
-libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
+libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
 * Build-Depends-Package: libvtkgdcm2-dev
  (regex|c++|optional)ZNK?4gdcm9Attribute.*@Base 2.8.7
  (regex|c++|optional)ZNK?4gdcm7Element.*@Base 2.8.7
