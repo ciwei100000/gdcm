@@ -881,7 +881,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  _ZN4gdcm8FilenameD2Ev@Base 2.8.7
  _ZN4gdcm9ByteValueC1EPKcRKNS_2VLE@Base 2.8.7
  _ZN4gdcm9ByteValueC2EPKcRKNS_2VLE@Base 2.8.7
- (arch-bits=64)_ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
+ (arch=any-amd64 arm64)_ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
  _ZN4gdcmlsERSoRKNS_3TagE@Base 2.8.7
  _ZN7vtkProp13GetVisibilityEv@Base 2.8.7
  _ZN7vtkProp13SetVisibilityEi@Base 2.8.7
@@ -936,7 +936,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8 #MINVER#
  (arch-bits=64)_ZNSt6vectorIcSaIcEE17_M_default_appendEm@Base 2.8.7
  _ZNSt6vectorIdSaIdEEaSERKS1_@Base 2.8.7
  _ZNSt6vectorIjSaIjEEaSERKS1_@Base 2.8.7
- (arch-bits=64)_ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_@Base 2.8.7
+ (arch=any-amd64 arm64 ppc64el)_ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS1_E@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E@Base 2.8.7
