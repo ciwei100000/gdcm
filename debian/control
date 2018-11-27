@@ -41,6 +41,7 @@ Build-Depends-Indep: vtk7-doc,
                graphviz
 Build-Conflicts: libopenjpeg-dev
 Standards-Version: 4.1.4
+Rules-Requires-Root: no
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
