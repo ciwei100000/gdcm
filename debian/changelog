@@ -1,3 +1,14 @@
+gdcm (2.8.8-5) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+  * Set Rules-Requires-Root:no.
+  * Improve the libvtkgdcm2.8a symbols patters to not include a symbol that
+    should not be optional.  Thanks to jrtc27 for the feedback.
+  * Add patch from Gianfranco Costamagna to fix build with poppler 0.71.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Wed, 28 Nov 2018 12:13:53 +0100
+
 gdcm (2.8.8-4) experimental; urgency=medium
 
   * Team upload.
