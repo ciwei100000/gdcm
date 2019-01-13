@@ -8,4 +8,4 @@ enable_ninja_build.patch
 gdcm-fix-xslt-maxdepth.patch
 add_cxx11_vtk_defines.patch
 poppler0.71.patch
-fiX_charls_2.patch
+fix_charls_2.patch
