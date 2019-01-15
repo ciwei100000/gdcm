@@ -3,32 +3,32 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  (regex|c++|optional)^_ZNK?4gdcm9Attribute.*@Base$ 2.8.7
  (regex|c++|optional)^_ZNK?4gdcm7Element.*@Base$ 2.8.7
  (regex|c++|optional)^_ZN?St.*@Base$ 2.8.7
- _Z23vtkImageRGBToYBRExecuteIaEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIcEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIdEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIfEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIhEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIiEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIjEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIlEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteImEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIsEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteItEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIxEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageRGBToYBRExecuteIyEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIaEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIcEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIdEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIfEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIhEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIiEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIjEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIlEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteImEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIsEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteItEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIxEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
- _Z23vtkImageYBRToRGBExecuteIyEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIaEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIcEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIdEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIfEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIhEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIiEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIjEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIlEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteImEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIsEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteItEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIxEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageRGBToYBRExecuteIyEvP16vtkImageRGBToYBRP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIaEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIcEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIdEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIfEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIhEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIiEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIjEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIlEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteImEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIsEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteItEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIxEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
+ (optional)_Z23vtkImageYBRToRGBExecuteIyEvP16vtkImageYBRToRGBP12vtkImageDataS3_PiiPT_@Base 2.8.7
  _Z23vtkLookupTable16MapDataIaEvP16vtkLookupTable16PT_Ptiii@Base 2.8.7
  _Z23vtkLookupTable16MapDataIcEvP16vtkLookupTable16PT_Ptiii@Base 2.8.7
  _Z23vtkLookupTable16MapDataIdEvP16vtkLookupTable16PT_Ptiii@Base 2.8.7
@@ -46,8 +46,8 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _Z28vtkImageMapToColors16ExecuteP21vtkImageMapToColors16P12vtkImageDataPvS2_PtPii@Base 2.8.7
  _Z34vtkGDCMThreadedImageReader2ExecuteIaEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
  _Z34vtkGDCMThreadedImageReader2ExecuteIcEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
- _Z34vtkGDCMThreadedImageReader2ExecuteIdEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
- _Z34vtkGDCMThreadedImageReader2ExecuteIfEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
+ (optional)_Z34vtkGDCMThreadedImageReader2ExecuteIdEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
+ (optional)_Z34vtkGDCMThreadedImageReader2ExecuteIfEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
  _Z34vtkGDCMThreadedImageReader2ExecuteIhEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
  _Z34vtkGDCMThreadedImageReader2ExecuteIiEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
  _Z34vtkGDCMThreadedImageReader2ExecuteIjEvP27vtkGDCMThreadedImageReader2PP12vtkImageDataiS3_PiiPT_@Base 2.8.7
@@ -87,7 +87,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZN12vtkAlgorithm19GetProgressMaxValueEv@Base 2.8.7
  _ZN12vtkAlgorithm19GetProgressMinValueEv@Base 2.8.7
  _ZN12vtkAlgorithm19GetProgressObserverEv@Base 2.8.7
- (arch-bits=64)_ZN12vtkCellArray14InsertNextCellExPKx@Base 2.8.7
+ (optional|arch-bits=64)_ZN12vtkCellArray14InsertNextCellExPKx@Base 2.8.7
  (arch-bits=32)_ZN12vtkCellArray14InsertNextCellEiPKi@Base 2.8.7
  _ZN12vtkImageData10GetSpacingEv@Base 2.8.7-2~
  _ZN12vtkImageData17GetNumberOfPointsEv@Base 2.8.7
@@ -478,10 +478,17 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZN19vtkGDCMImageReader2D0Ev@Base 2.8.7
  _ZN19vtkGDCMImageReader2D1Ev@Base 2.8.7
  _ZN19vtkGDCMImageReader2D2Ev@Base 2.8.7
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIhEhE11DataChangedEv@Base 2.8.8-6
  (arch-bits=64)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIxExE11InsertValueExx@Base 2.8.7-2~
- (arch-bits=64)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIxExE19EnsureAccessToTupleEx@Base 2.8.7-2~
+ (optional|arch-bits=64)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIxExE19EnsureAccessToTupleEx@Base 2.8.7-2~
  (arch-bits=32)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIiEiE11InsertValueEii@Base 2.8.7-2~
  (arch-bits=32)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIiEiE19EnsureAccessToTupleEi@Base 2.8.7-2~
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIhEhE17SetNumberOfTuplesEx@Base 2.8.8-6
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateIhEhE8AllocateExx@Base 2.8.8-6
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateItEtE11DataChangedEv@Base 2.8.8-6
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateItEtE17SetNumberOfTuplesEx@Base 2.8.8-6
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateItEtE21SetNumberOfComponentsEi@Base 2.8.8-6
+ (optional)_ZN19vtkGenericDataArrayI23vtkAOSDataArrayTemplateItEtE8AllocateExx@Base 2.8.8-6
  _ZN19vtkIOImage_AutoInitD1Ev@Base 2.8.7
  _ZN19vtkIOImage_AutoInitD2Ev@Base 2.8.7
  _ZN19vtkImageColorViewer11GetPositionEv@Base 2.8.7
@@ -855,17 +862,17 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZN31vtkImageMapToWindowLevelColors2D1Ev@Base 2.8.7
  _ZN31vtkImageMapToWindowLevelColors2D2Ev@Base 2.8.7
  _ZN4gdcm11DataElement12SetByteValueEPKcNS_2VLE@Base 2.8.7
- (arch-bits=64)_ZN4gdcm12SmartPointerINS_15SequenceOfItemsEEaSEPS1_@Base 2.8.7-2~
+ (optional)(arch-bits=64)_ZN4gdcm12SmartPointerINS_15SequenceOfItemsEEaSEPS1_@Base 2.8.7-2~
  _ZN4gdcm12SmartPointerINS_5ValueEEaSEPS1_@Base 2.8.7
  _ZN4gdcm20BitmapToBitmapFilterD1Ev@Base 2.8.7
  _ZN4gdcm20BitmapToBitmapFilterD2Ev@Base 2.8.7
- _ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj16ELc32EEEEEvPT_mRSi@Base 2.8.7
- _ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc0EEEEEvPT_mRSi@Base 2.8.7
- _ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc32EEEEEvPT_mRSi@Base 2.8.7
+ (optional)_ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj16ELc32EEEEEvPT_mRSi@Base 2.8.7
+ (optional)_ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc0EEEEEvPT_mRSi@Base 2.8.7
+ (optional)_ZN4gdcm22EncodingImplementationILi74550907EE4ReadINS_6StringILc92ELj64ELc32EEEEEvPT_mRSi@Base 2.8.7
  _ZN4gdcm22EncodingImplementationILi74550907EE4ReadIdEEvPT_mRSi@Base 2.8.7
- _ZN4gdcm22EncodingImplementationILi74550907EE4ReadIiEEvPT_mRSi@Base 2.8.7-2~
- _ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc0EEEEEvPKT_mRSo@Base 2.8.7
- (arch-bits=64)_ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc32EEEEEvPKT_mRSo@Base 2.8.7-2~
+ (optional)_ZN4gdcm22EncodingImplementationILi74550907EE4ReadIiEEvPT_mRSi@Base 2.8.7-2~
+ (optional)_ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc0EEEEEvPKT_mRSo@Base 2.8.7
+ (optional)(arch-bits=64)_ZN4gdcm22EncodingImplementationILi74550907EE5WriteINS_6StringILc92ELj64ELc32EEEEEvPKT_mRSo@Base 2.8.7-2~
  _ZN4gdcm4ItemD1Ev@Base 2.8.7
  _ZN4gdcm4ItemD2Ev@Base 2.8.7
  _ZN4gdcm6Object10UnRegisterEv@Base 2.8.7
@@ -881,6 +888,9 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZN4gdcm8FilenameD2Ev@Base 2.8.7
  _ZN4gdcm9ByteValueC1EPKcRKNS_2VLE@Base 2.8.7
  _ZN4gdcm9ByteValueC2EPKcRKNS_2VLE@Base 2.8.7
+ (optional)_ZN4gdcm9ByteValueD0Ev@Base 2.8.8-6
+ (optional)_ZN4gdcm9ByteValueD1Ev@Base 2.8.8-6
+ (optional)_ZN4gdcm9ByteValueD2Ev@Base 2.8.8-6
  _ZN4gdcm9to_stringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_@Base 2.8.7
  (arch=any-amd64 arm64)_ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
  _ZN4gdcmlsERSoRKNS_3TagE@Base 2.8.7
@@ -930,15 +940,15 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZNK4gdcm7DataSet14GetDataElementERKNS_3TagE@Base 2.8.7
  _ZNK4gdcm9ByteValue9GetLengthEv@Base 2.8.7
  _ZNKSt5ctypeIcE8do_widenEc@Base 2.8.7
- _ZNKSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_@Base 2.8.7
- _ZNKSt8_Rb_treeIN4gdcm3TagESt4pairIKS1_NS0_9DictEntryEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_@Base 2.8.7
+ (optional)_ZNKSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_@Base 2.8.7
+ (optional)_ZNKSt8_Rb_treeIN4gdcm3TagESt4pairIKS1_NS0_9DictEntryEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_@Base 2.8.7
  _ZNSt6vectorIN4gdcm5CurveESaIS1_EEaSERKS3_@Base 2.8.7
  _ZNSt6vectorIN4gdcm7OverlayESaIS1_EEaSERKS3_@Base 2.8.7
  (arch-bits=64)_ZNSt6vectorIcSaIcEE17_M_default_appendEm@Base 2.8.7
  _ZNSt6vectorIdSaIdEEaSERKS1_@Base 2.8.7
  _ZNSt6vectorIjSaIjEEaSERKS1_@Base 2.8.7
  (arch=any-amd64 arm64 mips64el ppc64el)_ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_@Base 2.8.7
- _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS1_E@Base 2.8.7
+ (optional)_ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS1_E@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11DataElementES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E@Base 2.8.7
  _ZNSt8_Rb_treeIN4gdcm11PixelFormat10ScalarTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_@Base 2.8.7
