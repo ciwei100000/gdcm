@@ -1,4 +1,4 @@
-gdcm (2.8.8-7) cosmic; urgency=medium
+gdcm (2.8.8-7) unstable; urgency=medium
 
   [ Gianfranco Costamagna ]
   * Fixup symbols file, mark as optional some symbols disappearing
