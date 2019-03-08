@@ -1,9 +1,10 @@
-gdcm (2.8.8-7) UNRELEASED; urgency=medium
+gdcm (2.8.8-7) cosmic; urgency=medium
 
+  [ Gianfranco Costamagna ]
   * Fixup symbols file, mark as optional some symbols disappearing
     with a -O3 build
 
- -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 15 Jan 2019 13:12:47 +0100
+ -- Gert Wollny <gewo@debian.org>  Fri, 08 Mar 2019 11:33:29 +0100
 
 gdcm (2.8.8-6) unstable; urgency=medium
 
