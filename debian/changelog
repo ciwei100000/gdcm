@@ -1,3 +1,10 @@
+gdcm (2.8.8-9) unstable; urgency=medium
+
+  * d/*.symbols: remove symbols file, with C++ libraries this
+    just doesn't work well enough.
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 26 Mar 2019 22:07:17 +0100
+
 gdcm (2.8.8-8) unstable; urgency=medium
 
   * d/libvtkgdcm2.8a.symbols: Attempt to fix symbols on mips/mipsel
