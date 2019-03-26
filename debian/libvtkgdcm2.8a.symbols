@@ -259,6 +259,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  _ZN15vtkImageReader231SetDataScalarTypeToUnsignedCharEv@Base 2.8.7
  _ZN15vtkImageReader232SetDataScalarTypeToUnsignedShortEv@Base 2.8.7
  _ZN15vtkRenderWindow17SetNumberOfLayersEi@Base 2.8.7
+ (arch=mips mipsel)_ZN16vtkAbstractArray7SetNameEPKc@Base 2.8.8-7
  _ZN16vtkImageRGBToYBR15ThreadedExecuteEP12vtkImageDataS1_Pii@Base 2.8.7
  _ZN16vtkImageRGBToYBR3IsAEPKc@Base 2.8.7
  _ZN16vtkImageRGBToYBR3NewEv@Base 2.8.7
@@ -892,7 +893,7 @@ libvtkgdcm.so.2.8 libvtkgdcm2.8a #MINVER#
  (optional)_ZN4gdcm9ByteValueD1Ev@Base 2.8.8-6
  (optional)_ZN4gdcm9ByteValueD2Ev@Base 2.8.8-6
  _ZN4gdcm9to_stringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_@Base 2.8.7
- (arch=any-amd64 arm64)_ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
+ (arch=any-amd64 arm64 mips mipsel)_ZN4gdcmlsERSoRKNS_11DataElementE@Base 2.8.7
  _ZN4gdcmlsERSoRKNS_3TagE@Base 2.8.7
  _ZN7vtkProp13GetVisibilityEv@Base 2.8.7
  _ZN7vtkProp13SetVisibilityEi@Base 2.8.7
