@@ -70,8 +70,12 @@
 #include <getopt.h>
 #include <string.h>
 
+#ifndef GDCM_HAVE_ATOLL
 #ifdef _MSC_VER
 #define atoll _atoi64
+#else
+#define atoll atol
+#endif
 #endif
 
 static unsigned int readsize(const char *str, unsigned int * size)
@@ -967,6 +971,7 @@ int main (int argc, char *argv[])
 
     if(  gdcm::System::StrCaseCmp(inputextension,".pgm") == 0
       || gdcm::System::StrCaseCmp(inputextension,".pnm") == 0
+      || gdcm::System::StrCaseCmp(inputextension,".pbm") == 0
       || gdcm::System::StrCaseCmp(inputextension,".ppm") == 0 )
       {
       gdcm::PNMCodec pnm;
@@ -1114,6 +1119,7 @@ int main (int argc, char *argv[])
     {
     if(  gdcm::System::StrCaseCmp(outputextension,".pgm") == 0
       || gdcm::System::StrCaseCmp(outputextension,".pnm") == 0
+      || gdcm::System::StrCaseCmp(outputextension,".pbm") == 0
       || gdcm::System::StrCaseCmp(outputextension,".ppm") == 0 )
       {
       gdcm::PNMCodec pnm;
