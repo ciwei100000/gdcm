@@ -1,6 +1,5 @@
-gdcm (2.8.9-1) UNRELEASED; urgency=medium
+gdcm (2.8.9-1~exp1) experimental; urgency=medium
 
-  * New upstream version 2.8.8
   * New upstream version 2.8.9
   * d/p: remove xsltproc maxdepth and libpoppler patches
 
