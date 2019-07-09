@@ -974,14 +974,14 @@ int main (int argc, char *argv[])
   int version = 0;
 
   std::string pattern;
-  while (1) {
+  while (true) {
     //int this_option_optind = optind ? optind : 1;
     int option_index = 0;
     static struct option long_options[] = {
-        {"input", 1, 0, 0},
-        {"output", 1, 0, 0},
+        {"input", 1, nullptr, 0},
+        {"output", 1, nullptr, 0},
         {"mosaic", 0, &mosaic, 1}, // split siemens mosaic into multiple frames
-        {"pattern", 1, 0, 0},               // p
+        {"pattern", 1, nullptr, 0},               // p
         {"enhance", 0, &enhance, 1},               // unenhance
         {"unenhance", 0, &unenhance, 1},               // unenhance
         {"root-uid", 1, &rootuid, 1}, // specific Root (not GDCM)
@@ -996,7 +996,7 @@ int main (int argc, char *argv[])
         {"help", 0, &help, 1},
         {"version", 0, &version, 1},
 
-        {0, 0, 0, 0}
+        {nullptr, 0, nullptr, 0}
     };
 
     c = getopt_long (argc, argv, "i:o:MUp:VWDEhv",
@@ -1115,7 +1115,7 @@ int main (int argc, char *argv[])
     while (optind < argc)
       {
       //printf ("%s\n", argv[optind++]);
-      files.push_back( argv[optind++] );
+      files.emplace_back(argv[optind++] );
       }
     //printf ("\n");
     if( files.size() == 2

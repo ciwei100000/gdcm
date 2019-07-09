@@ -700,7 +700,12 @@ static const char * const gdcmMD5DataImages[][2] = {
 
 { "ad8f1164f0517ee150bf510d5dba5cc6" , "GE_MR_0025xx1bProtocolDataBlockXML.dcm" },
 
+{ "a0e0effa8d5638721b19e592acc11a4c" , "EmptyIcon_Bug417.dcm" },
+
+{ "2b64303085d747956bfdda2ee8cc33bc" , "EnhancedWithIPPPerFrameIOPShared.dcm" },
+{ "4ca2f3a88d21d941f6485a8d91f96e29" , "FUJI-ffff-MONO1-J2K.dcm" },
+
 
 /* Stopping condition */
-{ 0 ,0 }
+{ nullptr ,nullptr }
 };

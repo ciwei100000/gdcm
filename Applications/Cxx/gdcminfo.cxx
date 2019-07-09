@@ -105,22 +105,22 @@ static int checkdeflated(const char *name)
     return 1;
     }
   in = fopen(name, "r");
-  if (in == NULL)
+  if (in == nullptr)
     {
     fprintf( stderr, "in is NULL\n" );
     return 1;
     }
   buf = (unsigned char*)malloc(size);
-  if (buf != NULL && (size1 = (unsigned long)fread(buf, 1, size, in)) != size) {
+  if (buf != nullptr && (size1 = (unsigned long)fread(buf, 1, size, in)) != size) {
     free(buf);
-    buf = NULL;
+    buf = nullptr;
     fprintf( stderr, "could not fread: %lu bytes != %lu\n", size, size1 );
     fprintf( stderr, "feof: %i ferror %i\n", feof(in), ferror(in) );
   }
   fclose(in);
   len = size;
   source = buf;
-  if( source == NULL ) {
+  if( source == nullptr ) {
     fprintf( stderr, "source is NULL\n" );
     return 1;
   }
@@ -172,7 +172,7 @@ static int checkdeflated(const char *name)
     printf( "deflate stream has proper length: %lu\n", len );
     }
 
-  ret = puff(NULL, &destlen, source, &sourcelen);
+  ret = puff(nullptr, &destlen, source, &sourcelen);
 
   if (ret)
     fprintf(stdout,"puff() failed with return code %d\n", ret);
@@ -202,7 +202,11 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
 #endif
     {
     const GooString* gs = obj.getString();
+#ifdef LIBPOPPLER_GOOSTRING_HAS_GETCSTRING
     s = gs->getCString();
+#else
+    s = gs->c_str();
+#endif
     if (s[0] == 'D' && s[1] == ':')
       {
       s += 2;
@@ -257,7 +261,11 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
 static std::string getInfoString(Dict *infoDict, const char *key, UnicodeMap *uMap)
 {
   Object obj;
+#ifdef LIBPOPPLER_GOOSTRING_HAS_CONSTGETCHAR
   const GooString *s1;
+#else
+  GooString *s1;
+#endif
   bool isUnicode;
   Unicode u;
   char buf[8];
@@ -400,7 +408,7 @@ static int ProcessOneFile( std::string const & filename, gdcm::Defs const & defs
       return 1;
       }
     gdcm::SplitMosaicFilter filter;
-    const gdcm::Image *pimage = NULL;
+    const gdcm::Image *pimage = nullptr;
     const gdcm::Image &image = reader.GetImage();
     if( mosaic )
     {
@@ -608,10 +616,10 @@ int main(int argc, char *argv[])
   int version = 0;
   int debug = 0;
   int error = 0;
-  while (1) {
+  while (true) {
     int option_index = 0;
     static struct option long_options[] = {
-        {"input", 1, 0, 0},
+        {"input", 1, nullptr, 0},
         {"recursive", 0, &recursive, 1},
         {"check-deflated", 0, &deflated, 1},
         {"resources-path", 0, &resourcespath, 1},
@@ -627,7 +635,7 @@ int main(int argc, char *argv[])
         {"error", 0, &error, 1},
         {"help", 0, &help, 1},
         {"version", 0, &version, 1},
-        {0, 0, 0, 0} // required
+        {nullptr, 0, nullptr, 0} // required
     };
     static const char short_options[] = "i:rdVWDEhv";
     c = getopt_long (argc, argv, short_options,

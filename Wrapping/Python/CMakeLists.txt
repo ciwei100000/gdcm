@@ -1,3 +1,7 @@
+# Special CMake Module required when doing Python Testing
+if(BUILD_TESTING AND GDCM_WRAP_PYTHON)
+  include(${GDCM_SOURCE_DIR}/CMake/UsePythonTest.cmake)
+endif()
 # Try to rebuild wrapping a little more often:
 include_regular_expression("^(gdcm).*$")
 # TODO:
@@ -23,7 +27,7 @@ include_regular_expression("^(gdcm).*$")
 if(GDCM_WEAK_SWIG_CHECK)
 find_package(SWIG 2.0.4 REQUIRED)
 else()
-find_package(SWIG 2.0.7 REQUIRED)
+find_package(SWIG 3.0.7 REQUIRED)
 endif()
 mark_as_advanced(SWIG_DIR SWIG_EXECUTABLE SWIG_VERSION)
 include(${SWIG_USE_FILE})
@@ -90,14 +94,22 @@ endif()
 # well no, you cannot, it get rid of some important flags, and make the _gdcm.so incompatible with
 # the other gdcm lib. bad !!!
 #set (SWIG_MODULE_${MODULE_NAME}_EXTRA_DEPS ${SWIG_MODULE_${MODULE_NAME}_EXTRA_DEPS} ${CMAKE_CURRENT_SOURCE_DIR}/docstrings.i)
-SWIG_ADD_MODULE(${GDCM_PYTHON_IMPLEMENTATION_NAME} python gdcmswig.i gdcmPythonFilter.cxx)
-SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} gdcmMEXD gdcmMSFF gdcmIOD)
+if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
+  SWIG_ADD_MODULE(${GDCM_PYTHON_IMPLEMENTATION_NAME} python gdcmswig.i gdcmPythonFilter.cxx)
+else()
+  SWIG_ADD_LIBRARY(
+    ${GDCM_PYTHON_IMPLEMENTATION_NAME}
+    LANGUAGE python
+    SOURCES gdcmswig.i gdcmPythonFilter.cxx
+  )
+endif()
+SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} LINK_PRIVATE gdcmMEXD gdcmMSFF gdcmIOD)
 # Apparently on my UNIX, python module (/usr/lib/pyshared/pythonX.Y/*/*.so) do not explicitly
 # link to python libraries...Leave default to always link to python libraries since
 # this is required at least on Apple & Win32, but leave the option to advanced user to explicitly
 # refuse linking to python libs (set GDCM_NO_PYTHON_LIBS_LINKING to ON):
 if(NOT GDCM_NO_PYTHON_LIBS_LINKING)
-  SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} ${PYTHON_LIBRARY})
+  SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} LINK_PRIVATE ${PYTHON_LIBRARY})
 endif()
 set_property(TARGET ${SWIG_MODULE_${GDCM_PYTHON_IMPLEMENTATION_NAME}_REAL_NAME} PROPERTY NO_SONAME 1)
 
@@ -112,12 +124,12 @@ set_property(TARGET ${SWIG_MODULE_${GDCM_PYTHON_IMPLEMENTATION_NAME}_REAL_NAME} 
 if(WIN32 AND NOT CYGWIN)
   set_target_properties(${SWIG_MODULE_${GDCM_PYTHON_IMPLEMENTATION_NAME}_REAL_NAME} PROPERTIES SUFFIX ".pyd")
   # shared libs on windows needs to be fully resolved
-  SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} ${PYTHON_LIBRARIES})
+  SWIG_LINK_LIBRARIES(${GDCM_PYTHON_IMPLEMENTATION_NAME} LINK_PRIVATE ${PYTHON_LIBRARIES})
   message(STATUS "Will use pyd extension" )
 else()
   message(STATUS "Will NOT use pyd extension" )
 endif()
-set_target_properties(${SWIG_MODULE_${GDCM_PYTHON_IMPLEMENTATION_NAME}_REAL_NAME} PROPERTIES LINK_INTERFACE_LIBRARIES "")
+#set_target_properties(${SWIG_MODULE_${GDCM_PYTHON_IMPLEMENTATION_NAME}_REAL_NAME} PROPERTIES LINK_INTERFACE_LIBRARIES "")
 
 # swig generates a _gdcm.so and a gdcm.py, we need to copy gdcm.py to the proper place:
 # gdcm.py is the interface name != implementation name, so we need to keep 'gdcm', so that 'import gdcm'
