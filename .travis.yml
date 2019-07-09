@@ -2,7 +2,8 @@
 # https://github.com/travis-ci/travis-ci/issues/3505
 language: cpp
 # Use the faster container-based infrastructure.
-sudo: false
+#sudo: false
+dist: xenial
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -53,20 +54,21 @@ matrix:
         - CXXFLAGS="-Wall -Wextra" # -m64 -fsanitize=address,undefined
         # http://stackoverflow.com/questions/15678153/homebrew-python-on-mac-os-x-10-8-fatal-python-error-pythreadstate-get-no-cu
         #- CMAKE_EXTRA="-DGDCM_WRAP_PYTHON:BOOL=ON -DGDCM_BUILD_DOCBOOK_MANPAGES:BOOL=OFF -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python2.7"
-        - CMAKE_EXTRA="-DGDCM_WRAP_PYTHON:BOOL=ON -DGDCM_WRAP_CSHARP:BOOL=OFF -DGDCM_WRAP_JAVA:BOOL=ON -DGDCM_USE_SYSTEM_UUID:BOOL=ON -DGDCM_USE_SYSTEM_ZLIB:BOOL=ON -DGDCM_BUILD_DOCBOOK_MANPAGES:BOOL=OFF"
+        - CMAKE_EXTRA="-DGDCM_WRAP_PYTHON:BOOL=ON -DGDCM_WRAP_CSHARP:BOOL=OFF -DGDCM_WRAP_JAVA:BOOL=OFF -DGDCM_USE_SYSTEM_UUID:BOOL=ON -DGDCM_USE_SYSTEM_ZLIB:BOOL=ON -DGDCM_BUILD_DOCBOOK_MANPAGES:BOOL=OFF"
         - B_NAME=default
         - CPACK_NAME=Darwin
 
 before_install:
   #- env
   - cmake --version
-  #- swig -version
+  - if [ "$B_NAME" == "system" ]; then swig -version; fi
   # do not run the full test suite for now on fsanitize and osx (takes too long)
   - if [ "$B_NAME" == "fsanitize" ]; then mv Testing/Data Testing/Data.old; fi
   # https://docs.travis-ci.com/user/osx-ci-environment/#Environment-variables
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then mv Testing/Data Testing/Data.old; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew update                     ; fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install swig docbook-xsl   ; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then swig -version; fi
   # https://github.com/travis-ci/travis-ci/issues/2312
   #- if [ "$TRAVIS_OS_NAME" == "osx" ]; then virtualenv env -p python3       ; fi
   #- if [ "$TRAVIS_OS_NAME" == "osx" ]; then source env/bin/activate         ; fi

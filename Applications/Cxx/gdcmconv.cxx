@@ -141,6 +141,7 @@ static void PrintHelp()
   std::cout << "     --remove-retired      Remove retired tags." << std::endl;
   std::cout << "Image only Options:" << std::endl;
   std::cout << "  -l --apply-lut                      Apply LUT (non-standard, advanced user only)." << std::endl;
+  std::cout << "  -8 --apply-lut8                     Apply LUT/RGB8 (non-standard, advanced user only)." << std::endl;
   std::cout << "     --decompress-lut                 Decompress LUT (linearize segmented LUT)." << std::endl;
   std::cout << "  -P --photometric-interpretation %s  Change Photometric Interpretation (when possible)." << std::endl;
   std::cout << "  -w --raw                            Decompress image." << std::endl;
@@ -438,6 +439,7 @@ int main (int argc, char *argv[])
   int implicit = 0;
   int quiet = 0;
   int lut = 0;
+  int lut8 = 0;
   int decompress_lut = 0;
   int raw = 0;
   int deflated = 0;
@@ -486,28 +488,28 @@ int main (int argc, char *argv[])
   int jpeglserror = 0;
   int jpeglserror_value = 0;
 
-  while (1) {
+  while (true) {
     //int this_option_optind = optind ? optind : 1;
     int option_index = 0;
     static struct option long_options[] = {
-        {"input", 1, 0, 0},
-        {"output", 1, 0, 0},
-        {"group-length", 1, 0, 0}, // valid / create / remove
-        {"preamble", 1, 0, 0}, // valid / create / remove
-        {"padding", 1, 0, 0}, // valid (\0 -> space) / optimize (at most 1 byte of padding)
-        {"vr", 1, 0, 0}, // valid
-        {"sop", 1, 0, 0}, // default to SC...
-        {"iod", 1, 0, 0}, // valid
-        {"meta", 1, 0, 0}, // valid / create / remove
-        {"dataset", 1, 0, 0}, // valid / create / remove?
-        {"sequence", 1, 0, 0}, // defined / undefined
-        {"deflate", 1, 0, 0}, // 1 - 9 / best = 9 / fast = 1
-        {"tag", 1, 0, 0}, // need to specify a tag xxxx,yyyy = value to override default
-        {"name", 1, 0, 0}, // same as tag but explicit use of name
+        {"input", 1, nullptr, 0},
+        {"output", 1, nullptr, 0},
+        {"group-length", 1, nullptr, 0}, // valid / create / remove
+        {"preamble", 1, nullptr, 0}, // valid / create / remove
+        {"padding", 1, nullptr, 0}, // valid (\0 -> space) / optimize (at most 1 byte of padding)
+        {"vr", 1, nullptr, 0}, // valid
+        {"sop", 1, nullptr, 0}, // default to SC...
+        {"iod", 1, nullptr, 0}, // valid
+        {"meta", 1, nullptr, 0}, // valid / create / remove
+        {"dataset", 1, nullptr, 0}, // valid / create / remove?
+        {"sequence", 1, nullptr, 0}, // defined / undefined
+        {"deflate", 1, nullptr, 0}, // 1 - 9 / best = 9 / fast = 1
+        {"tag", 1, nullptr, 0}, // need to specify a tag xxxx,yyyy = value to override default
+        {"name", 1, nullptr, 0}, // same as tag but explicit use of name
         {"root-uid", 1, &rootuid, 1}, // specific Root (not GDCM)
         {"check-meta", 0, &checkmeta, 1}, // specific Root (not GDCM)
 // Image specific options:
-        {"pixeldata", 1, 0, 0}, // valid
+        {"pixeldata", 1, nullptr, 0}, // valid
         {"apply-lut", 0, &lut, 1}, // default (implicit VR, LE) / Explicit LE / Explicit BE
         {"raw", 0, &raw, 1}, // default (implicit VR, LE) / Explicit LE / Explicit BE
         {"deflated", 0, &deflated, 1}, // DeflatedExplicitVRLittleEndian
@@ -517,8 +519,8 @@ int main (int argc, char *argv[])
         {"jpegls", 0, &jpegls, 1}, // JPEG-LS: lossy / lossless
         {"j2k", 0, &j2k, 1}, // J2K: lossy / lossless
         {"rle", 0, &rle, 1}, // lossless !
-        {"mpeg2", 0, 0, 0}, // lossy !
-        {"jpip", 0, 0, 0}, // ??
+        {"mpeg2", 0, nullptr, 0}, // lossy !
+        {"jpip", 0, nullptr, 0}, // ??
         {"split", 1, &split, 1}, // split fragments
         {"planar-configuration", 1, &planarconf, 1}, // Planar Configuration
         {"explicit", 0, &explicitts, 1}, //
@@ -534,6 +536,7 @@ int main (int argc, char *argv[])
         {"photometric-interpretation", 1, &photometricinterpretation, 1}, //
         {"with-private-dict", 0, &changeprivatetags, 1}, //
         {"decompress-lut", 0, &decompress_lut, 1}, // linearized segmented LUT
+        {"apply-lut8", 0, &lut8, 1},
 // j2k :
         {"rate", 1, &rate, 1}, //
         {"quality", 1, &quality, 1}, // will also work for regular jpeg compressor
@@ -552,10 +555,10 @@ int main (int argc, char *argv[])
         {"ignore-errors", 0, &ignoreerrors, 1},
         {"quiet", 0, &quiet, 1},
 
-        {0, 0, 0, 0}
+        {nullptr, 0, nullptr, 0}
     };
 
-    c = getopt_long (argc, argv, "i:o:XMUClwdJKLRFYS:P:VWDEhvIr:q:t:n:e:",
+    c = getopt_long (argc, argv, "i:o:XMUCl8wdJKLRFYS:P:VWDEhvIr:q:t:n:e:",
       long_options, &option_index);
     if (c == -1)
       {
@@ -673,6 +676,11 @@ int main (int argc, char *argv[])
       lut = 1;
       break;
 
+    case '8':
+      lut8 = 1;
+      break;
+
+
     case 'w':
       raw = 1;
       break;
@@ -785,7 +793,7 @@ int main (int argc, char *argv[])
     while (optind < argc)
       {
       //printf ("%s\n", argv[optind++]);
-      files.push_back( argv[optind++] );
+      files.emplace_back(argv[optind++] );
       }
     //printf ("\n");
     if( files.size() == 2
@@ -1097,7 +1105,7 @@ int main (int argc, char *argv[])
       return 1;
       }
   }
-  else if( lut )
+  else if( lut || lut8 )
     {
     gdcm::PixmapReader reader;
     reader.SetFileName( filename.c_str() );
@@ -1110,6 +1118,7 @@ int main (int argc, char *argv[])
 
     gdcm::ImageApplyLookupTable lutfilt;
     lutfilt.SetInput( image );
+    lutfilt.SetRGB8( lut8 != 0 );
     bool b = lutfilt.Apply();
     if( !b )
       {

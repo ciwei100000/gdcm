@@ -50,7 +50,11 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
 #endif
     {
     const GooString* gs = obj.getString();
+#ifdef LIBPOPPLER_GOOSTRING_HAS_GETCSTRING
     s = gs->getCString();
+#else
+    s = gs->c_str();
+#endif
     if (s[0] == 'D' && s[1] == ':')
       {
       s += 2;
@@ -105,7 +109,11 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
 static std::string getInfoString(Dict *infoDict, const char *key, UnicodeMap *uMap, bool & unicode)
 {
   Object obj;
+#ifdef LIBPOPPLER_GOOSTRING_HAS_CONSTGETCHAR
   const GooString *s1;
+#else
+  GooString *s1;
+#endif
   bool isUnicode = false;
   Unicode u;
   char buf[8];
