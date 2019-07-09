@@ -1,2 +1,2 @@
 # This is a C++ library, using symbols files here is quite a challange
-libvtkgdcm2.8: no-symbols-control-file
+libvtkgdcm3.0: no-symbols-control-file

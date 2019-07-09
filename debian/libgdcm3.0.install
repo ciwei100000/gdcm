@@ -1,2 +1,2 @@
 usr/lib/*/libgdcm*.so.*
-usr/share/gdcm-2.*/XML
+usr/share/gdcm-3.*/XML

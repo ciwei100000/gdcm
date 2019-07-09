@@ -45,7 +45,7 @@ Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
 
-Package: libgdcm2.8
+Package: libgdcm3.0
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
@@ -77,7 +77,7 @@ Description: Grassroots DICOM tools and utilities
 Package: libgdcm2-dev
 Section: libdevel
 Architecture: any
-Depends: libgdcm2.8 (= ${binary:Version}), ${misc:Depends}
+Depends: libgdcm3.0 (= ${binary:Version}), ${misc:Depends}
 Description: Grassroots DICOM development libraries and headers
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
@@ -102,7 +102,7 @@ Description: Grassroots DICOM CLI bindings
 Package: python3-gdcm
 Section: python
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libgdcm3.0 (= ${binary:Version})
 Provides: ${python:Provides}
 Description: Grassroots DICOM Python bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
@@ -111,7 +111,7 @@ Description: Grassroots DICOM Python bindings
  .
  Python bindings to the GDCM DICOM library.
 
-Package: libvtkgdcm2.8
+Package: libvtkgdcm3.0
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
@@ -127,7 +127,7 @@ Description: Grassroots DICOM VTK runtime libraries
 Package: libvtkgdcm2-dev
 Section: libdevel
 Architecture: any
-Depends: libvtkgdcm2.8 (= ${binary:Version}), libgdcm2-dev, ${misc:Depends}
+Depends: libvtkgdcm3.0 (= ${binary:Version}), libgdcm2-dev, ${misc:Depends}
 Description: Grassroots DICOM VTK development libraries and headers
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
@@ -140,7 +140,7 @@ Description: Grassroots DICOM VTK development libraries and headers
 Package: libvtkgdcm-cil
 Section: cli-mono
 Architecture: @DEB_MONO_ARCHS@
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${cli:Depends}, libgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${cli:Depends}, libgdcm3.0 (= ${binary:Version})
 Suggests: libgdcm-cil
 Description: Grassroots DICOM VTK CLI bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
@@ -152,7 +152,7 @@ Description: Grassroots DICOM VTK CLI bindings
 Package: python3-vtkgdcm
 Section: python
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libvtkgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, libvtkgdcm3.0 (= ${binary:Version})
 Provides: ${python:Provides}
 Suggests: python3-gdcm
 Description: Grassroots DICOM VTK/Python bindings
@@ -204,7 +204,7 @@ Description: Grassroots DICOM Java bindings
 Package: libvtkgdcm-java
 Section: java
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${java:Depends}, libgdcm2.8 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${java:Depends}, libgdcm3.0 (= ${binary:Version})
 Suggests: libgdcm-java
 Description: Grassroots DICOM VTK Java bindings
  Grassroots DiCoM is a C++ library for DICOM medical files. It is

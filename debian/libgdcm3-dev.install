@@ -7,10 +7,10 @@ usr/lib/*/libgdcmjpeg12.so
 usr/lib/*/libgdcmjpeg16.so
 usr/lib/*/libgdcmjpeg8.so
 usr/lib/*/libgdcmMEXD.so
-usr/lib/*/gdcm-2.*/*.cmake
-usr/include/gdcm-2.*/gdcm*
-usr/include/gdcm-2.*/zip*
-usr/include/gdcm-2.*/gdcmjpeg/12/*
-usr/include/gdcm-2.*/gdcmjpeg/16/*
-usr/include/gdcm-2.*/gdcmjpeg/8/*
-usr/include/gdcm-2.*/gdcmjpeg/j*.h
+usr/lib/*/gdcm-3.*/*.cmake
+usr/include/gdcm-3.*/gdcm*
+usr/include/gdcm-3.*/zip*
+usr/include/gdcm-3.*/gdcmjpeg/12/*
+usr/include/gdcm-3.*/gdcmjpeg/16/*
+usr/include/gdcm-3.*/gdcmjpeg/8/*
+usr/include/gdcm-3.*/gdcmjpeg/j*.h
