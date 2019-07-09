@@ -2,7 +2,7 @@ Description: Use_swig_add_library_for_csharp
 Author: Gert Wollny <gewo@debian.org>
 --- a/Wrapping/Csharp/CMakeLists.txt
 +++ b/Wrapping/Csharp/CMakeLists.txt
-@@ -23,7 +23,8 @@
+@@ -27,7 +27,8 @@
  set(CMAKE_SWIG_FLAGS "-namespace gdcm -dllimport gdcmsharpglue")
  separate_arguments(CMAKE_SWIG_FLAGS)
  # libgdksharpglue.so
