@@ -25,3 +25,17 @@ Author: Gert Wollny <gewo@debian.org>
    0, encoding is lossless. If it is non-zero, then encoding is lossy. The
    value of 3 is often suggested as a default.
  
+--- a/Utilities/gdcm_charls.h
++++ b/Utilities/gdcm_charls.h
+@@ -20,11 +20,6 @@
+ // It is expected that version 2.0.0 is used
+ # include <CharLS/charls.h>
+ # include <CharLS/publictypes.h>
+-# include <CharLS/util.h>
+-# include <CharLS/defaulttraits.h>
+-# include <CharLS/losslesstraits.h>
+-# include <CharLS/colortransform.h>
+-# include <CharLS/processline.h>
+ #else
+ #include "gdcmcharls/charls.h"
+ #include "gdcmcharls/publictypes.h"
