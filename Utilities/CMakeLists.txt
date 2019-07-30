@@ -69,16 +69,20 @@ if(NOT GDCM_USE_SYSTEM_ZLIB)
 endif()
 
 # Do getopt
-APPEND_COPYRIGHT(${CMAKE_CURRENT_SOURCE_DIR}/getopt/COPYING)
-if(WIN32 AND NOT CYGWIN)
-  set(GETOPT_NAMESPACE "GDCMGETOPT")
-  set(GETOPT_INSTALL_NO_LIBRARIES ${GDCM_INSTALL_NO_LIBRARIES})
-  set(GETOPT_INSTALL_BIN_DIR      ${GDCM_INSTALL_BIN_DIR})
-  set(GETOPT_INSTALL_LIB_DIR      ${GDCM_INSTALL_LIB_DIR})
-  add_subdirectory(getopt)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/getopt)
+  APPEND_COPYRIGHT(${CMAKE_CURRENT_SOURCE_DIR}/getopt/COPYING)
+  if(WIN32 AND NOT CYGWIN)
+    set(GETOPT_NAMESPACE "GDCMGETOPT")
+    set(GETOPT_INSTALL_NO_LIBRARIES ${GDCM_INSTALL_NO_LIBRARIES})
+    set(GETOPT_INSTALL_BIN_DIR      ${GDCM_INSTALL_BIN_DIR})
+    set(GETOPT_INSTALL_LIB_DIR      ${GDCM_INSTALL_LIB_DIR})
+    add_subdirectory(getopt)
+  endif()
 endif()
 
-add_subdirectory(doxygen)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/doxygen)
+  add_subdirectory(doxygen)
+endif()
 
 # you could be running mingw32 on linux in which case you do NOT want the gdcmuuid lib
 APPEND_COPYRIGHT(${CMAKE_CURRENT_SOURCE_DIR}/gdcmuuid/COPYING)
@@ -99,9 +103,6 @@ if(GDCM_USE_PVRG)
   endif()
 endif()
 
-# Do C99
-APPEND_COPYRIGHT(${CMAKE_CURRENT_SOURCE_DIR}/C99/COPYING)
-
 #if(NOT GDCM_INSTALL_NO_DEVELOPMENT)
 ##  file(GLOB header_files "*.h" "*.txx")
 #  install(FILES
@@ -115,9 +116,9 @@ APPEND_COPYRIGHT(${CMAKE_CURRENT_SOURCE_DIR}/C99/COPYING)
 #  )
 #endif()
 
-#if(GDCM_USE_KWSTYLE)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/KWStyle)
   add_subdirectory(KWStyle)
-#endif()
+endif()
 
 if(NOT GDCM_USE_SYSTEM_SOCKETXX)
 #set(SOCKETXX_NAMESPACE "GDCMSOCKETXX")

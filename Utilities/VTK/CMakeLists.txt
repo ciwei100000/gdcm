@@ -221,7 +221,11 @@ if(GDCM_WRAP_PHP)
   #endif()
   #separate_arguments(CMAKE_SWIG_FLAGS)
 
-  SWIG_ADD_MODULE(php_vtkgdcm php vtkgdcm.i)
+  SWIG_ADD_LIBRARY(
+    php_vtkgdcm
+    LANGUAGE php
+    SOURCES vtkgdcm.i
+  )
   SWIG_LINK_LIBRARIES(php_vtkgdcm vtkgdcm)
   target_link_libraries(${SWIG_MODULE_php_vtkgdcm_REAL_NAME} LINK_PRIVATE ${vtkgdcm_LIBS})
   if(UNIX)
@@ -289,7 +293,11 @@ if(GDCM_WRAP_CSHARP)
   else()
     set(CMAKE_SWIG_FLAGS "-namespace vtkgdcm -dllimport vtkgdcmsharpglue")
     separate_arguments(CMAKE_SWIG_FLAGS)
-    SWIG_ADD_MODULE(vtkgdcmsharpglue csharp vtkgdcm.i)
+    SWIG_ADD_LIBRARY(
+      vtkgdcmsharpglue
+      LANGUAGE csharp
+      SOURCES vtkgdcm.i
+    )
     target_link_libraries(${SWIG_MODULE_vtkgdcmsharpglue_REAL_NAME} LINK_PRIVATE vtkgdcm)
     # Stupid cmake-swig module is doing that for us, when not needed
     if(UNIX)
@@ -635,6 +643,18 @@ if(GDCM_WRAP_CSHARP)
   #  COMMENT "Copying vtkgdcm-sharp.dll.config"
   #)
 
+endif()
+
+if( (GDCM_WRAP_JAVA AND VTK_WRAP_JAVA) OR
+    (GDCM_WRAP_PYTHON AND VTK_WRAP_PYTHON) )
+  if( ${VTK_MAJOR_VERSION} GREATER 7 )
+    set(MODULE_HIERARCHY_NAME ${VTKGDCM_NAME}Hierarchy)
+    set(${VTKGDCM_NAME}_WRAP_DEPENDS ${vtkgdcm_LIBS})
+    include(vtkWrapHierarchy)
+    vtk_wrap_hierarchy(${VTKGDCM_NAME} ${CMAKE_CURRENT_BINARY_DIR} "${vtkgdcm_SRCS}")
+    set(KIT_HIERARCHY_FILE ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_HIERARCHY_NAME}.txt)
+    set(LIB_HIERARCHY_STAMP ${CMAKE_CURRENT_BINARY_DIR}/${MODULE_HIERARCHY_NAME}.stamp.txt)
+  endif()
 endif()
 
 if(GDCM_WRAP_JAVA)
