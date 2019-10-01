@@ -1,4 +1,4 @@
-gdcm (3.0.1-1) UNRELEASED; urgency=medium
+gdcm (3.0.2-1) UNRELEASED; urgency=medium
 
   * d/watch: update to version 4 of watch file
   * New upstream version 3.0.0
@@ -12,8 +12,9 @@ gdcm (3.0.1-1) UNRELEASED; urgency=medium
   * back to make?
   * New upstream version 3.0.1
   * d/p/disable patches that where applied upstream
+  * New upstream version 3.0.2
 
- -- Gert Wollny <gewo@debian.org>  Tue, 30 Jul 2019 14:12:46 +0200
+ -- Gert Wollny <gewo@debian.org>  Tue, 01 Oct 2019 08:57:28 +0200
 
 gdcm (2.8.9-1~exp1) experimental; urgency=medium
 
