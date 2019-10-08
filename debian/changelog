@@ -1,5 +1,6 @@
 gdcm (3.0.3-1) UNRELEASED; urgency=medium
 
+  [Gert Wollny]
   * d/watch: update to version 4 of watch file
   * New upstream version 3.0.3
   * d/ Update to new 3.0 so version
@@ -8,7 +9,10 @@ gdcm (3.0.3-1) UNRELEASED; urgency=medium
   * ci: Get some log output on failure
   * d/rules: Fix cmake file patchup code (Thanks Mathieu)
 
- -- Gert Wollny <gewo@debian.org>  Tue, 08 Oct 2019 10:09:46 +0200
+  [Steffenn Möller] 
+  * d/u/metadata: yamllint
+
+ -- Gert Wollny <gewo@debian.org>  Tue, 08 Oct 2019 10:13:11 +0200
 
 gdcm (2.8.9-1~exp1) experimental; urgency=medium
 
