@@ -1,20 +1,14 @@
-gdcm (3.0.2-1) UNRELEASED; urgency=medium
+gdcm (3.0.3-1) UNRELEASED; urgency=medium
 
   * d/watch: update to version 4 of watch file
-  * New upstream version 3.0.0
+  * New upstream version 3.0.3
   * d/ Update to new 3.0 so version
-  * d/p: Update patches
-  * Get some log output on failure
-  * d/p: correct charls2 patch
-  * Fix error out in ci script
-  * Correct charls patch again
-  * Correct library
-  * back to make?
-  * New upstream version 3.0.1
-  * d/p/disable patches that where applied upstream
-  * New upstream version 3.0.2
+  * d/p: Update patches and remove patches that were applied 
+    upstream
+  * ci: Get some log output on failure
+  * d/rules: Fix cmake file patchup code (Thanks Mathieu)
 
- -- Gert Wollny <gewo@debian.org>  Tue, 01 Oct 2019 08:57:28 +0200
+ -- Gert Wollny <gewo@debian.org>  Tue, 08 Oct 2019 10:09:46 +0200
 
 gdcm (2.8.9-1~exp1) experimental; urgency=medium
 
