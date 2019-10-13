@@ -8,6 +8,7 @@ gdcm (3.0.3-1) UNRELEASED; urgency=medium
     upstream
   * ci: Get some log output on failure
   * d/rules: Fix cmake file patchup code (Thanks Mathieu)
+  * Move to vtk7, Closes: #939670
 
   [Steffenn Möller] 
   * d/u/metadata: yamllint
