@@ -46,7 +46,7 @@ else
 endif
 
 %:
-	dh $@ $(WITH_CLI) --with python3 --with javahelper  --buildsystem=cmake
+	dh $@ $(WITH_CLI) --with python3 --with javahelper  --buildsystem=cmake+ninja
 
 PYVER 	 := $(shell py3versions -dv)
 PYMODDIR := /usr/lib/$(shell py3versions -d)
