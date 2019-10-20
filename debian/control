@@ -74,7 +74,7 @@ Description: Grassroots DICOM tools and utilities
  gdcmgendir, gdcmimg, gdcminfo, gdcmpdf, gdcmraw, gdcmscanner, gdcmscu, gdcmtar,
  gdcmxml programs.
 
-Package: libgdcm2-dev
+Package: libgdcm3-dev
 Section: libdevel
 Architecture: any
 Depends: libgdcm3.0 (= ${binary:Version}), ${misc:Depends}
@@ -124,7 +124,7 @@ Description: Grassroots DICOM VTK runtime libraries
  Libvtkgdcm is a library that quickly allow programmer to use GDCM
  from a VTK environment.
 
-Package: libvtkgdcm2-dev
+Package: libvtkgdcm3-dev
 Section: libdevel
 Architecture: any
 Depends: libvtkgdcm3.0 (= ${binary:Version}), libgdcm2-dev, ${misc:Depends}
