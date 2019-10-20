@@ -1,4 +1,4 @@
-gdcm (3.0.3-1) UNRELEASED; urgency=medium
+gdcm (3.0.3-1~exp1) experimental; urgency=medium
 
   [Gert Wollny]
   * d/watch: update to version 4 of watch file
@@ -9,11 +9,16 @@ gdcm (3.0.3-1) UNRELEASED; urgency=medium
   * ci: Get some log output on failure
   * d/rules: Fix cmake file patchup code (Thanks Mathieu)
   * Move to vtk7, Closes: #939670
+  * d/ci: don't silence build
+  * d/rules: use ninja build system
+  * d/libgdcm3.0.docs: Fix file name
+  * d/gdcm-doc*: Fix version of PDF file
+  * d/control: Fix dev package names
 
   [Steffenn Möller] 
   * d/u/metadata: yamllint
 
- -- Gert Wollny <gewo@debian.org>  Tue, 08 Oct 2019 10:13:11 +0200
+ -- Gert Wollny <gewo@debian.org>  Sun, 20 Oct 2019 15:16:32 +0200
 
 gdcm (2.8.9-1~exp1) experimental; urgency=medium
 
