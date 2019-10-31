@@ -1,3 +1,10 @@
+gdcm (3.0.3-1~exp2) experimental; urgency=medium
+
+  * d/control: Add Breaks/Replaces for *gdcm2-dev Closes: #943765
+  * d/* rename lib*gdcm3-dev to lib*gdcm-dev
+
+ -- Gert Wollny <gewo@debian.org>  Thu, 31 Oct 2019 12:35:25 +0100
+
 gdcm (3.0.3-1~exp1) experimental; urgency=medium
 
   [Gert Wollny]
