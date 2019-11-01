@@ -1,6 +1,5 @@
-gdcm (3.0.4-1) UNRELEASED; urgency=medium
+gdcm (3.0.4-1) unstable; urgency=medium
 
-  * New upstream version 3.0.3
   * New upstream version 3.0.4
 
  -- Gert Wollny <gewo@debian.org>  Fri, 01 Nov 2019 17:17:49 +0100
