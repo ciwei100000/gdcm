@@ -184,7 +184,7 @@ Description: Grassroots DICOM VTK tools and utilities
 Package: gdcm-doc
 Architecture: all
 Section: doc
-Depends: ${misc:Depends}, vtk6-doc, doc-base
+Depends: ${misc:Depends}, vtk7-doc, doc-base
 Description: Grassroots DICOM documentation
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
