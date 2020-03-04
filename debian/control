@@ -7,7 +7,7 @@ Section: libs
 Priority: optional
 Build-Depends: cmake,
                debhelper-compat (= 12),
-               default-jdk,
+               default-jdk [!hppa !hurd-any !kfreebsd-any],
                dh-strip-nondeterminism,
                dh-python,
                python3-dev,
@@ -20,7 +20,7 @@ Build-Depends: cmake,
                libvtk7-dev,
                libcharls-dev (>= 1.1.0),
                libopenjp2-7-dev,
-               libvtk7-java,
+               libvtk7-java [!hppa !hurd-any !kfreebsd-any],
                libxml2-dev,
                libjson-c-dev,
                libpoppler-private-dev,
@@ -214,7 +214,7 @@ Description: Grassroots DICOM documentation
  This is the documentation for gdcm and vtkgdcm
 
 Package: libgdcm-java
-Architecture: any
+Architecture: amd64 arm64 armel armhf i386 mips64el mipsel ppc64el s390x alpha ia64 m68k powerpc ppc64 riscv64 sh4 sparc64 x32
 Section: java
 Depends: ${shlibs:Depends},
          ${misc:Depends},

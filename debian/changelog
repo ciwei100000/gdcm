@@ -1,5 +1,6 @@
 gdcm (3.0.4-3) UNRELEASED; urgency=medium
 
+  [ Andreas Tille ]
   * Team upload.
   * Standards-Version: 4.5.0 (routine-update)
   * debhelper-compat 12 (routine-update)
@@ -14,6 +15,10 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Trim trailing whitespace.
   * Wrap long lines in changelog entries: 2.0.10-2.
   * Use secure URI in debian/watch.
+
+  [ Samuel Thibault ]
+  * Build on ports without java
+    Closes: #947990
 
  -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
 
