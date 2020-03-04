@@ -2,7 +2,7 @@
 # export DH_VERBOSE=1
 
 
-# results in linking error 
+# results in linking error
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
@@ -30,12 +30,12 @@ export LD_LIBRARY_PATH
 DEFAULT_JAVA_VERSION=1.8
 ifeq ($(DEB_BUILD_ARCH),$(filter $(DEB_BUILD_ARCH),hppa hurd-i386))
   DEFAULT_JAVA_VERSION=1.5
-endif 
+endif
 
 # set JAVA path on arm, doesn't seem to find it otherwise
 ifeq ($(DEB_BUILD_ARCH),$(filter $(DEB_BUILD_ARCH),armhf armel arm64 powerpc ppc64el))
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-$(DEB_BUILD_ARCH)
-endif 
+endif
 
 
 # deduce documentation option (build-indep target)
@@ -100,11 +100,11 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_EXTRA_FLAGS)
 
-override_dh_auto_build-indep: 
+override_dh_auto_build-indep:
 	dh_auto_build -- DoxygenDoc vtkgdcmDoxygenDoc
 
-override_dh_auto_build-arch: 
-	dh_auto_build 
+override_dh_auto_build-arch:
+	dh_auto_build
 
 override_dh_auto_install-arch:
 	# See #664188
@@ -127,20 +127,20 @@ override_dh_auto_install-arch:
 	mv debian/tmp/usr/lib/python debian/tmp/$(PYMODDIR)
 	#mv debian/tmp/usr/lib/_gdcmswig.so* debian/tmp/$(PYMODDIR)/dist-packages/
 
-ifeq ($(DEB_WRAP_CSHARP), 1)	
+ifeq ($(DEB_WRAP_CSHARP), 1)
 	#Csharp correct file name (Why did it change on most archs, and why not on kFreeBSD?)
 	test -f debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libgdcmsharpglue.so || \
 	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gdcmsharpglue.so debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libgdcmsharpglue.so
 endif
 
-override_dh_auto_install-indep: 
-	DESTDIR=$(CURDIR)/debian/tmp/ cmake --build  obj-* --target Utilities/doxygen/install 
+override_dh_auto_install-indep:
+	DESTDIR=$(CURDIR)/debian/tmp/ cmake --build  obj-* --target Utilities/doxygen/install
 
 #override_dh_auto_install-arch:
 #	dh_install --list-missing
 
 override_dh_strip_nondeterminism:
-	dh_strip_nondeterminism -Xsharp 
+	dh_strip_nondeterminism -Xsharp
 
 override_dh_clideps:
 ifeq ($(DEB_WRAP_CSHARP), 1)
