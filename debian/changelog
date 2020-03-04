@@ -4,6 +4,8 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Standards-Version: 4.5.0 (routine-update)
   * debhelper-compat 12 (routine-update)
   * Drop useless get-orig-source target (routine-update)
+  * Respect DEB_BUILD_OPTIONS in override_dh_auto_test target (routine-
+    update)
 
  -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
 

@@ -149,8 +149,14 @@ endif
 
 # No tests needed for docs
 override_dh_auto_test-indep:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	echo "No tests needed for docs"
+endif
 
 override_dh_auto_test-arch:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	echo "Do not run build time tests for this package"
+endif
 
 pkg_doc = gdcm-doc
 pkg_exa = gdcm-examples
