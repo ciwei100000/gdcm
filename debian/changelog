@@ -6,6 +6,7 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Drop useless get-orig-source target (routine-update)
   * Respect DEB_BUILD_OPTIONS in override_dh_auto_test target (routine-
     update)
+  * Remove trailing whitespace in debian/changelog (routine-update)
 
  -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
 
@@ -34,7 +35,7 @@ gdcm (3.0.3-1~exp1) experimental; urgency=medium
   * d/watch: update to version 4 of watch file
   * New upstream version 3.0.3
   * d/ Update to new 3.0 so version
-  * d/p: Update patches and remove patches that were applied 
+  * d/p: Update patches and remove patches that were applied
     upstream
   * ci: Get some log output on failure
   * d/rules: Fix cmake file patchup code (Thanks Mathieu)
@@ -45,7 +46,7 @@ gdcm (3.0.3-1~exp1) experimental; urgency=medium
   * d/gdcm-doc*: Fix version of PDF file
   * d/control: Fix dev package names
 
-  [Steffenn Möller] 
+  [Steffenn Möller]
   * d/u/metadata: yamllint
 
  -- Gert Wollny <gewo@debian.org>  Sun, 20 Oct 2019 15:16:32 +0200
