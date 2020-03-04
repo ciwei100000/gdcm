@@ -6,7 +6,7 @@ Uploaders: Steve M. Robbins <smr@debian.org>,
  Sébastien Jodogne <s.jodogne@gmail.com>, 
  Gert Wollny <gewo@debian.org> 
 Build-Depends: cmake (>= 2.8.9),
-               debhelper (>= 11),
+               debhelper-compat (= 12),
 	       default-jdk,
                dh-strip-nondeterminism, 
                dh-python, 
