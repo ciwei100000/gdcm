@@ -2,7 +2,7 @@ Source: gdcm
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 Uploaders: Steve M. Robbins <smr@debian.org>,
            Sébastien Jodogne <s.jodogne@gmail.com>,
-           Gert Wollny <gewo@debian.org> 
+           Gert Wollny <gewo@debian.org>
 Section: libs
 Priority: optional
 Build-Depends: cmake,
