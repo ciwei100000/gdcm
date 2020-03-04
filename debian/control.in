@@ -3,13 +3,13 @@ Section: libs
 Priority: optional
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 Uploaders: Steve M. Robbins <smr@debian.org>,
- Sébastien Jodogne <s.jodogne@gmail.com>, 
- Gert Wollny <gewo@debian.org> 
+ Sébastien Jodogne <s.jodogne@gmail.com>,
+ Gert Wollny <gewo@debian.org>
 Build-Depends: cmake (>= 2.8.9),
                debhelper (>= 11),
 	       default-jdk,
-               dh-strip-nondeterminism, 
-               dh-python, 
+               dh-strip-nondeterminism,
+               dh-python,
 	       python3-dev,
 	       pvrg-jpeg,
 	       uuid-dev,
@@ -32,12 +32,12 @@ Build-Depends: cmake (>= 2.8.9),
 	       libpapyrus3-dev,
 	       cli-common-dev (>= 0.9) [@DEB_MONO_ARCHS@],
 	       mono-devel (>= 2.10.5) [@DEB_MONO_ARCHS@],
-	       xsltproc, 
+	       xsltproc,
                docbook-xsl-ns
 Build-Depends-Indep: vtk7-doc,
 	       doxygen,
 	       doxygen-latex,
-	       ghostscript, 
+	       ghostscript,
                graphviz
 Build-Conflicts: libopenjpeg-dev
 Standards-Version: 4.1.4
@@ -115,7 +115,7 @@ Package: libvtkgdcm3.0
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Depends: ${shlibs:Depends}, ${misc:Depends},
 Description: Grassroots DICOM VTK runtime libraries
  Grassroots DiCoM is a C++ library for DICOM medical files. It is
  automatically wrapped to python/C#/Java (using swig). It supports
@@ -212,4 +212,3 @@ Description: Grassroots DICOM VTK Java bindings
  RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
  .
  VTK Java bindings to the GDCM DICOM library.
-

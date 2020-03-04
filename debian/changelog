@@ -11,6 +11,7 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Remove trailing whitespace in debian/copyright (routine-update)
   * Remove trailing whitespace in debian/rules (routine-update)
   * Add salsa-ci file (routine-update)
+  * Trim trailing whitespace.
 
  -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
 
