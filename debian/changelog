@@ -12,6 +12,7 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Remove trailing whitespace in debian/rules (routine-update)
   * Add salsa-ci file (routine-update)
   * Trim trailing whitespace.
+  * Wrap long lines in changelog entries: 2.0.10-2.
 
  -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
 
@@ -1058,9 +1059,10 @@ gdcm (2.0.10-2) unstable; urgency=low
   * debian/libgdcm2.0.docs: New.
 
   [ Mathieu Malaterre ]
-  * debian/patches/gdcm210_tagbackport.patch: Patch released on gdcm 2.0.10 svn tag
-  * debian/patches/dcm210_branchbackport.patch: Patch released on gdcm-2-0 branch
-    Closes: #529276.
+  * debian/patches/gdcm210_tagbackport.patch: Patch released on gdcm 2.0.10 svn
+    tag
+  * debian/patches/dcm210_branchbackport.patch: Patch released on gdcm-2-0
+    branch Closes: #529276.
   * Use vtk/5.2.1-4, Closes: #529193
 
  -- Mathieu Malaterre (malat) <mathieu.malaterre@gmail.com>  Mon, 18 May 2009 14:31:47 +0200
