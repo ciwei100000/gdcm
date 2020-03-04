@@ -165,5 +165,3 @@ override_dh_compress:
 debian/control: debian/control.in
 	sed -e"s/@PYVER@/$(PYVER)/g" -e "s/@DEB_MONO_ARCHS@/$(DEB_MONO_ARCHS)/g" $< > $@
 
-get-orig-source:
-	uscan --verbose --force-download --rename
