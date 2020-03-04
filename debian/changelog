@@ -15,6 +15,8 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Trim trailing whitespace.
   * Wrap long lines in changelog entries: 2.0.10-2.
   * Use secure URI in debian/watch.
+  * Build-Depends: swig (instead of swig3.0)
+    Closes: #952597
 
   [ Samuel Thibault ]
   * Build on ports without java
