@@ -5,7 +5,7 @@ Author: Mathieu Malaterre <malat@debian.org>
 
 --- a/Source/Common/gdcmSystem.cxx
 +++ b/Source/Common/gdcmSystem.cxx
-@@ -369,6 +369,10 @@
+@@ -366,6 +366,10 @@
  #define PATH_MAX 4096
  #endif
  
@@ -18,7 +18,7 @@ Author: Mathieu Malaterre <malat@debian.org>
  {
 --- a/Source/DataDictionary/gdcmGlobal.cxx
 +++ b/Source/DataDictionary/gdcmGlobal.cxx
-@@ -137,6 +137,10 @@
+@@ -138,6 +138,10 @@
  #define PATH_MAX 4096
  #endif
  
