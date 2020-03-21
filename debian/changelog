@@ -1,4 +1,4 @@
-gdcm (3.0.4-3) UNRELEASED; urgency=medium
+gdcm (3.0.5-1) UNRELEASED; urgency=medium
 
   [ Andreas Tille ]
   * Team upload.
@@ -22,7 +22,11 @@ gdcm (3.0.4-3) UNRELEASED; urgency=medium
   * Build on ports without java
     Closes: #947990
 
- -- Andreas Tille <tille@debian.org>  Wed, 04 Mar 2020 09:56:51 +0100
+  [ Gert Wollny ]
+  * New upstream version 3.0.5
+  * d/patches: Update for new release
+
+ -- Gert Wollny <gewo@debian.org>  Sat, 21 Mar 2020 19:26:18 +0100
 
 gdcm (3.0.4-2) unstable; urgency=medium
 
