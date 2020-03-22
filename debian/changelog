@@ -25,8 +25,10 @@ gdcm (3.0.5-1) UNRELEASED; urgency=medium
   [ Gert Wollny ]
   * New upstream version 3.0.5
   * d/patches: Update for new release
+  * d/p: Add upstream patch to fix build with swig4
+  * d/gdcm-doc.doc-base: update pdf version
 
- -- Gert Wollny <gewo@debian.org>  Sat, 21 Mar 2020 19:26:18 +0100
+ -- Gert Wollny <gewo@debian.org>  Sun, 22 Mar 2020 19:29:36 +0100
 
 gdcm (3.0.4-2) unstable; urgency=medium
 
