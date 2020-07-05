@@ -17,16 +17,16 @@ Build-Depends: cmake,
                libexpat-dev,
                swig,
                javahelper,
-               libvtk7-dev,
+               libvtk8-dev,
                libcharls-dev (>= 1.1.0),
                libopenjp2-7-dev,
-               libvtk7-java [!hppa !hurd-any !kfreebsd-any],
+               libvtk8-java [!hppa !hurd-any !kfreebsd-any],
                libxml2-dev,
                libjson-c-dev,
                libpoppler-private-dev,
                libssl-dev,
                ninja-build,
-               python3-vtk7,
+               python3-vtk8,
                castxml,
                libsocket++-dev,
                libpapyrus3-dev,
@@ -34,7 +34,7 @@ Build-Depends: cmake,
                mono-devel [@DEB_MONO_ARCHS@],
                xsltproc,
                docbook-xsl-ns
-Build-Depends-Indep: vtk7-doc,
+Build-Depends-Indep: vtk8-doc,
                      doxygen,
                      doxygen-latex,
                      ghostscript,
@@ -204,7 +204,7 @@ Package: gdcm-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends},
-         vtk7-doc,
+         vtk8-doc,
          doc-base
 Description: Grassroots DICOM documentation
  Grassroots DiCoM is a C++ library for DICOM medical files. It is

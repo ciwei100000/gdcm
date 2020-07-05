@@ -55,7 +55,7 @@ endif
 
 PYVER 	 := $(shell py3versions -dv)
 PYMODDIR := /usr/lib/$(shell py3versions -d)
-VTKVERS=$(shell apt-cache policy libvtk7-dev | grep "Installed:" | cut -d: -f2 | cut -d' ' -f2 | cut -d- -f1 | cut -d. -f1-2)
+VTKVERS=$(shell apt-cache policy libvtk8-dev | grep "Installed:" | cut -d: -f2 | cut -d' ' -f2 | cut -d- -f1 | cut -d. -f1-2)
 
 # GDCM_DOCUMENTATION:BOOL=ON is required to build man page (build target)
 # Need to make sure to build using the same vtk/python version:
@@ -90,14 +90,14 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 		-DGDCM_USE_SYSTEM_SOCKETXX:BOOL=ON \
 		-DPython_ADDITIONAL_VERSIONS:STRING=$(PYVER) \
 		-DGDCM_INSTALL_DOC_DIR:STRING=share/doc/gdcm-doc \
-		-DTAGFILES:STRING="/usr/share/doc/vtk-doc/html/vtk$(VTKVERS).tag=/usr/share/doc/vtk-doc/html/" \
+		-DTAGFILES:STRING="/usr/share/doc/vtk8/html/vtk$(VTKVERS).tag=/usr/share/doc/vtk8/html/" \
 		-DGDCM_INSTALL_PYTHONMODULE_DIR:STRING=lib/python/dist-packages \
 		-DGDCM_INSTALL_JAVAMODULE_DIR:STRING=lib/$(DEB_HOST_MULTIARCH)/jni \
 		-DGDCM_NO_PYTHON_LIBS_LINKING:BOOL=ON \
                 -DGDCM_NO_VTKJAVA_LIBS_LINKING:BOOL=ON \
 		-DGDCM_INSTALL_LIB_DIR:STRING=lib/$(DEB_HOST_MULTIARCH) \
 		-DGDCM_USE_VTK:BOOL=ON \
-		-DVTK_JAVA_JAR=/usr/share/java/vtk7.jar
+		-DVTK_JAVA_JAR=/usr/share/java/vtk8.jar
 
 
 override_dh_auto_configure:
