@@ -2,8 +2,9 @@ gdcm (3.0.7-1) UNRELEASED; urgency=medium
 
   * New upstream version 3.0.7
   * d/patches: Update patches for new upstream version
+  * d/patches: Update vtk doc patch for new upstream version"
 
- -- Gert Wollny <gewo@debian.org>  Sun, 12 Jul 2020 20:05:12 +0200
+ -- Gert Wollny <gewo@debian.org>  Fri, 07 Aug 2020 12:10:56 +0200
 
 gdcm (3.0.5-1) unstable; urgency=medium
 
