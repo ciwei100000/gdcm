@@ -38,6 +38,15 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
    endif()
 --- a/Utilities/doxygen/vtk/doc_makeall.sh.in
 +++ b/Utilities/doxygen/vtk/doc_makeall.sh.in
+@@ -42,7 +42,7 @@
+ # Example:
+ #   PATH_TO_VTK_DOX_SCRIPTS=@CMAKE_CURRENT_SOURCE_DIR@
+ #
+-export PATH_TO_VTK_DOX_SCRIPTS="@DOXYGEN_SOURCE_DIR@"
++export PATH_TO_VTK_DOX_SCRIPTS=/usr/share/vtk-7.1/doxygen/
+ 
+ export PATH_TO_VTKGDCM_FINAL_PATH="@VTKGDCM_FINAL_PATH@"
+ 
 @@ -169,12 +169,12 @@
  # Convert the VTK headers to the Doxygen format.
  echo "Convert the VTK headers to the Doxygen format."
