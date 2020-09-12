@@ -1,3 +1,12 @@
+gdcm (3.0.7-3-vtk8) experimental; urgency=medium
+
+  * Replaced vtk7 with vtk8
+  * Removed the packages that cannot be compiled:
+  *      1. Cli packages
+  *      2. Doc package
+
+ -- ciwei100000 <ciwei100000@gmail.com>  Sat, 04 Jul 2020 21:19:58 -0700
+
 gdcm (3.0.7-3) unstable; urgency=medium
 
   * d/control: update mono deps Closes: #968176
