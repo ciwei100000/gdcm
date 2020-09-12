@@ -1,3 +1,23 @@
+gdcm (3.0.7-3) unstable; urgency=medium
+
+  * d/control: update mono deps Closes: #968176
+
+ -- Gert Wollny <gewo@debian.org>  Mon, 17 Aug 2020 08:24:50 +0200
+
+gdcm (3.0.7-2) unstable; urgency=medium
+
+  * d/patch: add a patch to rename pdf based on major version
+
+ -- Gert Wollny <gewo@debian.org>  Sat, 08 Aug 2020 15:05:07 +0200
+
+gdcm (3.0.7-1) unstable; urgency=medium
+
+  * New upstream version 3.0.7
+  * d/patches: Update patches for new upstream version
+  * d/patches: Update vtk doc patch for new upstream version"
+
+ -- Gert Wollny <gewo@debian.org>  Fri, 07 Aug 2020 21:22:46 +0200
+
 gdcm (3.0.5-1-vtk8) experimental; urgency=medium
 
   * Replaced vtk7 with vtk8

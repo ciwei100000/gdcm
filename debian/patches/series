@@ -1,3 +1,4 @@
+rename-pdf.patch
 02_fixhurd.patch
 03_linkvtkdoc.patch
 04_multiarch.patch
@@ -5,4 +6,5 @@
 #unforce_cxx98.patch
 #use_swig_add_library_for_csharp.patch
 #fix_charls_2.patch
-fix_swig4.patch
+#fix_swig4.patch
+
