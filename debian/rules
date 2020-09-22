@@ -12,18 +12,18 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # to please dpkg-shlibdeps and java private libs in /usr/lib/jni
 LD_LIBRARY_PATH:=$(LD_LIBRARY_PATH):/usr/lib/jni
 
+WITH_CLI =
+DEB_WRAP_CSHARP = 0
+ifeq (,$(filter $(DEB_BUILD_PROFILES),nocil))
 # required for DEB_MONO_ARCHS (debian/control.in)
 -include /usr/share/mono/mono-archs.make
-
 # Mono is not available for all Debian architectures.
 ifeq ($(shell dh_listpackages | grep -q cil && echo yes),yes)
 WITH_CLI = --with cli
 DEB_WRAP_CSHARP = 1
 # dpkg-shlibdeps needs to know where is libKitware.mummy.Runtime.Unmanaged.so
 LD_LIBRARY_PATH:=$(LD_LIBRARY_PATH):/usr/lib/cli/Kitware.mummy.Runtime-1.0
-else
-WITH_CLI =
-DEB_WRAP_CSHARP = 0
+endif
 endif
 export LD_LIBRARY_PATH
 
