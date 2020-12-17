@@ -13,6 +13,9 @@ gdcm (3.0.8-1) UNRELEASED; urgency=medium
   * debian/control: libvtkgdcm-java: don't build on ports without java
     Closes: #976360
 
+  [ Andreas Tille ]
+  * Standards-Version: 4.5.1
+
  -- Gert Wollny <gewo@debian.org>  Thu, 12 Nov 2020 13:00:29 +0100
 
 gdcm (3.0.7-3) unstable; urgency=medium
