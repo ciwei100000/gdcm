@@ -1,6 +1,11 @@
 gdcm (3.0.8-1) UNRELEASED; urgency=medium
 
+  [ Gert Wollny ]
   * New upstream version 3.0.8
+
+  [ Michael R. Crusoe ]
+  * debian/watch: upstream now distributes source releases on GitHub
+  * debian/upstream/metadata: document GitHub for source, SF for bugs
 
  -- Gert Wollny <gewo@debian.org>  Thu, 12 Nov 2020 13:00:29 +0100
 
