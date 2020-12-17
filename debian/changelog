@@ -1,4 +1,4 @@
-gdcm (3.0.8-1) UNRELEASED; urgency=medium
+gdcm (3.0.8-1) unstable; urgency=medium
 
   [ Gert Wollny ]
   * New upstream version 3.0.8
@@ -16,7 +16,7 @@ gdcm (3.0.8-1) UNRELEASED; urgency=medium
   [ Andreas Tille ]
   * Standards-Version: 4.5.1
 
- -- Gert Wollny <gewo@debian.org>  Thu, 12 Nov 2020 13:00:29 +0100
+ -- Andreas Tille <tille@debian.org>  Thu, 17 Dec 2020 20:30:50 +0100
 
 gdcm (3.0.7-3) unstable; urgency=medium
 
