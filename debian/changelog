@@ -3,6 +3,10 @@ gdcm (3.0.8-1) UNRELEASED; urgency=medium
   [ Gert Wollny ]
   * New upstream version 3.0.8
 
+  [ Alexander Volkov ] 
+  * debian/{rules, control}: Don't build CLI bindings when the "nocil" build
+    profile is enabled
+
   [ Michael R. Crusoe ]
   * debian/watch: upstream now distributes source releases on GitHub
   * debian/upstream/metadata: document GitHub for source, SF for bugs
