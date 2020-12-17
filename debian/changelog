@@ -10,6 +10,8 @@ gdcm (3.0.8-1) UNRELEASED; urgency=medium
   [ Michael R. Crusoe ]
   * debian/watch: upstream now distributes source releases on GitHub
   * debian/upstream/metadata: document GitHub for source, SF for bugs
+  * debian/control: libvtkgdcm-java: don't build on ports without java
+    Closes: #976360
 
  -- Gert Wollny <gewo@debian.org>  Thu, 12 Nov 2020 13:00:29 +0100
 
