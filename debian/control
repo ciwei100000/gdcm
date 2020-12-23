@@ -30,8 +30,8 @@ Build-Depends: cmake,
                castxml,
                libsocket++-dev,
                libpapyrus3-dev,
-               cli-common-dev [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64],
-               mono-devel [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64],
+               cli-common-dev [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64] <!nocil>,
+               mono-devel [amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64] <!nocil>,
                xsltproc,
                docbook-xsl-ns
 Build-Depends-Indep: vtk8-doc,
@@ -40,7 +40,7 @@ Build-Depends-Indep: vtk8-doc,
                      ghostscript,
                      graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
@@ -93,6 +93,21 @@ Description: Grassroots DICOM development libraries and headers
  GDCM, but are needed to build plugins or programs that link against
  libgdcm.
 
+Package: libgdcm-cil
+Build-Profiles: <!nocil>
+Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64
+Section: cli-mono
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         ${cli:Depends}
+Description: Grassroots DICOM CLI bindings
+ Grassroots DiCoM is a C++ library for DICOM medical files. It is
+ automatically wrapped to python/C#/Java (using swig). It supports
+ RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
+ .
+ CLI bindings to the GDCM DICOM library. It allows developers to use
+ GDCM from C# environment.
+
 Package: python3-gdcm
 Architecture: any
 Section: python
@@ -138,6 +153,22 @@ Description: Grassroots DICOM VTK development libraries and headers
  Headers and static libraries for libvtkgdcm. These are not needed to
  use GDCM, but are needed to build plugins or programs that link
  against libvtkgdcm.
+
+Package: libvtkgdcm-cil
+Build-Profiles: <!nocil>
+Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64
+Section: cli-mono
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         ${cli:Depends},
+         libgdcm3.0 (= ${binary:Version})
+Suggests: libgdcm-cil
+Description: Grassroots DICOM VTK CLI bindings
+ Grassroots DiCoM is a C++ library for DICOM medical files. It is
+ automatically wrapped to python/C#/Java (using swig). It supports
+ RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
+ .
+ VTK CLI bindings to the GDCM DICOM library.
 
 Package: python3-vtkgdcm
 Architecture: any
@@ -187,7 +218,7 @@ Description: Grassroots DICOM Java bindings
  GDCM from Java environment.
 
 Package: libvtkgdcm-java
-Architecture: any
+Architecture: amd64 arm64 armel armhf i386 mips64el mipsel ppc64el s390x alpha ia64 m68k powerpc ppc64 riscv64 sh4 sparc64 x32
 Section: java
 Depends: ${shlibs:Depends},
          ${misc:Depends},

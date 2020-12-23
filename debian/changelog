@@ -1,3 +1,23 @@
+gdcm (3.0.8-1) unstable; urgency=medium
+
+  [ Gert Wollny ]
+  * New upstream version 3.0.8
+
+  [ Alexander Volkov ] 
+  * debian/{rules, control}: Don't build CLI bindings when the "nocil" build
+    profile is enabled
+
+  [ Michael R. Crusoe ]
+  * debian/watch: upstream now distributes source releases on GitHub
+  * debian/upstream/metadata: document GitHub for source, SF for bugs
+  * debian/control: libvtkgdcm-java: don't build on ports without java
+    Closes: #976360
+
+  [ Andreas Tille ]
+  * Standards-Version: 4.5.1
+
+ -- Andreas Tille <tille@debian.org>  Thu, 17 Dec 2020 20:30:50 +0100
+
 gdcm (3.0.7-3-vtk8) experimental; urgency=medium
 
   * Replaced vtk7 with vtk8
