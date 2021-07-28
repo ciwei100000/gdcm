@@ -81,7 +81,12 @@ Package: libgdcm-dev
 Architecture: any
 Section: libdevel
 Depends: libgdcm3.0 (= ${binary:Version}),
-         ${misc:Depends}
+         ${misc:Depends},
+         libgdcm-tools,
+         libvtkgdcm-cil,
+         libvtkgdcm-dev,
+         libvtkgdcm-java,
+         python3-vtkgdcm
 Breaks: libgdcm2-dev
 Replaces: libgdcm2-dev
 Description: Grassroots DICOM development libraries and headers
