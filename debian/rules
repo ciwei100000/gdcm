@@ -54,6 +54,7 @@ endif
 	dh $@ $(WITH_CLI) --with python3 --with javahelper  --buildsystem=cmake+ninja
 
 PYVER 	 := $(shell py3versions -dv)
+PV	 := $(shell echo $(PYVER) | sed 's/\.//')
 PYMODDIR := /usr/lib/$(shell py3versions -d)
 VTKVERS=$(shell apt-cache policy libvtk7-dev | grep "Installed:" | cut -d: -f2 | cut -d' ' -f2 | cut -d- -f1 | cut -d. -f1-2)
 
@@ -114,6 +115,11 @@ override_dh_auto_install-arch:
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
 	# See #711214
 	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets.cmake
+	# See #989296
+	sed -i -e 's@/lib/\(.\+\)/libvtkgdcmsharpglue.so@/lib/cli/vtkgdcm-sharp-3.0/libvtkgdcmsharpglue.so@' \
+		obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
+	sed -i -e 's@/lib/python/dist-packages/vtkgdcmPython.so@usr/lib/python3/dist-packages/vtkgdcmPython.cpython-$(PV)-$(DEB_HOST_MULTIARCH).so' \
+		obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
 
 	dh_auto_install
 	# PHP
