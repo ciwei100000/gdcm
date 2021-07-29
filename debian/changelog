@@ -1,6 +1,6 @@
 gdcm (3.0.8-2) unstable; urgency=medium
 
-  [ Étienne Mollier ]
+  * Team upload.
   * corrections to satisfy GDCMTargets*.cmake:
     - d/control{,.in}: add missing dependencies to libgdcm-dev
     - d/rules: adjust GDCMTargets-*.cmake
