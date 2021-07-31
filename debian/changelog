@@ -2,7 +2,7 @@ gdcm (3.0.8-2) unstable; urgency=medium
 
   * Team upload.
   * d/rules: adjust GDCMTargets-*.cmake to detect libvtkgdcmsharpglue.so and
-    vtkgdcmPython.cpython-39-x86_64-linux-gnu.so properly.
+    vtkgdcmPython.cpython-*-*.so properly.
     Closes: #989296
 
  -- Étienne Mollier <emollier@debian.org>  Sat, 31 Jul 2021 10:32:44 +0200
