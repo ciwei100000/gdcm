@@ -1,9 +1,8 @@
 gdcm (3.0.8-2) UNRELEASED; urgency=medium
 
   * Team upload.
-  * corrections to satisfy GDCMTargets*.cmake:
-    - d/control{,.in}: add missing dependencies to libgdcm-dev
-    - d/rules: adjust GDCMTargets-*.cmake
+  * d/rules: adjust GDCMTargets-*.cmake to detect libvtkgdcmsharpglue.so and
+    vtkgdcmPython.cpython-39-x86_64-linux-gnu.so properly.
     Closes: #989296
 
  -- Étienne Mollier <emollier@debian.org>  Thu, 29 Jul 2021 23:25:51 +0200
