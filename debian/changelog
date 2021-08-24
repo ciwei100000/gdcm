@@ -1,3 +1,9 @@
+gdcm (3.0.8-2.1vtk8) unstable; urgency=medium
+
+  * Add build dependency libvtk8-qt-dev
+
+ -- Xuqing Liu <ciwei100000@gmail.com>  Tue, 24 Aug 2021 01:31:03 -0700
+
 gdcm (3.0.8-2vtk8) unstable; urgency=medium
 
   * Merge tag 'debian/3.0.8-2' into vtk8
