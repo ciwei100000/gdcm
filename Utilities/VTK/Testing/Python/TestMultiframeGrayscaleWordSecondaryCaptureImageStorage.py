@@ -32,7 +32,7 @@ v16.SetDataSpacing(3.2, 3.2, 1.5)
 #print v16.GetOutput()
 
 w = vtkgdcm.vtkGDCMImageWriter()
-w.SetInputConnection( v16.GetOutputPort() )
+w.SetInput( v16.GetOutput() )
 w.SetFileDimensionality( 3 )
 w.SetFileName( "sc.dcm" )
 w.Write()

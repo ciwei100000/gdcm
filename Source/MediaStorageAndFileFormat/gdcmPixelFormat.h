@@ -67,10 +67,8 @@ public:
   } ScalarType;
 
   // default cstor:
-  PixelFormat () : PixelFormat(1, 8, 8, 7, 0) {}
-
   explicit PixelFormat (
-    unsigned short samplesperpixel,
+    unsigned short samplesperpixel = 1,
     unsigned short bitsallocated = 8,
     unsigned short bitsstored = 8,
     unsigned short highbit = 7,

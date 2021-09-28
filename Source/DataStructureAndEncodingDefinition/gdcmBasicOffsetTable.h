@@ -70,7 +70,7 @@ public:
     bv->SetLength(ValueLengthField);
     if( !bv->Read<TSwap>(is) )
       {
-      gdcmAssertAlwaysMacro(0 && "Should not happen");
+      assert(0 && "Should not happen");
       return is;
       }
     ValueField = bv;
