@@ -1,3 +1,10 @@
+gdcm (3.1.0-1) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * New upstream version
+
+ -- Andreas Tille <tille@debian.org>  Tue, 28 Sep 2021 12:01:55 +0200
+
 gdcm (3.0.8-2.1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
