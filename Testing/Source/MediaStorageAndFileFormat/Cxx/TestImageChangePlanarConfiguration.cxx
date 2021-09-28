@@ -16,7 +16,6 @@
 #include "gdcmImageWriter.h"
 #include "gdcmTesting.h"
 #include "gdcmFilename.h"
-#include "gdcmByteSwap.h"
 #include "gdcmSystem.h"
 
 int TestImageChangePlanarConfigurationFunc(const char *filename, bool verbose = false)

@@ -60,7 +60,6 @@ set(MSFF_TEST_SRCS
   TestStringFilter1
   TestStringFilter2
   TestStringFilter3
-  TestStringFilter4
   TestUIDGenerator
   TestUUIDGenerator
   #TestUIDGenerator3
