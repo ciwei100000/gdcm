@@ -8,3 +8,4 @@ rename-pdf.patch
 #fix_charls_2.patch
 #fix_swig4.patch
 
+gcc-11.patch

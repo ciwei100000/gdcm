@@ -6,6 +6,7 @@ gdcm (3.0.8-3) UNRELEASED; urgency=medium
   * Standards-Version: 4.6.0 (routine-update)
   * debhelper-compat 13 (routine-update)
   * remove redundant debian/gbp.conf
+  * Add missing include to enable build with gcc-11
 
  -- Andreas Tille <tille@debian.org>  Tue, 28 Sep 2021 12:01:55 +0200
 
