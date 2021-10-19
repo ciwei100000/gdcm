@@ -1,3 +1,10 @@
+gdcm (3.0.8-4) unstable; urgency=medium
+
+  [ Mathieu Malaterre ]
+  * d/rules: Build manpages before installing them. Closes: #996820
+
+ -- Andreas Tille <tille@debian.org>  Tue, 19 Oct 2021 18:10:50 +0200
+
 gdcm (3.0.8-3) unstable; urgency=medium
 
   * Team upload.
