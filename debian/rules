@@ -105,7 +105,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_EXTRA_FLAGS)
 
 override_dh_auto_build-indep:
-	dh_auto_build -- DoxygenDoc vtkgdcmDoxygenDoc
+	dh_auto_build -- DoxygenDoc vtkgdcmDoxygenDoc DOCBOOK_MANPAGES
 
 override_dh_auto_build-arch:
 	dh_auto_build
