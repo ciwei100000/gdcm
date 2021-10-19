@@ -1,4 +1,4 @@
-gdcm (3.1.0-1) UNRELEASED; urgency=medium
+gdcm (3.0.8-3) UNRELEASED; urgency=medium
 
   * Team upload.
   * Fix watchfile to detect new versions on github (routine-update)
