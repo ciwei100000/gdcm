@@ -6,7 +6,7 @@ Uploaders: Steve M. Robbins <smr@debian.org>,
 Section: libs
 Priority: optional
 Build-Depends: cmake,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                default-jdk [!hppa !hurd-any !kfreebsd-any],
                dh-strip-nondeterminism,
                dh-python,
@@ -41,7 +41,7 @@ Build-Depends-Indep: vtk8-doc,
                      ghostscript,
                      graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.5.1
+Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/

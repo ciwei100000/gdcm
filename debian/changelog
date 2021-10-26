@@ -1,3 +1,23 @@
+gdcm (3.0.8-4) unstable; urgency=medium
+
+  [ Mathieu Malaterre ]
+  * d/rules: Build manpages before installing them. Closes: #996820
+
+ -- Andreas Tille <tille@debian.org>  Tue, 19 Oct 2021 18:10:50 +0200
+
+gdcm (3.0.8-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix watchfile to detect new versions on github (routine-update)
+  * New upstream version
+  * Standards-Version: 4.6.0 (routine-update)
+  * debhelper-compat 13 (routine-update)
+  * remove redundant debian/gbp.conf
+  * Add missing include to enable build with gcc-11
+  * Install gdcm-sharp.dll.xml
+
+ -- Andreas Tille <tille@debian.org>  Tue, 19 Oct 2021 09:45:54 +0200
+
 gdcm (3.0.8-2.1vtk8) unstable; urgency=medium
 
   * Add build dependency libvtk8-qt-dev
