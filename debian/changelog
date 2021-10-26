@@ -1,3 +1,9 @@
+gdcm (3.0.8-4vtk8) unstable; urgency=medium
+
+  * Merge branch '3.0.8-4' into vtk8
+
+ -- Xuqing Liu <ciwei100000@gmail.com>  Tue, 26 Oct 2021 11:05:25 -0700
+
 gdcm (3.0.8-4) unstable; urgency=medium
 
   [ Mathieu Malaterre ]
