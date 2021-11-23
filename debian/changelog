@@ -1,3 +1,12 @@
+gdcm (3.0.10-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.10
+  * d/*.ini: Remove php binding leftovers
+  * d/patches: Remove patches applied upstream
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 23 Nov 2021 10:20:42 +0100
+
 gdcm (3.0.8-4) unstable; urgency=medium
 
   [ Mathieu Malaterre ]
