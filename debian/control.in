@@ -6,7 +6,7 @@ Uploaders: Steve M. Robbins <smr@debian.org>,
 Section: libs
 Priority: optional
 Build-Depends: cmake,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                default-jdk [!hppa !hurd-any !kfreebsd-any],
                dh-strip-nondeterminism,
                dh-python,
