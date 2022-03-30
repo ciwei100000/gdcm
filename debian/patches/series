@@ -7,3 +7,4 @@ rename-pdf.patch
 #use_swig_add_library_for_csharp.patch
 #fix_charls_2.patch
 #fix_swig4.patch
+cb98ed45f51225b2791bdfaba388391d91265434.patch
