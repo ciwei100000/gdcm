@@ -1,3 +1,12 @@
+gdcm (3.0.12-1) unstable; urgency=medium
+
+  * Team upload.
+  * d/patches: Fix compilation on big-endian arch
+  * New upstream version 3.0.12
+  * d/patches: Remove patch applied upstream
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 04 Apr 2022 08:32:57 +0200
+
 gdcm (3.0.11-1) unstable; urgency=medium
 
   [ Andreas Tille ]
