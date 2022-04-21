@@ -272,7 +272,7 @@ bool sockerr::op () const
   case EHOSTDOWN:
   case EHOSTUNREACH:
   case ENOTEMPTY:
-#   if !defined(__linux__) && !defined(__sun) && !defined(__hpux) && !defined(__EMSCRIPTEN__) // LN
+#   if !defined(__linux__) && !defined(__sun) && !defined(__hpux) && !defined(__EMSCRIPTEN__) && !defined(__wasi__) // LN
   case EPROCLIM:
 #   endif
   case EUSERS:
@@ -400,11 +400,15 @@ sockbuf::~sockbuf ()
     int c = closesocket(rep->sock);
 #endif
     delete rep;
+#if 0
     if (c == SOCKET_ERROR)
 #if defined(__CYGWIN__) || !defined(WIN32)
     throw sockerr (errno, "sockbuf::~sockbuf", sockname.text.c_str());
 #else
     throw sockerr(WSAGetLastError(), "sockbuf::~sockbuf", sockname.text.c_str());
+#endif
+#else
+    assert(c != SOCKET_ERROR); (void)c;
 #endif
   }
 }

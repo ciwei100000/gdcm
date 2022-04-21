@@ -346,6 +346,7 @@ static bool PopulateSingeFile( gdcm::PixmapWriter & writer,
 
 static bool Populate( gdcm::PixmapWriter & writer, gdcm::ImageCodec & jpeg, gdcm::Directory::FilenamesType const & filenames, unsigned int ndim = 2, std::streampos const & pos = 0 )
 {
+  assert( !filenames.empty() );
   std::vector<std::string>::const_iterator it = filenames.begin();
   bool b = true;
   gdcm::Pixmap &image = writer.GetPixmap();
@@ -511,6 +512,7 @@ int main (int argc, char *argv[])
             assert( strcmp(s, "input") == 0 );
             assert( filename.IsEmpty() );
             filename = optarg;
+            filenames.emplace_back(filename);
             }
           else if( option_index == 2 ) /* depth */
             {
@@ -606,6 +608,7 @@ int main (int argc, char *argv[])
       //printf ("option i with value '%s'\n", optarg);
       assert( filename.IsEmpty() );
       filename = optarg;
+      filenames.emplace_back(filename);
       break;
 
     case 'o':
@@ -1180,9 +1183,9 @@ int main (int argc, char *argv[])
     if ( region[0] > region[1]
       || region[2] > region[3]
       || region[4] > region[5]
-      || region[1] > dims[0]
-      || region[3] > dims[1]
-      || (imageori.GetNumberOfDimensions() > 2 && region[5] > dims[2]) )
+      || region[1] >= dims[0]
+      || region[3] >= dims[1]
+      || (imageori.GetNumberOfDimensions() > 2 && region[5] >= dims[2]) )
       {
       if( imageori.GetNumberOfDimensions() == 2 )
         {

@@ -223,7 +223,7 @@ static const char * const gdcmMD5SumFiles[][2] = {
 { "64528209839b0369c2da530249f4ca58"  , "TOSHIBA_J2K_SIZ1_PixRep0.dcm" },
 { "2498ca4aaf62991c8a1f629a804bfa44"  , "TOSHIBA_J2K_OpenJPEGv2Regression.dcm" },
 { "e4d559b6db04679b54bea40c763b09e4"  , "TOSHIBA_J2K_SIZ0_PixRep1.dcm" },
-{ "58ab110be40303952e05d50e64823192"  , "NM-PAL-16-PixRep1.dcm" },
+{ "3d4d7a22442b21477dfc3ba8ac6cac06"  , "NM-PAL-16-PixRep1.dcm" },
 { "deb7e4ee592efca5d475aaa6fab06459"  , "MEDILABInvalidCP246_EVRLESQasUN.dcm" },
 { "52f727de4f831ff2bae850fdd8b1413a"  , "JPEGInvalidSecondFrag.dcm" },
 { "027faefc8031768dad1afc100f7aee27"  , "SC16BitsAllocated_8BitsStoredJ2K.dcm" },
@@ -284,7 +284,7 @@ int TestMD5Func(const char* filename, const char *md5ref, bool verbose = false)
 
 static const char *GetMD5Sum(const char *filename)
 {
-  typedef const char * const (*md5pair)[2];
+  using md5pair = const char *const (*)[2];
   const char *md5filename;
   md5pair md5filenames = gdcmMD5SumFiles;
   int i = 0;

@@ -6,7 +6,7 @@ Uploaders: Steve M. Robbins <smr@debian.org>,
 Section: libs
 Priority: optional
 Build-Depends: cmake,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                default-jdk [!hppa !hurd-any !kfreebsd-any],
                dh-strip-nondeterminism,
                dh-python,
@@ -19,7 +19,7 @@ Build-Depends: cmake,
                javahelper,
                libvtk8-dev,
                libvtk8-qt-dev,
-               libcharls-dev (>= 1.1.0),
+               libcharls-dev (>= 2.0),
                libopenjp2-7-dev,
                libvtk8-java [!hppa !hurd-any !kfreebsd-any],
                libxml2-dev,
@@ -35,8 +35,7 @@ Build-Depends: cmake,
                mono-devel [@DEB_MONO_ARCHS@] <!nocil>,
                xsltproc,
                docbook-xsl-ns
-Build-Depends-Indep: vtk8-doc,
-                     doxygen,
+Build-Depends-Indep: doxygen,
                      doxygen-latex,
                      ghostscript,
                      graphviz
@@ -202,19 +201,6 @@ Description: Grassroots DICOM VTK tools and utilities
  Libvtkgdcm-tools provides a number of command line debugging and utility
  tool. Install this package for the gdcmviewer, gdcm2pnm and gdcm2vtk
  programs.
-
-Package: gdcm-doc
-Architecture: all
-Section: doc
-Depends: ${misc:Depends},
-         vtk8-doc,
-         doc-base
-Description: Grassroots DICOM documentation
- Grassroots DiCoM is a C++ library for DICOM medical files. It is
- automatically wrapped to python/C#/Java (using swig). It supports
- RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
- .
- This is the documentation for gdcm and vtkgdcm
 
 Package: libgdcm-java
 Architecture: amd64 arm64 armel armhf i386 mips64el mipsel ppc64el s390x alpha ia64 m68k powerpc ppc64 riscv64 sh4 sparc64 x32

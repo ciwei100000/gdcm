@@ -1,3 +1,33 @@
+gdcm (3.0.12-1) unstable; urgency=medium
+
+  * Team upload.
+  * d/patches: Fix compilation on big-endian arch
+  * New upstream version 3.0.12
+  * d/patches: Remove patch applied upstream
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 04 Apr 2022 08:32:57 +0200
+
+gdcm (3.0.11-1) unstable; urgency=medium
+
+  [ Andreas Tille ]
+  * Bump versioned Build-Depends: libcharls-dev (>= 2.0)
+  * Make sure debhelper level 13 will not be overridden by recreating d/control
+
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * New upstream version 3.0.11
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 29 Mar 2022 11:50:17 +0200
+
+gdcm (3.0.10-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.10
+  * d/*.ini: Remove php binding leftovers
+  * d/patches: Remove patches applied upstream
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 23 Nov 2021 10:20:42 +0100
+
 gdcm (3.0.8-4vtk8) unstable; urgency=medium
 
   * Merge branch '3.0.8-4' into vtk8
