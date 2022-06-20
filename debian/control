@@ -66,9 +66,9 @@ Description: Grassroots DICOM tools and utilities
  automatically wrapped to python/C#/Java (using swig). It supports
  RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
  .
- Install this package for the gdcmanon, gdcmconv, gdcmdiff, gdcmdump, gdcmpap3,
- gdcmgendir, gdcmimg, gdcminfo, gdcmpdf, gdcmraw, gdcmscanner, gdcmscu, gdcmtar,
- gdcmxml programs.
+ Install this package for the gdcmanon, gdcmclean, gdcmconv, gdcmdiff,
+ gdcmdump, gdcmpap3, gdcmgendir, gdcmimg, gdcminfo, gdcmpdf, gdcmraw,
+ gdcmscanner, gdcmscu, gdcmtar, gdcmxml programs.
 
 Package: libgdcm-dev
 Architecture: any

@@ -36,7 +36,7 @@ Build-Depends: castxml,
                xsltproc
 Build-Depends-Indep: doxygen, doxygen-latex, ghostscript, graphviz, vtk7-doc
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.5.1
+Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
@@ -66,9 +66,9 @@ Description: Grassroots DICOM tools and utilities
  automatically wrapped to python/C#/Java (using swig). It supports
  RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
  .
- Install this package for the gdcmanon, gdcmconv, gdcmdiff, gdcmdump, gdcmpap3,
- gdcmgendir, gdcmimg, gdcminfo, gdcmpdf, gdcmraw, gdcmscanner, gdcmscu, gdcmtar,
- gdcmxml programs.
+ Install this package for the gdcmanon, gdcmclean, gdcmconv, gdcmdiff,
+ gdcmdump, gdcmpap3, gdcmgendir, gdcmimg, gdcminfo, gdcmpdf, gdcmraw,
+ gdcmscanner, gdcmscu, gdcmtar, gdcmxml programs.
 
 Package: libgdcm-dev
 Architecture: any

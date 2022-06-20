@@ -1,5 +1,5 @@
-#usr/bin/gdcmstream
 usr/bin/gdcmanon
+usr/bin/gdcmclean
 usr/bin/gdcmconv
 usr/bin/gdcmdiff
 usr/bin/gdcmdump
@@ -14,6 +14,7 @@ usr/bin/gdcmscu
 usr/bin/gdcmtar
 usr/bin/gdcmxml
 usr/share/man/man1/gdcmanon.1
+usr/share/man/man1/gdcmclean.1
 usr/share/man/man1/gdcmconv.1
 usr/share/man/man1/gdcmdiff.1
 usr/share/man/man1/gdcmdump.1
