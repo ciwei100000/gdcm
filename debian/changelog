@@ -1,3 +1,12 @@
+gdcm (3.0.13-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.13
+  * d/control: Run wrap-and-sort
+  * d/control: Ship new CLI gdcmclean
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 20 Jun 2022 10:27:49 +0200
+
 gdcm (3.0.12-1) unstable; urgency=medium
 
   * Team upload.
