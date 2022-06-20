@@ -2,6 +2,7 @@
 # MSFF
 set(MSFF_TEST_SRCS
   TestAnonymizer.cxx
+  TestAnonymizer4.cxx
   TestDataSetHelper.cxx
   TestEquipmentManufacturer.cxx
   TestFileChangeTransferSyntax1.cxx
@@ -34,6 +35,7 @@ set(MSFF_TEST_SRCS
   TestFileExplicitFilter.cxx
   TestImageFragmentSplitter.cxx
   TestTagPath.cxx
+  TestDPath.cxx
   TestOrientation.cxx
   TestIconImage.cxx
   TestImageHelper.cxx
@@ -106,11 +108,19 @@ set(MSFF_TEST_SRCS
 if(GDCM_DATA_ROOT)
   set(MSFF_TEST_SRCS
     ${MSFF_TEST_SRCS}
+    TestCleaner1.cxx
+    TestCleaner2.cxx
+    TestCleaner3.cxx
+    TestCleaner4.cxx
     TestSplitMosaicFilter3.cxx
     TestStrictScanner1.cxx
+    TestStrictScanner2_1.cxx
     TestStrictScanner2.cxx
+    TestStrictScanner2_2.cxx
     TestScanner1.cxx
+    TestScanner2_1.cxx
     TestScanner2.cxx
+    TestScanner2_2.cxx
     TestImageHelper2.cxx
     TestPrinter2.cxx
     TestIPPSorter.cxx
