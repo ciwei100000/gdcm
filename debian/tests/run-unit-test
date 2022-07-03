@@ -33,7 +33,7 @@ gdcmconv gdcm-US-ALOKA-16.dcm output.dcm
 
 gdcmraw --split-frags -i gdcm-US-ALOKA-16.dcm -o jpeg --pattern %02d.ljpeg
 
-md5sum --check cheksums
+md5sum --check checksums
 
 echo -e "\e[92m\e[1mPASS\e[0m"
 
