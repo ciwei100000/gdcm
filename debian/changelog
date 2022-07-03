@@ -1,3 +1,12 @@
+gdcm (3.0.13-2) UNRELEASED; urgency=medium
+
+  * Add autopkgtests
+  * Install example data
+  * add example data to d/s/include-binaries
+  * Add copyright for test data
+
+ -- Mohammed Bilal <mdbilal@disroot.org>  Sun, 03 Jul 2022 20:16:46 +0000
+
 gdcm (3.0.13-1) unstable; urgency=medium
 
   * Team upload.
