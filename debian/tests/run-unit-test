@@ -14,12 +14,12 @@ cp -a /usr/share/doc/${pkg}/examples/* "${AUTOPKGTEST_TMP}"
 cd "${AUTOPKGTEST_TMP}"
 
 echo "20e289bad9be67e22d179174f3bc1694  output.dcm" >> checksums
-echo "f85ff02a143c426edc4b2f6b9a175305  jpeg" >> checksums
+echo "f85ff02a143c426edc4b2f6b9a175305  pixeldata.raw" >> checksums
 echo "89fe9eab980f09ddbcd2c7f040b36d24  output_black.dcm" >> checksums
 
 echo -e "\e[93m\e[1mRunning Tests\e[0m"
 
-gdcmanon --password password -r --continue -e gdcm-US-ALOKA-16.dcm anon.dcm
+gdcmanon --password password -e gdcm-US-ALOKA-16.dcm anon.dcm
 
 echo -e "\e[92m\e[1mPASS\e[0m"
 
@@ -31,7 +31,7 @@ gdcmimg --fill 0 --region 0,100,0,100 -i gdcm-US-ALOKA-16.dcm -o output_black.dc
 
 gdcmconv gdcm-US-ALOKA-16.dcm output.dcm
 
-gdcmraw --split-frags -i gdcm-US-ALOKA-16.dcm -o jpeg --pattern %02d.ljpeg
+gdcmraw -i gdcm-US-ALOKA-16.dcm -o pixeldata.raw
 
 md5sum --check checksums
 
