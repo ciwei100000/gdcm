@@ -1,3 +1,10 @@
+gdcm (3.0.13-2~bpo11+1) bullseye-backports; urgency=medium
+
+  * Team upload.
+  * Rebuild for bullseye-backports.
+
+ -- Mathieu Malaterre <malat@debian.org>  Wed, 06 Jul 2022 11:38:21 +0200
+
 gdcm (3.0.13-2) unstable; urgency=medium
 
   [ Mohammed Bilal ]
