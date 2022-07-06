@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+pkg=libgdcm3.0
+
+export LC_ALL=C.UTF-8
+if [ "${AUTOPKGTEST_TMP}" = "" ] ; then
+  AUTOPKGTEST_TMP=$(mktemp -d /tmp/${pkg}-test.XXXXXX)
+  trap "rm -rf ${AUTOPKGTEST_TMP}" 0 INT QUIT ABRT PIPE TERM
+fi
+
+cp -a /usr/share/doc/${pkg}/examples/* "${AUTOPKGTEST_TMP}"
+
+cd "${AUTOPKGTEST_TMP}"
+
+echo "20e289bad9be67e22d179174f3bc1694  output.dcm" >> checksums
+echo "f85ff02a143c426edc4b2f6b9a175305  pixeldata.raw" >> checksums
+echo "89fe9eab980f09ddbcd2c7f040b36d24  output_black.dcm" >> checksums
+
+echo -e "\e[93m\e[1mRunning Tests\e[0m"
+
+gdcmanon --password password -e gdcm-US-ALOKA-16.dcm anon.dcm
+
+echo -e "\e[92m\e[1mPASS\e[0m"
+
+gdcminfo gdcm-US-ALOKA-16.dcm
+
+echo -e "\e[92m\e[1mPASS\e[0m"
+
+gdcmimg --fill 0 --region 0,100,0,100 -i gdcm-US-ALOKA-16.dcm -o output_black.dcm
+
+gdcmconv gdcm-US-ALOKA-16.dcm output.dcm
+
+gdcmraw -i gdcm-US-ALOKA-16.dcm -o pixeldata.raw
+
+md5sum --check checksums
+
+echo -e "\e[92m\e[1mPASS\e[0m"
+
+gdcmdump output.dcm
+
+echo -e "\e[92m\e[1mPASS\e[0m"
+

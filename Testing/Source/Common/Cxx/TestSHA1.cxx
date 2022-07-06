@@ -222,7 +222,7 @@ static const char * const gdcmSHA1SumFiles[][2] = {
 { "c14634b31dc52e4ed2b0c626aa61af4de207f6e4"  , "TOSHIBA_J2K_SIZ1_PixRep0.dcm" },
 { "bf68f33e0922508d6075f0893298d339d817aa86"  , "TOSHIBA_J2K_OpenJPEGv2Regression.dcm" },
 { "6d21ac7b5b4ad32b7d91750a70b574a732b679a7"  , "TOSHIBA_J2K_SIZ0_PixRep1.dcm" },
-{ "94cadb9e79e0d04f3c212cf6fa069b3cf3f09a76"  , "NM-PAL-16-PixRep1.dcm" },
+{ "3bfbd040e8b9a98b294e95cb6f3c06b2a5d8b008"  , "NM-PAL-16-PixRep1.dcm" },
 { "156463350047cada3ec091396695d3f3ef660c9a"  , "MEDILABInvalidCP246_EVRLESQasUN.dcm" },
 { "9775e8206011b9d5cedfcba16946060cb047f826"  , "JPEGInvalidSecondFrag.dcm" },
 { "d17a34f8ae066048442ab5b110d43c412472ea7e"  , "SC16BitsAllocated_8BitsStoredJ2K.dcm" },
@@ -245,6 +245,7 @@ static const char * const gdcmSHA1SumFiles[][2] = {
 { "31f0556c75829dee3850414e166863220f9e03da" , "Bug_Siemens_PrivateIconNoItem.dcm" },
 { "129b3cebd15fd1edb55c8fae75976501f2601dce" , "HardcopyColor_YBR_RCT_J2K_PC1.dcm" },
 { "2ac195a776c8cb9f0e6eb2e297bd2bf37bb11697" , "PET-GE-dicomwrite-PixelDataSQUNv2.dcm" },
+{ "18463186d3612a04a4338c12c7ac83da69ffaa49" , "MEDILABValidCP246_EVRLESQasOB.dcm" },
 
 { NULL, NULL}
 };

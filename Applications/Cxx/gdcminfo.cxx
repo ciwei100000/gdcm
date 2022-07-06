@@ -201,7 +201,10 @@ static std::string getInfoDate(Dict *infoDict, const char *key)
   if (infoDict->lookup((char*)key, &obj)->isString())
 #endif
     {
-    const GooString* gs = obj.getString();
+#ifndef LIBPOPPLER_GOOSTRING_HAS_GETCSTRING
+    const
+#endif
+    GooString* gs = obj.getString();
 #ifdef LIBPOPPLER_GOOSTRING_HAS_GETCSTRING
     s = gs->getCString();
 #else
@@ -497,9 +500,13 @@ static int ProcessOneFile( std::string const & filename, gdcm::Defs const & defs
 #else
       bv->GetLength(), &appearDict);
 #endif
+#ifdef LIBPOPPLER_PDFDOC_HAS_OPTIONAL
+    std::optional<GooString> ownerPW, userPW;
+#else
     GooString *ownerPW, *userPW;
     ownerPW = NULL;
     userPW = NULL;
+#endif
 
     PDFDoc *doc;
     doc = new PDFDoc(appearStream, ownerPW, userPW);

@@ -1,9 +1,47 @@
-gdcm (3.0.10-1~bpo11+1) bullseye-backports; urgency=medium
+gdcm (3.0.13-2) unstable; urgency=medium
+
+  [ Mohammed Bilal ]
+  * Add autopkgtests
+  * Install example data
+  * add example data to d/s/include-binaries
+  * Add copyright for test data
+
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * d/control: Bump Std-Vers to 4.6.1, no changes needed
+  * d/t/run-unit-test: Fix up the unit test
+
+ -- Mathieu Malaterre <malat@debian.org>  Wed, 06 Jul 2022 11:32:54 +0200
+
+gdcm (3.0.13-1) unstable; urgency=medium
 
   * Team upload.
-  * Rebuild for bullseye-backports.
+  * New upstream version 3.0.13
+  * d/control: Run wrap-and-sort
+  * d/control: Ship new CLI gdcmclean
 
- -- Mathieu Malaterre <malat@debian.org>  Tue, 29 Mar 2022 17:23:18 +0200
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 20 Jun 2022 10:27:49 +0200
+
+gdcm (3.0.12-1) unstable; urgency=medium
+
+  * Team upload.
+  * d/patches: Fix compilation on big-endian arch
+  * New upstream version 3.0.12
+  * d/patches: Remove patch applied upstream
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 04 Apr 2022 08:32:57 +0200
+
+gdcm (3.0.11-1) unstable; urgency=medium
+
+  [ Andreas Tille ]
+  * Bump versioned Build-Depends: libcharls-dev (>= 2.0)
+  * Make sure debhelper level 13 will not be overridden by recreating d/control
+
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * New upstream version 3.0.11
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 29 Mar 2022 11:50:17 +0200
 
 gdcm (3.0.10-1) unstable; urgency=medium
 

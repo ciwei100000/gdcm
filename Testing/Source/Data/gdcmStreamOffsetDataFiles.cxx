@@ -219,7 +219,7 @@ static const StreamOffset gdcmStreamOffsetDataFiles[] = {
 { "TOSHIBA_J2K_SIZ1_PixRep0.dcm",  2362  },
 { "TOSHIBA_J2K_OpenJPEGv2Regression.dcm", 2362  },
 { "TOSHIBA_J2K_SIZ0_PixRep1.dcm", 2346  },
-{ "NM-PAL-16-PixRep1.dcm", 4444 },
+{ "NM-PAL-16-PixRep1.dcm", 4468 },
 { "MEDILABInvalidCP246_EVRLESQasUN.dcm", 19174 },
 { "JPEGInvalidSecondFrag.dcm", 4800 },
 { "lena512_rot90.j2k.dcm", 768 },
@@ -247,6 +247,7 @@ static const StreamOffset gdcmStreamOffsetDataFiles[] = {
 { "Bug_Siemens_PrivateIconNoItem.dcm",12978 },
 { "HardcopyColor_YBR_RCT_J2K_PC1.dcm",2626 },
 { "PET-GE-dicomwrite-PixelDataSQUNv2.dcm",7718 },
+{ "MEDILABValidCP246_EVRLESQasOB.dcm",19008 },
 
 /* Stopping condition */
 { nullptr ,0 },
