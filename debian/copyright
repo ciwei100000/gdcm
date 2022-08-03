@@ -428,7 +428,7 @@ License: socketxx
  paragraph are  preserved on all copies.  This software is provided "as is"
  with no express or implied warranty
 
-Files: debian/tests/data/gdcm-US-ALOKA-16.dcm
+Files: debian/tests/data/00191113.dcm
 Copyright: 2006-2011 Mathieu Malaterre
 License: Apache-2.0
 
