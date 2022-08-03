@@ -1,3 +1,11 @@
+gdcm (3.0.13-3) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * change test data
+  * Fix autopkgtest for s390 (Closes: #1016450)
+
+ -- Mohammed Bilal <mdbilal@disroot.org>  Wed, 03 Aug 2022 18:26:25 +0000
+
 gdcm (3.0.13-2) unstable; urgency=medium
 
   [ Mohammed Bilal ]
