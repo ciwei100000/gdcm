@@ -105,7 +105,7 @@ gdcm (3.0.8-1) unstable; urgency=medium
   [ Gert Wollny ]
   * New upstream version 3.0.8
 
-  [ Alexander Volkov ] 
+  [ Alexander Volkov ]
   * debian/{rules, control}: Don't build CLI bindings when the "nocil" build
     profile is enabled
 
