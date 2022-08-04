@@ -1,3 +1,10 @@
+gdcm (3.0.13-4) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * d/watch: Point to latest release
+
+ -- Andreas Tille <tille@debian.org>  Thu, 04 Aug 2022 11:30:12 +0200
+
 gdcm (3.0.13-3) unstable; urgency=medium
 
   [ Mohammed Bilal ]
