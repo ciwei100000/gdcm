@@ -1,10 +1,14 @@
-gdcm (3.0.13-3) UNRELEASED; urgency=medium
+gdcm (3.0.13-3) unstable; urgency=medium
 
-  * Team upload.
+  [ Mohammed Bilal ]
   * change test data
   * Fix autopkgtest for s390 (Closes: #1016450)
 
- -- Mohammed Bilal <mdbilal@disroot.org>  Wed, 03 Aug 2022 18:26:25 +0000
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * d/patches: Fix doxygen/pdf generation. Closes: #1016331
+
+ -- Mathieu Malaterre <malat@debian.org>  Thu, 04 Aug 2022 08:29:13 +0200
 
 gdcm (3.0.13-2) unstable; urgency=medium
 
