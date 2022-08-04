@@ -2,6 +2,8 @@ gdcm (3.0.14-1) UNRELEASED; urgency=medium
 
   * Team upload.
   * d/watch: Point to latest release
+  * Link against vtk9 instead of vtk7
+    Closes: #1013156 
 
  -- Andreas Tille <tille@debian.org>  Thu, 04 Aug 2022 11:30:12 +0200
 
