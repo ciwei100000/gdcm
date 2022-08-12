@@ -4,6 +4,7 @@ gdcm (3.0.14-1) UNRELEASED; urgency=medium
   * d/watch: Point to latest release
   * Deal with new build target locations created by cmake
     Closes: #1017027
+  * lintian-brush: Avoid explicitly specifying -Wl,--as-needed linker flag.
 
  -- Andreas Tille <tille@debian.org>  Thu, 04 Aug 2022 11:30:12 +0200
 
