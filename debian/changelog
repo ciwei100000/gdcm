@@ -1,4 +1,4 @@
-gdcm (3.0.14-1) UNRELEASED; urgency=medium
+gdcm (3.0.14-1) unstable; urgency=medium
 
   * Team upload.
   * d/watch: Point to latest release
@@ -6,7 +6,7 @@ gdcm (3.0.14-1) UNRELEASED; urgency=medium
     Closes: #1017027
   * lintian-brush: Avoid explicitly specifying -Wl,--as-needed linker flag.
 
- -- Andreas Tille <tille@debian.org>  Thu, 04 Aug 2022 11:30:12 +0200
+ -- Andreas Tille <tille@debian.org>  Fri, 12 Aug 2022 09:22:00 +0200
 
 gdcm (3.0.13-3) unstable; urgency=medium
 
