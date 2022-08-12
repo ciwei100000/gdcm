@@ -110,15 +110,13 @@ override_dh_auto_build-arch:
 	dh_auto_build
 
 override_dh_auto_install-arch:
-	# See #664188
-	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
-	# See #711214
-	sed -i -e "s/FATAL_ERROR/STATUS/g" obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets.cmake
+	# See #664188 and #711214
+	find obj-* -name "GDCMTargets*.cmake" -exec sed -i -e "s/FATAL_ERROR/STATUS/g" \{\} \;
 	# See #989296
-	sed -i -e 's@/lib/\(.\+\)/libvtkgdcmsharpglue.so@/lib/cli/vtkgdcm-sharp-3.0/libvtkgdcmsharpglue.so@' \
-		obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
-	sed -i -e 's@/lib/python/dist-packages/vtkgdcmPython.so@/lib/python3/dist-packages/vtkgdcmPython.cpython-$(PV)-$(DEB_HOST_MULTIARCH).so@' \
-		obj-*/CMake/ExportConfiguration/CMakeFiles/Export/lib/$(DEB_HOST_MULTIARCH)/gdcm-*/GDCMTargets-*.cmake
+	find obj-* -name "GDCMTargets*.cmake" -exec \
+	    sed -i -e 's@/lib/\(.\+\)/libvtkgdcmsharpglue.so@/lib/cli/vtkgdcm-sharp-3.0/libvtkgdcmsharpglue.so@' \
+	           -e 's@/lib/python/dist-packages/vtkgdcmPython.so@/lib/python3/dist-packages/vtkgdcmPython.cpython-$(PV)-$(DEB_HOST_MULTIARCH).so@' \
+	         \{\} \;
 
 	dh_auto_install
 	# PHP
