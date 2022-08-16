@@ -36,7 +36,7 @@ Build-Depends: castxml,
                xsltproc
 Build-Depends-Indep: doxygen, doxygen-latex, ghostscript, graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
@@ -145,7 +145,7 @@ Description: Grassroots DICOM VTK development libraries and headers
 
 Package: libvtkgdcm-cil
 Build-Profiles: <!nocil>
-Architecture: amd64 arm64 armel armhf i386 kfreebsd-amd64 kfreebsd-i386 mipsel powerpc ppc64 ppc64el s390x
+Architecture: amd64 armel armhf i386 mipsel kfreebsd-amd64 kfreebsd-i386 powerpc ppc64 ppc64el s390x arm64
 Section: cli-mono
 Depends: libgdcm3.0 (= ${binary:Version}),
          ${cli:Depends},

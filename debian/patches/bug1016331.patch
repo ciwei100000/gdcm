@@ -1,0 +1,21 @@
+Description: Remove non-unicode from header file
+ It breaks doxygen/pdf generation
+Author: Mathieu Malaterre <malat@debian.org>
+Bug-Debian: https://bugs.debian.org/1016331
+Forwarded: no
+Last-Update: 2022-08-04
+
+--- gdcm-3.0.13.orig/Source/MessageExchangeDefinition/gdcmDIMSE.h
++++ gdcm-3.0.13/Source/MessageExchangeDefinition/gdcmDIMSE.h
+@@ -76,9 +76,9 @@ class CEchoRSP
+ public:
+ /*
+ Message ID M U
+-Message ID Being Responded To  M
++Message ID Being Responded To M
+ Affected SOP Class UID M U(=)
+-Status  M
++Status M
+ */
+ };
+ 

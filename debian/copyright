@@ -428,6 +428,10 @@ License: socketxx
  paragraph are  preserved on all copies.  This software is provided "as is"
  with no express or implied warranty
 
+Files: debian/tests/data/00191113.dcm
+Copyright: 2006-2011 Mathieu Malaterre
+License: Apache-2.0
+
 License: Apache-2.0
  On Debian GNU/Linux system you can find the complete text of the
  Apache 2.0 license in '/usr/share/common-licenses/Apache-2.0'.

@@ -36,7 +36,7 @@ Build-Depends: castxml,
                xsltproc
 Build-Depends-Indep: doxygen, doxygen-latex, ghostscript, graphviz
 Build-Conflicts: libopenjpeg-dev
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/med-team/gdcm
 Vcs-Git: https://salsa.debian.org/med-team/gdcm.git
 Homepage: http://gdcm.sourceforge.net/
