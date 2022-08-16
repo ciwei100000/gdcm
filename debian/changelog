@@ -1,3 +1,9 @@
+gdcm (3.0.14-1vtk8) unstable; urgency=medium
+
+  * Merge tag '3.0.14-1' into vtk8
+
+ -- Xuqing Liu <ciwei100000@gmail.com>  Tue, 16 Aug 2022 00:54:51 -0700
+
 gdcm (3.0.14-1) unstable; urgency=medium
 
   * Team upload.
