@@ -1,3 +1,11 @@
+gdcm (3.0.16-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.16
+  * d/patches: Remove patches applied usptream
+
+ -- Mathieu Malaterre <malat@debian.org>  Wed, 31 Aug 2022 09:18:45 +0200
+
 gdcm (3.0.14-1) unstable; urgency=medium
 
   * Team upload.
