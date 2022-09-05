@@ -1,3 +1,10 @@
+gdcm (3.0.17-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: Make sure to build vtk bindings
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 09:16:23 +0200
+
 gdcm (3.0.17-1) unstable; urgency=medium
 
   * Team upload.
