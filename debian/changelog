@@ -1,3 +1,10 @@
+gdcm (3.0.17-4) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: Yet another C# wrapping fix
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 14:15:50 +0200
+
 gdcm (3.0.17-3) unstable; urgency=medium
 
   * Team upload.
