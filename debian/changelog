@@ -1,9 +1,39 @@
-gdcm (3.0.13-2~bpo11+1) bullseye-backports; urgency=medium
+gdcm (3.0.17-1) unstable; urgency=medium
 
   * Team upload.
-  * Rebuild for bullseye-backports.
+  * New upstream version 3.0.17
 
- -- Mathieu Malaterre <malat@debian.org>  Wed, 06 Jul 2022 11:38:21 +0200
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 08:14:40 +0200
+
+gdcm (3.0.16-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.16
+  * d/patches: Remove patches applied usptream
+
+ -- Mathieu Malaterre <malat@debian.org>  Wed, 31 Aug 2022 09:18:45 +0200
+
+gdcm (3.0.14-1) unstable; urgency=medium
+
+  * Team upload.
+  * d/watch: Point to latest release
+  * Deal with new build target locations created by cmake
+    Closes: #1017027
+  * lintian-brush: Avoid explicitly specifying -Wl,--as-needed linker flag.
+
+ -- Andreas Tille <tille@debian.org>  Fri, 12 Aug 2022 09:22:00 +0200
+
+gdcm (3.0.13-3) unstable; urgency=medium
+
+  [ Mohammed Bilal ]
+  * change test data
+  * Fix autopkgtest for s390 (Closes: #1016450)
+
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * d/patches: Fix doxygen/pdf generation. Closes: #1016331
+
+ -- Mathieu Malaterre <malat@debian.org>  Thu, 04 Aug 2022 08:29:13 +0200
 
 gdcm (3.0.13-2) unstable; urgency=medium
 
@@ -93,7 +123,7 @@ gdcm (3.0.8-1) unstable; urgency=medium
   [ Gert Wollny ]
   * New upstream version 3.0.8
 
-  [ Alexander Volkov ] 
+  [ Alexander Volkov ]
   * debian/{rules, control}: Don't build CLI bindings when the "nocil" build
     profile is enabled
 

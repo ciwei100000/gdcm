@@ -8,4 +8,4 @@ python3-vtkgdcm: no-symbols-control-file
 python3-vtkgdcm: package-name-doesnt-match-sonames
 
 # This seems to be needed for the python module 
-python3-vtkgdcm: non-dev-pkg-with-shlib-symlink
+python3-vtkgdcm: link-to-shared-library-in-wrong-package
