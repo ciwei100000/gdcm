@@ -18,9 +18,11 @@
 #include "gdcmDataSetHelper.h"
 #include "gdcmDicts.h"
 #include "gdcmEvent.h"
+#include "gdcmMEC_MR3.h"
 #include "gdcmGlobal.h"
 
-#include "gdcmcsa/csa.h"
+#include "gdcmext/csa.h"
+#include "gdcmext/mec_mr3.h"
 
 namespace gdcm {
 
@@ -636,7 +638,12 @@ struct Cleaner::impl {
   bool Scrub(PrivateTag const &pt) {
     static const PrivateTag &csa1 = CSAHeader::GetCSAImageHeaderInfoTag();
     static const PrivateTag &csa2 = CSAHeader::GetCSASeriesHeaderInfoTag();
-    if (pt == csa1 || pt == csa2) {
+    const PrivateTag mec_mr3(0x700d, 0x08, "TOSHIBA_MEC_MR3");
+    static const PrivateTag &pmtf1 = gdcm::MEC_MR3::GetPMTFInformationDataTag();
+    static const PrivateTag &pmtf2 = gdcm::MEC_MR3::GetToshibaMECMR3Tag();
+    static const PrivateTag &pmtf3 = gdcm::MEC_MR3::GetCanonMECMR3Tag();
+
+    if (pt == csa1 || pt == csa2 || pt == mec_mr3 || pt == pmtf1 || pt == pmtf2 || pt == pmtf3) {
       scrub_privatetags.insert(pt);
       return true;
     }
@@ -767,6 +774,77 @@ static bool CleanCSA(DataSet &ds, const DataElement &de) {
     return true;
   }
   gdcmErrorMacro("Failure to call CleanCSA");
+  return false;
+}
+
+static bool CleanMEC_MR3(DataSet &ds, const DataElement &de) {
+  const ByteValue *bv = de.GetByteValue();
+  // fast path:
+  if (!bv) return true;
+
+  DataElement clean(de.GetTag());
+  clean.SetVR(de.GetVR());
+  std::vector<char> v;
+  v.resize(bv->GetLength());
+  if (mec_mr3_memcpy(&v[0], bv->GetPointer(), bv->GetLength())) {
+    clean.SetByteValue(&v[0], v.size());
+    ds.Replace(clean);
+    return true;
+  }
+  gdcmErrorMacro("Failure to call CleanMEC_MR3");
+  return false;
+}
+
+static bool CleanPMTF(DataSet &ds, const DataElement &de) {
+  const ByteValue *bv = de.GetByteValue();
+  // fast path:
+  if (!bv) return true;
+  const char *input = bv->GetPointer();
+  const size_t len = bv->GetLength();
+
+  bool success = true;
+  try {
+    std::istringstream is;
+    {
+      std::vector<char> copy(input, input + len);
+      std::reverse(copy.begin(), copy.end());
+      std::string dup(&copy[0], copy.size());
+      is.str(dup);
+    }
+
+    // FIXME gdcm::Cleaner will by default change defined length SQ into undef
+    // length...there is a risk of incompatibily with vendor
+    gdcm::Cleaner cleaner;
+    gdcm::File &file = cleaner.GetFile();
+    gdcm::FileMetaInformation &fmi = file.GetHeader();
+    fmi.SetDataSetTransferSyntax(gdcm::TransferSyntax::ExplicitVRLittleEndian);
+    gdcm::DataSet &revds = file.GetDataSet();
+    revds.Read<gdcm::ExplicitDataElement, gdcm::SwapperNoOp>(is);
+
+    gdcm::VR vr = VR::PN;
+    cleaner.Empty(vr);
+    if (!cleaner.Clean()) {
+      success = false;
+    } else {
+      std::ostringstream os;
+      revds.Write<gdcm::ExplicitDataElement, gdcm::SwapperNoOp>(os);
+      const std::string str = os.str();
+      std::vector<char> v(str.c_str(), str.c_str() + str.size());
+      std::reverse(v.begin(), v.end());
+
+      DataElement clean(de.GetTag());
+      clean.SetVR(de.GetVR());
+      clean.SetByteValue(&v[0], v.size());
+      ds.Replace(clean);
+    }
+  } catch (...) {
+    success = false;
+  }
+
+  if (success) {
+    return true;
+  }
+  gdcmErrorMacro("Failure to call CleanPMTF");
   return false;
 }
 
@@ -960,12 +1038,28 @@ bool Cleaner::impl::ProcessDataSet(Subject &subject, File &file, DataSet &ds,
 
       static const PrivateTag &csa1 = CSAHeader::GetCSAImageHeaderInfoTag();
       static const PrivateTag &csa2 = CSAHeader::GetCSASeriesHeaderInfoTag();
+      const PrivateTag mec_mr3(0x700d, 0x08, "TOSHIBA_MEC_MR3");
+      static const PrivateTag &pmtf1 = gdcm::MEC_MR3::GetPMTFInformationDataTag();
+      static const PrivateTag &pmtf2 = gdcm::MEC_MR3::GetToshibaMECMR3Tag();
+      static const PrivateTag &pmtf3 = gdcm::MEC_MR3::GetCanonMECMR3Tag();
 
       if (pt == csa1) {
         const bool ret = CleanCSA(ds, de);
         if (!ret) return false;
       } else if (pt == csa2) {
         const bool ret = CleanCSA(ds, de);
+        if (!ret) return false;
+      } else if (pt == mec_mr3) {
+        const bool ret = CleanMEC_MR3(ds, de);
+        if (!ret) return false;
+      } else if (pt == pmtf1) {
+        const bool ret = CleanPMTF(ds, de);
+        if (!ret) return false;
+      } else if (pt == pmtf2) {
+        const bool ret = CleanPMTF(ds, de);
+        if (!ret) return false;
+      } else if (pt == pmtf3) {
+        const bool ret = CleanPMTF(ds, de);
         if (!ret) return false;
       } else {
         gdcmErrorMacro(" not implemented");
@@ -980,7 +1074,7 @@ bool Cleaner::impl::ProcessDataSet(Subject &subject, File &file, DataSet &ds,
   return true;
 }
 
-Cleaner::Cleaner() : pimpl(new impl) {}
+Cleaner::Cleaner() : F(new File), pimpl(new impl) {}
 
 Cleaner::~Cleaner() { delete pimpl; }
 

@@ -1,3 +1,39 @@
+gdcm (3.0.17-4) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: Yet another C# wrapping fix
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 14:15:50 +0200
+
+gdcm (3.0.17-3) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: Really fix vtkgdcm wrapping
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 12:05:25 +0200
+
+gdcm (3.0.17-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/rules: Make sure to build vtk bindings
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 09:16:23 +0200
+
+gdcm (3.0.17-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.17
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 05 Sep 2022 08:14:40 +0200
+
+gdcm (3.0.16-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.16
+  * d/patches: Remove patches applied usptream
+
+ -- Mathieu Malaterre <malat@debian.org>  Wed, 31 Aug 2022 09:18:45 +0200
+
 gdcm (3.0.14-1vtk8) unstable; urgency=medium
 
   * Merge tag '3.0.14-1' into vtk8

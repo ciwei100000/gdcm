@@ -49,6 +49,7 @@
 #include "gdcmASN1.h"
 #include "gdcmAttribute.h"
 #include "gdcmBase64.h"
+#include "gdcmMEC_MR3.h"
 #include "gdcmTagKeywords.h"
 
 #include <string>
@@ -359,6 +360,7 @@ static bool DumpToshibaDTI( const char * input, size_t len )
   ds.Read<gdcm::ExplicitDataElement,gdcm::SwapperNoOp>( is );
 
   gdcm::Printer p;
+  //gdcm::DictPrinter p;
   p.SetFile( file );
   p.SetColor( color != 0 );
   p.Print( std::cout );
@@ -372,7 +374,7 @@ static int DumpTOSHIBA_Reverse(const gdcm::DataSet & ds, const gdcm::PrivateTag 
   // (0029,0010) ?? (LO) [PMTF INFORMATION DATA ]                      # 22,1 Private Creator
   // (0029,1001) ?? (SQ) (Sequence with undefined length)              # u/l,1 ?
 
-  if( !ds.FindDataElement( tpmtf) ) return 1;
+  if( !ds.FindDataElement( tpmtf) ) return 0; // this is not an error at this point
   const gdcm::DataElement& pmtf = ds.GetDataElement( tpmtf );
   if ( pmtf.IsEmpty() ) return 1;
   gdcm::SmartPointer<gdcm::SequenceOfItems> seq = pmtf.GetValueAsSQ();
@@ -493,7 +495,7 @@ struct Data2
    os << "  UserAdress4: " << std::string(UserAdress4,32) << "\n";
    os << "  UserAdress5: " << std::string(UserAdress5,32) << "\n";
    os << "  RecDate: "     << std::string(RecDate,8) << "\n";
-   os << "  RecTime: "     << std::string(RecTime,64) << "\n";
+   os << "  RecTime: "     << std::string(RecTime,6) << "\n";
    os << "  RecPlace: "    << std::string(RecPlace,64) << "\n";
    os << "  RecSource: "   << std::string(RecSource,64) << "\n";
    os << "  DF1: "         << std::string(DF1,64) << "\n";
@@ -853,6 +855,38 @@ static int PrintCT3(const std::string & filename, bool verbose)
   return ret;
 }
 
+static int PrintMEC_MR3(const std::string & filename, bool verbose)
+{
+  (void)verbose;
+  gdcm::Reader reader;
+  reader.SetFileName( filename.c_str() );
+  if( !reader.Read() )
+    {
+    std::cerr << "Failed to read: " << filename << std::endl;
+    return 1;
+    }
+
+  const gdcm::DataSet& ds = reader.GetFile().GetDataSet();
+
+  // Original Data
+  const gdcm::PrivateTag tmecmr3(0x700d,0x08,"TOSHIBA_MEC_MR3");
+  if( !ds.FindDataElement( tmecmr3) ) return 1;
+  const gdcm::DataElement& mecmr3 = ds.GetDataElement( tmecmr3 );
+  if ( mecmr3.IsEmpty() ) return 1;
+  const gdcm::ByteValue * bv = mecmr3.GetByteValue();
+
+  const char *inbuffer = bv->GetPointer();
+  const size_t buf_len= bv->GetLength();
+
+  int ret = 0;
+  if (!gdcm::MEC_MR3::Print(inbuffer, buf_len))
+  {
+    ret = 1;
+  }
+
+  return ret;
+}
+
 static int PrintPMTF(const std::string & filename, bool verbose)
 {
   (void)verbose;
@@ -865,22 +899,38 @@ static int PrintPMTF(const std::string & filename, bool verbose)
     }
 
   const gdcm::DataSet& ds = reader.GetFile().GetDataSet();
-  int ret;
+  int ret = 0;
   {
   const gdcm::PrivateTag tpmtf(0x0029,0x1,"PMTF INFORMATION DATA");
-  const gdcm::PrivateTag tseq(0x0029,0x90,"PMTF INFORMATION DATA");
+  static const gdcm::PrivateTag &tseq = gdcm::MEC_MR3::GetPMTFInformationDataTag();
   ret += cleanup::DumpTOSHIBA_Reverse( ds, tpmtf, tseq );
   }
 
   {
   const gdcm::PrivateTag tpmtf(0x0029,0x1,"CANON_MEC_MR3");
-  const gdcm::PrivateTag tseq(0x0029,0x90,"CANON_MEC_MR3");
+  static const gdcm::PrivateTag &tseq = gdcm::MEC_MR3::GetCanonMECMR3Tag();
   ret += cleanup::DumpTOSHIBA_Reverse( ds, tpmtf, tseq );
+
+  // PAS Reproduct Information
+  const gdcm::PrivateTag tpasri(0x700d,0x19,"CANON_MEC_MR3^10");
+  if( ds.FindDataElement( tpasri) ) {
+  const gdcm::DataElement& pasri = ds.GetDataElement( tpasri );
+  if (! pasri.IsEmpty() ) {
+  const gdcm::ByteValue * bv = pasri.GetByteValue();
+  std::string s(bv->GetPointer(), bv->GetLength() );
+  std::cout << std::endl;
+  std::cout << "PAS Reproduct Information (XML)" << std::endl;
+  // header states: 
+  // <?xml version="1.0" encoding="UTF-8"?>
+  // so simply dump without further cleanup:
+  std::cout << s.c_str() << std::endl;
+  }
+  }
   }
 
   {
   const gdcm::PrivateTag tpmtf(0x0029,0x1,"TOSHIBA_MEC_MR3");
-  const gdcm::PrivateTag tseq(0x0029,0x90,"TOSHIBA_MEC_MR3");
+  static const gdcm::PrivateTag &tseq = gdcm::MEC_MR3::GetToshibaMECMR3Tag();
   ret += cleanup::DumpTOSHIBA_Reverse( ds, tpmtf, tseq );
 
   const gdcm::PrivateTag tpmtf2(0x0029,0x2,"TOSHIBA_MEC_MR3");
@@ -1211,6 +1261,7 @@ static void PrintHelp()
   std::cout << "                      or TOSHIBA_MEC_MR3 sub-sequences (0029,01,TOSHIBA_MEC_MR3)." << std::endl;
   std::cout << "                      or CANON_MEC_MR3 sub-sequences (0029,01,CANON_MEC_MR3)." << std::endl;
   std::cout << "     --medcom         print MedCom History Information as UTF-8 (0029,20,SIEMENS MEDCOM HEADER)." << std::endl;
+  std::cout << "     --mr3            print Original Data as UTF-8 (700d,08,TOSHIBA_MEC_MR3)." << std::endl;
   std::cout << "  -A --asn1           print encapsulated ASN1 structure >(0400,0520)." << std::endl;
   std::cout << "     --map-uid-names  map UID to names." << std::endl;
   std::cout << "General Options:" << std::endl;
@@ -1244,6 +1295,7 @@ int main (int argc, char *argv[])
   int printvepro = 0;
   int printsds = 0; // MR Series Data Storage
   int printct3 = 0; // TOSHIBA_MEC_CT3
+  int printmecmr3 = 0; // TOSHIBA_MEC_MR3
   int printpmtf = 0; // TOSHIBA / PMTF INFORMATION DATA & TOSHIBA / TOSHIBA_MEC_MR3 & CANON_MEC_MR3
   int verbose = 0;
   int warning = 0;
@@ -1293,6 +1345,7 @@ int main (int argc, char *argv[])
         {"pmtf", 0, &printpmtf, 1},
         {"mecmr3", 0, &printpmtf, 1},
         {"medcom", 0, &printmedcom, 1},
+        {"mr3", 0, &printmecmr3, 1},
         {nullptr, 0, nullptr, 0} // required
     };
     static const char short_options[] = "i:xrpdcCPAVWDEhvI";
@@ -1514,9 +1567,13 @@ int main (int argc, char *argv[])
         {
         res += PrintPMTF(*it, verbose!= 0);
         }
+      else if( printmecmr3 )
+        {
+        res += PrintMEC_MR3(*it, verbose!=0);
+        }
       else if( printmedcom )
         {
-        res += PrintMedComHistory(*it, csaname);
+        res += PrintMedComHistory(*it, verbose!=0);
         }
       else if( printelscint )
         {
@@ -1576,6 +1633,10 @@ int main (int argc, char *argv[])
     else if( printpmtf )
       {
       res += PrintPMTF(filename, verbose!= 0);
+      }
+    else if( printmecmr3 )
+      {
+      res += PrintMEC_MR3(filename, verbose!= 0);
       }
     else if( printmedcom )
       {
