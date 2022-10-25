@@ -56,7 +56,7 @@ endif
 PYVER 	 := $(shell py3versions -dv)
 PV	 := $(shell echo $(PYVER) | sed 's/\.//')
 PYMODDIR := /usr/lib/$(shell py3versions -d)
-VTKVERS=$(shell apt-cache policy libvtk7-dev | grep "Installed:" | cut -d: -f2 | cut -d' ' -f2 | cut -d- -f1 | cut -d. -f1-2)
+VTKVERS=$(shell apt-cache policy libvtk9-dev | grep "Installed:" | cut -d: -f2 | cut -d' ' -f2 | cut -d- -f1 | cut -d. -f1-2)
 
 # GDCM_DOCUMENTATION:BOOL=ON is required to build man page (build target)
 # Need to make sure to build using the same vtk/python version:
@@ -100,7 +100,7 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
                 -DGDCM_NO_VTKJAVA_LIBS_LINKING:BOOL=ON \
 		-DGDCM_INSTALL_LIB_DIR:STRING=lib/$(DEB_HOST_MULTIARCH) \
 		-DGDCM_USE_VTK:BOOL=ON \
-		-DVTK_JAVA_JAR=/usr/share/java/vtk7.jar
+		-DVTK_JAVA_JAR=/usr/share/java/vtk9.jar
 
 
 override_dh_auto_configure:

@@ -1,3 +1,11 @@
+gdcm (3.0.17-5) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * Switch to VTK9
+    Closes: #1013156
+
+ -- Andreas Tille <tille@debian.org>  Tue, 25 Oct 2022 11:26:34 +0200
+
 gdcm (3.0.17-4) unstable; urgency=medium
 
   * Team upload.
