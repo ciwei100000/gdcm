@@ -65,7 +65,7 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 		-DGDCM_DOXYGEN_NO_FOOTER:BOOL=ON \
 		-DGDCM_BUILD_APPLICATIONS:BOOL=ON \
 		-DGDCM_DOCUMENTATION:BOOL=$(BUILDDOC) \
-		-DGDCM_VTK_DOCUMENTATION:BOOL=$(BUILDDOC) \
+		-DGDCM_VTK_DOCUMENTATION:BOOL=OFF \
 		-DDOCUMENTATION_DOWNLOAD_VTK_TAGFILE:BOOL=OFF \
 		-DGDCM_PDF_DOCUMENTATION:BOOL=$(BUILDDOC) \
 		-DGDCM_BUILD_SHARED_LIBS:BOOL=ON \
@@ -107,7 +107,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- $(CMAKE_EXTRA_FLAGS)
 
 override_dh_auto_build-indep:
-	dh_auto_build -- DoxygenDoc vtkgdcmDoxygenDoc DOCBOOK_MANPAGES
+	dh_auto_build -- DoxygenDoc DOCBOOK_MANPAGES
 
 override_dh_auto_build-arch:
 	dh_auto_build
