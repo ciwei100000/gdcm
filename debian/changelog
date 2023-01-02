@@ -1,11 +1,16 @@
-gdcm (3.0.17-5) UNRELEASED; urgency=medium
+gdcm (3.0.17-5) unstable; urgency=medium
 
-  * Team upload.
+  [ Andreas Tille ]
   * Switch to VTK9 and drop bindings for vtk for C# and Java
     Closes: #1013156
   * Build-Depends: default-jdk-headless
 
- -- Andreas Tille <tille@debian.org>  Tue, 25 Oct 2022 11:26:34 +0200
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * d/rules: Do not build VTK documentation. Closes: #1013156
+  * d/control: Finish transition to VTK9
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 02 Jan 2023 10:00:45 +0100
 
 gdcm (3.0.17-4) unstable; urgency=medium
 
