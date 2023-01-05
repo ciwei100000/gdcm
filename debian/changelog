@@ -1,3 +1,10 @@
+gdcm (3.0.20-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.20
+
+ -- Mathieu Malaterre <malat@debian.org>  Thu, 05 Jan 2023 08:05:34 +0100
+
 gdcm (3.0.17-5) unstable; urgency=medium
 
   [ Andreas Tille ]
