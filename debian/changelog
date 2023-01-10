@@ -1,3 +1,11 @@
+gdcm (3.0.20-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/control: Run wrap-and-sort
+  * d/control: Add fake dependency to libvtk9-qt-dev
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 10 Jan 2023 08:11:12 +0100
+
 gdcm (3.0.20-1) unstable; urgency=medium
 
   * Team upload.
