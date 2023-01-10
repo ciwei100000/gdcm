@@ -10,6 +10,7 @@ Build-Depends: castxml,
                cmake,
                debhelper-compat (= 13),
                default-jdk [!hppa !hurd-any !kfreebsd-any],
+               default-jdk-headless,
                dh-python,
                dh-strip-nondeterminism,
                docbook-xsl-ns,
@@ -32,8 +33,7 @@ Build-Depends: castxml,
                python3-vtk9,
                swig,
                uuid-dev,
-               xsltproc,
-               default-jdk-headless
+               xsltproc
 Build-Depends-Indep: doxygen, doxygen-latex, ghostscript, graphviz, vtk9-doc
 Build-Conflicts: libopenjpeg-dev
 Standards-Version: 4.6.1
