@@ -1,3 +1,9 @@
+gdcm (3.0.20-3) unstable; urgency=medium
+
+  * d/python3-vtkgdcm: Fix hard-coded install path
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 10 Jan 2023 10:04:18 +0100
+
 gdcm (3.0.20-2) unstable; urgency=medium
 
   * Team upload.
