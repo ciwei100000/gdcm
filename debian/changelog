@@ -1,3 +1,10 @@
+gdcm (3.0.20-3vtk8) unstable; urgency=medium
+
+  * Merge tag '3.0.20-3' into vtk8
+  * rename libvtkgdcm-9.1 to libvtkgdcm-8.2
+
+ -- Xuqing Liu <ciwei100000@gmail.com>  Sat, 28 Jan 2023 17:05:44 -0800
+
 gdcm (3.0.20-3) unstable; urgency=medium
 
   * d/python3-vtkgdcm: Fix hard-coded install path
