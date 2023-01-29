@@ -114,7 +114,7 @@ Description: Grassroots DICOM Python bindings
  .
  Python bindings to the GDCM DICOM library.
 
-Package: libvtkgdcm-8.2
+Package: libvtkgdcm3.0
 Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
@@ -130,7 +130,7 @@ Description: Grassroots DICOM VTK runtime libraries
 Package: libvtkgdcm-dev
 Architecture: any
 Section: libdevel
-Depends: libgdcm-dev, libvtkgdcm-8.2 (= ${binary:Version}), ${misc:Depends}
+Depends: libgdcm-dev, libvtkgdcm3.0 (= ${binary:Version}), ${misc:Depends}
 Breaks: libvtkgdcm2-dev
 Replaces: libvtkgdcm2-dev
 Description: Grassroots DICOM VTK development libraries and headers
@@ -145,7 +145,7 @@ Description: Grassroots DICOM VTK development libraries and headers
 Package: python3-vtkgdcm
 Architecture: any
 Section: python
-Depends: libvtkgdcm-8.2 (= ${binary:Version}),
+Depends: libvtkgdcm3.0 (= ${binary:Version}),
          ${misc:Depends},
          ${python3:Depends},
          ${shlibs:Depends}

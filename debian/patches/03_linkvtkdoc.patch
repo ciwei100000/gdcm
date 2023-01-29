@@ -22,8 +22,8 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
    set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk-doc/html")
 -  elseif(EXISTS "/usr/share/doc/vtk6-doc/doxygen")
 -  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk6-doc/doxygen")
-+  elseif(EXISTS "/usr/share/doc/vtk9/doxygen")
-+  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk9/doxygen")
++  elseif(EXISTS "/usr/share/doc/vtk8/doxygen")
++  set(DOXYGEN_SOURCE_DIR "/usr/share/doc/vtk8/doxygen")
    else()
    message(ERROR "DOXYGEN_SOURCE_DIR need to be set.")
    endif()
@@ -43,7 +43,7 @@ Author: Gert Wollny <gw.fossdev@gmail.com>, Mathieu Malaterre <malat@debian.org>
  #   PATH_TO_VTK_DOX_SCRIPTS=@CMAKE_CURRENT_SOURCE_DIR@
  #
 -export PATH_TO_VTK_DOX_SCRIPTS="@DOXYGEN_SOURCE_DIR@"
-+export PATH_TO_VTK_DOX_SCRIPTS=/usr/share/vtk9/doxygen/
++export PATH_TO_VTK_DOX_SCRIPTS=/usr/share/vtk8/doxygen/
  
  export PATH_TO_VTKGDCM_FINAL_PATH="@VTKGDCM_FINAL_PATH@"
  
