@@ -1,3 +1,38 @@
+gdcm (3.0.20-3) unstable; urgency=medium
+
+  * d/python3-vtkgdcm: Fix hard-coded install path
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 10 Jan 2023 10:04:18 +0100
+
+gdcm (3.0.20-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/control: Run wrap-and-sort
+  * d/control: Add fake dependency to libvtk9-qt-dev
+
+ -- Mathieu Malaterre <malat@debian.org>  Tue, 10 Jan 2023 08:11:12 +0100
+
+gdcm (3.0.20-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.20
+
+ -- Mathieu Malaterre <malat@debian.org>  Thu, 05 Jan 2023 08:05:34 +0100
+
+gdcm (3.0.17-5) unstable; urgency=medium
+
+  [ Andreas Tille ]
+  * Switch to VTK9 and drop bindings for vtk for C# and Java
+    Closes: #1013156
+  * Build-Depends: default-jdk-headless
+
+  [ Mathieu Malaterre ]
+  * Team upload.
+  * d/rules: Do not build VTK documentation. Closes: #1013156
+  * d/control: Finish transition to VTK9
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 02 Jan 2023 10:00:45 +0100
+
 gdcm (3.0.17-4vtk8) unstable; urgency=medium
 
   * Merge tag '3.0.17-4' into vtk8

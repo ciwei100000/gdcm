@@ -71,7 +71,7 @@ CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_RPATH=ON \
 		-DGDCM_BUILD_SHARED_LIBS:BOOL=ON \
 		-DGDCM_WRAP_PYTHON:BOOL=ON \
 		-DVTKGDCM_WRAP_PYTHON:BOOL=ON \
-		-DVTKGDCM_WRAP_CSHARP:BOOL=$(DEB_WRAP_CSHARP) \
+		-DVTKGDCM_WRAP_JAVA:BOOL=OFF \
 		-DGDCM_WRAP_CSHARP:BOOL=$(DEB_WRAP_CSHARP) \
 		-DGDCM_WRAP_PHP:BOOL=OFF \
 		-DGDCM_USE_PVRG:BOOL=ON \
@@ -117,8 +117,7 @@ override_dh_auto_install-arch:
 	find obj-* -name "GDCMTargets*.cmake" -exec sed -i -e "s/FATAL_ERROR/STATUS/g" \{\} \;
 	# See #989296
 	find obj-* -name "GDCMTargets*.cmake" -exec \
-	    sed -i -e 's@/lib/\(.\+\)/libvtkgdcmsharpglue.so@/lib/cli/vtkgdcm-sharp-3.0/libvtkgdcmsharpglue.so@' \
-	           -e 's@/lib/python/dist-packages/vtkgdcmPython.so@/lib/python3/dist-packages/vtkgdcmPython.cpython-$(PV)-$(DEB_HOST_MULTIARCH).so@' \
+	    sed -i -e 's@/lib/python/dist-packages/vtkgdcmPython.so@/lib/python3/dist-packages/vtkgdcmPython.cpython-$(PV)-$(DEB_HOST_MULTIARCH).so@' \
 	         \{\} \;
 
 	dh_auto_install

@@ -1,2 +1,0 @@
-# renamed in 2.8.8-3 because the ABI broke with 2.8.7-2.
-package-name-doesnt-match-sonames libvtkgdcm3.0
