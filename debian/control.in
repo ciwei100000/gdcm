@@ -25,6 +25,7 @@ Build-Depends: castxml,
                libssl-dev,
                libvtk8-dev,
                libvtk8-qt-dev,
+               libvtk8-java [!hppa !hurd-any !kfreebsd-any],
                libxml2-dev,
                libz-dev,
                mono-devel [@DEB_MONO_ARCHS@] <!nocil>,
@@ -185,3 +186,18 @@ Description: Grassroots DICOM Java bindings
  .
  Java bindings to the GDCM DICOM library. It allows developers to use
  GDCM from Java environment.
+
+Package: libvtkgdcm-java
+Architecture: alpha amd64 arm64 armel armhf i386 ia64 m68k mips64el mipsel powerpc ppc64 ppc64el riscv64 s390x sh4 sparc64 x32
+Section: java
+Depends: libgdcm3.0 (= ${binary:Version}),
+         ${java:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
+Suggests: libgdcm-java
+Description: Grassroots DICOM VTK Java bindings
+ Grassroots DiCoM is a C++ library for DICOM medical files. It is
+ automatically wrapped to python/C#/Java (using swig). It supports
+ RAW,JPEG (lossy/lossless),J2K,JPEG-LS, RLE and deflated.
+ .
+ VTK Java bindings to the GDCM DICOM library.
