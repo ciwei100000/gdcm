@@ -1,3 +1,10 @@
+gdcm (3.0.21-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 3.0.21
+
+ -- Mathieu Malaterre <malat@debian.org>  Sun, 29 Jan 2023 15:21:24 +0100
+
 gdcm (3.0.20-3vtk8) unstable; urgency=medium
 
   * Merge tag '3.0.20-3' into vtk8
